@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cinemasonline?serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+  mail:
+    host: smtp.qq.com
+    username: 1329148394@qq.com
+    password: hatjkmmjfwkzijeb
+    default-encoding: UTF-8
+server:
+  port: 80

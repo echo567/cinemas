@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册界面</title>
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1-1/jquery.min.js}"></script>
+</head>
+<body>
+<form th:action="@{/user/register}" method="post">
+    <table>
+        <tr>
+            <td>用户名:</td>
+            <td><input type="text" name="userName"></td>
+        </tr>
+
+        <tr>
+            <td>创建密码:</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+
+        <tr>
+            <td>确认密码:</td>
+            <td><input type="password" name="password1"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">注册</button>
+            </td>
+        </tr>
+
+    </table>
+    <p th:text="${code != null ? code :'无'}"></p>
+</form>
+
+</body>
+</html>
