@@ -1,8 +1,8 @@
-package cn.junhui.cinemas;
+package cn.cinemas;
 
-import cn.junhui.cinemas.bean.Tickte;
-import cn.junhui.cinemas.bean.User;
-import cn.junhui.cinemas.dao.IUserDao;
+import cn.cinemas.bean.Tickte;
+import cn.cinemas.bean.User;
+import cn.cinemas.dao.IUserDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

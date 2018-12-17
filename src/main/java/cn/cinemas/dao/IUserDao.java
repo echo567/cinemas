@@ -1,7 +1,7 @@
-package cn.junhui.cinemas.dao;
+package cn.cinemas.dao;
 
-import cn.junhui.cinemas.batch.UserBatch;
-import cn.junhui.cinemas.bean.User;
+import cn.cinemas.batch.UserBatch;
+import cn.cinemas.bean.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

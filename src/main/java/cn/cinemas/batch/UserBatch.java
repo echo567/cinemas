@@ -1,9 +1,6 @@
-package cn.junhui.cinemas.batch;
-
-import cn.junhui.cinemas.bean.User;
-
+package cn.cinemas.batch;
+import cn.cinemas.bean.User;
 import org.apache.ibatis.jdbc.SQL;
-
 import java.util.Date;
 
 /**

@@ -1,4 +1,4 @@
-package cn.junhui.cinemas.bean;
+package cn.cinemas.bean;
 
 import java.util.Date;
 

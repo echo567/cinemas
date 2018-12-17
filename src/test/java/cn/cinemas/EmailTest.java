@@ -1,4 +1,4 @@
-package cn.junhui.cinemas;
+package cn.cinemas;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
