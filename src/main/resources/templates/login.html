@@ -23,6 +23,11 @@
                 <a th:href="@{/user/emailpage}">注册</a>
             </td>
         </tr>
+        <tr>
+            <td colspan="2">
+                <p th:text="${not #strings.isEmpty(user) ? '注册成功':''} "></p>
+            </td>
+        </tr>
     </table>
 </form>
 </body>
