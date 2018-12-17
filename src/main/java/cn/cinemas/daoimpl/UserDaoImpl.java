@@ -1,7 +1,7 @@
-package cn.junhui.cinemas.daoimpl;
+package cn.cinemas.daoimpl;
 
-import cn.junhui.cinemas.bean.User;
-import cn.junhui.cinemas.dao.IUserDao;
+import cn.cinemas.dao.IUserDao;
+import cn.cinemas.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package cn.junhui.cinemas.controller;
+package cn.cinemas.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

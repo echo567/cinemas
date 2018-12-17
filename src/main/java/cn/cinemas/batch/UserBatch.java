@@ -1,9 +1,7 @@
-package cn.junhui.cinemas.batch;
+package cn.cinemas.batch;
 
-import cn.junhui.cinemas.bean.User;
-import org.apache.ibatis.annotations.Update;
+import cn.cinemas.bean.User;
 import org.apache.ibatis.jdbc.SQL;
-import sun.awt.SunHints;
 
 import java.util.Date;
 
