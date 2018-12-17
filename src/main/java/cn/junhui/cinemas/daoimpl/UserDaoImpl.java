@@ -21,21 +21,21 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public Integer deleteUser(String email) {
-        return null;
+        return userDao.deleteUser(email);
     }
 
     @Override
     public User selectUserByEmail(String email) {
-        return null;
+        return userDao.selectUserByEmail(email);
     }
 
     @Override
-    public Integer updateUserByEmail(String email) {
-        return null;
+    public Integer updateUserByEmail(User user) {
+        return userDao.updateUserByEmail(user);
     }
 
     @Override
     public List<User> selectAllUser() {
-        return null;
+        return userDao.selectAllUser();
     }
 }

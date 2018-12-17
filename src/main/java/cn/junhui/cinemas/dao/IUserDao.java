@@ -1,9 +1,8 @@
 package cn.junhui.cinemas.dao;
 
+import cn.junhui.cinemas.batch.UserBatch;
 import cn.junhui.cinemas.bean.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -14,14 +13,22 @@ import java.util.List;
 @Mapper
 public interface IUserDao {
 
-    @Insert("insert into tb_user (email,userName,password) values(#{user.email},#{user.userName},#{user.password})")
-    public Integer insertUser(@Param("user") User user);
 
+   /* @Insert("insert into tb_user (email,userName,password) values(#{user.email},#{user.userName},#{user.password})")
+    public Integer insertUser(@Param("user") User user);*/
+
+    @InsertProvider(type = UserBatch.class, method = "dynamicInsertUser")
+    public Integer insertUser(User user);
+
+    @Delete("delete from tb_user where email = #{email}")
     public Integer deleteUser(String email);
 
+    @Select("select * from  tb_user where email = #{email}")
     public User selectUserByEmail(String email);
 
-    public Integer updateUserByEmail(String email);
+    @UpdateProvider(type = UserBatch.class, method = "updateUser")
+    public Integer updateUserByEmail(User user);
 
+    @Select("select * from tb_user")
     public List<User> selectAllUser();
 }
