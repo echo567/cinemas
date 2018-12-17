@@ -1,8 +1,6 @@
 package cn.cinemas.batch;
-
 import cn.cinemas.bean.User;
 import org.apache.ibatis.jdbc.SQL;
-
 import java.util.Date;
 
 /**
