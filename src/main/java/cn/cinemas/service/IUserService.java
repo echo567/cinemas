@@ -1,8 +1,10 @@
 package cn.cinemas.service;
 
 import cn.cinemas.bean.User;
+import cn.cinemas.util.Message;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * 军辉
@@ -10,11 +12,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface IUserService {
 
-    public boolean login(User user);
+    public Message login(User user);
 
-    public void register(User user, HttpServletRequest request);
+    public Message register(User user);
 
-    public void email(String email, HttpServletRequest request);
+    // public void email(String email);
 
-    public boolean registerPage(String code, HttpServletRequest request);
+    public boolean registerPage(String code);
 }

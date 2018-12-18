@@ -30,15 +30,13 @@ public class User {
         this.password = password;
     }
 
-    public User(String email, String userName, String password, String phone, String sex, String photo,
-                String note) {
+    public User(String email, String userName, String password, String phone, String sex, String photo, String note) {
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.phone = phone;
         this.sex = sex;
         this.photo = photo;
-
         this.note = note;
     }
 

@@ -13,6 +13,7 @@ public class MovieBatch {
     public String dynamicInsertMovie(Movie movie) {
         return new SQL() {
             {
+                INSERT_INTO("tb_movie");
                 if (movie.getPrice() != null) {
                     VALUES("price", "#{price}");
                 }
@@ -64,7 +65,7 @@ public class MovieBatch {
 
     public String dynamicUpdateMovie(Movie movie) {
         return new SQL() {{
-            UPDATE("tb_user");
+            UPDATE("tb_movie");
             if (movie.getPrice() != null) {
                 SET("price=#{price}");
             }

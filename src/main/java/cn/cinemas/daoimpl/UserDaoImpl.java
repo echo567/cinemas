@@ -20,8 +20,8 @@ public class UserDaoImpl implements IUserDao {
     }
 
     @Override
-    public Integer deleteUser(String email) {
-        return userDao.deleteUser(email);
+    public Integer deleteUserByemail(String email) {
+        return userDao.deleteUserByemail(email);
     }
 
     @Override

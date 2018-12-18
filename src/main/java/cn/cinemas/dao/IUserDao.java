@@ -21,7 +21,7 @@ public interface IUserDao {
     public Integer insertUser(User user);
 
     @Delete("delete from tb_user where email = #{email}")
-    public Integer deleteUser(String email);
+    public Integer deleteUserByemail(String email);
 
     @Select("select * from  tb_user where email = #{email}")
     public User selectUserByEmail(String email);

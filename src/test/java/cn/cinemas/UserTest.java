@@ -47,6 +47,6 @@ public class UserTest {
 
     @Test
     public void deleteUserTest() {
-        System.out.println(userDao.deleteUser("123@qq.com"));
+        System.out.println(userDao.deleteUserByemail("123@qq.com"));
     }
 }
