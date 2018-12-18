@@ -17,4 +17,3 @@ spring:
     static-path-pattern: /static/**
 server:
   port: 80
-

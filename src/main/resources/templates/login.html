@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title>后台登录</title>
-
-    <link rel="stylesheet" type="text/css" th:href="@{/static/layui/css/layui.css}"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/login.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" />
 </head>
-
 <body>
 
 <div class="m-login-bg">
@@ -19,6 +15,7 @@
         <div class="m-login-warp">
             <div class="layui-form" method="post">
                 <h3>影票购物系统</h3>
+
                 <div class="layui-form-item">
                     <input type="email" name="email" required lay-verify="required" placeholder="邮箱" autocomplete="off"
                            class="layui-input">
@@ -66,6 +63,7 @@
                 },
                 success: function (res) {
                     console.log(res);
+                    
                     //layer.msg(res.message);
                     // window.location.href("/user/index");
                     // location.href("user/index.html");
