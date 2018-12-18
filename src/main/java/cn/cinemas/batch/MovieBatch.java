@@ -1,6 +1,7 @@
 package cn.cinemas.batch;
 
 import cn.cinemas.bean.Movie;
+import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.jdbc.SQL;
 
 /**
@@ -57,9 +58,46 @@ public class MovieBatch {
                 if (movie.getUpdateTime() != null) {
                     VALUES("updateTime", "#{updateTime}");
                 }
-
-
             }
         }.toString();
+    }
+
+    public String dynamicUpdateMovie(Movie movie) {
+        return new SQL() {{
+            UPDATE("tb_user");
+            if (movie.getPrice() != null) {
+                SET("price=#{price}");
+            }
+            if (movie.getBoxOffice() != null) {
+                SET("boxOffice=#{boxOffice}");
+            }
+            if (movie.getScore() != null) {
+                SET("price=#{price}");
+            }
+            if (movie.getPrice() != null) {
+                SET("price=#{price}");
+            }
+            if (movie.getPrice() != null) {
+                SET("price=#{price}");
+            }
+            if (movie.getPrice() != null) {
+                SET("price=#{price}");
+            }
+            if (movie.getPrice() != null) {
+                SET("price=#{price}");
+            }
+            if (movie.getPrice() != null) {
+                SET("price=#{price}");
+            }
+            if (movie.getPrice() != null) {
+                SET("price=#{price}");
+            }
+            if (movie.getPrice() != null) {
+                SET("price=#{price}");
+            }
+
+
+        }}.toString();
+
     }
 }

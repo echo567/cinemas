@@ -2,10 +2,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>后台登录</title>
-    <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css" />
-    <link rel="stylesheet" type="text/css" href="../static/css/login.css" />
+    <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css"/>
 </head>
 
 <body>
@@ -13,16 +14,20 @@
     <div class="m-login">
         <img src="../static/images/dog.png" alt="">
         <div class="m-login-warp">
-            <form class="layui-form">
+            <div class="layui-form">
                 <h3>影票购物系统注册</h3>
                 <div class="layui-form-item">
-                    <input type="email" name="email" required lay-verify="required" placeholder="邮箱" autocomplete="off" class="layui-input">
+                    <input type="email" name="email" required lay-verify="required" placeholder="邮箱" autocomplete="off"
+                           class="layui-input">
                 </div>
                 <div class="layui-form-item">
-                    <input type="text" name="name" required lay-verify="required|name" placeholder="名称" autocomplete="off" class="layui-input">
+                    <input type="text" name="name" required lay-verify="required|name" placeholder="名称"
+                           autocomplete="off"
+                           class="layui-input">
                 </div>
                 <div class="layui-form-item">
-                    <input type="text" name="password" required lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input">
+                    <input type="text" name="password" required lay-verify="required|password" placeholder="密码"
+                           autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-item m-login-btn">
                     <div class="layui-inline">
@@ -32,14 +37,14 @@
                         <button class="layui-btn layui-btn-primary">去登录</button>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
         <p class="copyright">&copy;Copyright 影票购物系统 by 刘军辉、徐红、杜佳霖、叶耿</p>
     </div>
 </div>
 <script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    layui.use(['form','jquery','layedit', 'laydate'], function() {
+    layui.use(['form', 'jquery', 'layedit', 'laydate'], function () {
         var form = layui.form,
             $ = layui.jquery,
             layer = layui.layer;
@@ -47,23 +52,23 @@
 
         //自定义验证规则
         form.verify({
-            name:[/(.+){2,10}$/, '密码必须2到10位'],
+            name: [/(.+){2,10}$/, '密码必须2到10位'],
             password: [/(.+){6,16}$/, '密码必须6到16位'],
         });
 
         //监听提交
-        form.on('submit(register)', function(data) {
+        form.on('submit(register)', function (data) {
             $.ajax({
                 type: "POST",
-                url: '/user/emailpage',
+                url: '/user/register',
                 data: {
                     email: data.field.email,
-                    name: data.field.name,
+                    userName: data.field.name,
                     password: data.field.password
                 },
                 success: function (res) {
                     console.log(res);
-                    window.location.href="/xxxx";
+                    //window.location.href = "/user/login";
                 },
                 error: function (data) {
                     console.log(data);
