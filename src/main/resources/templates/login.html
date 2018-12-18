@@ -1,29 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>登录界面</title>
-</head>
-<body>
-<form action="" method="post">
-    <table>
-        <tr>
-            <td>邮箱:</td>
-            <td><input type="email" name="email"></td>
-        </tr>
-        <tr>
-            <td>密码:</td>
-            <td><input type="password" name="password"></td>
-        </tr>
-        <tr>
-            <td>
-                <button type="submit">登录</button>
-            </td>
-            <td>
-                <a th:href="@{/user/emailpage}">注册</a>
-            </td>
-        </tr>
-    </table>
-</form>
-</body>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>后台登录</title>
+		<link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/login.css" />
+	</head>
+
+	<body>
+		<div class="m-login-bg">
+			<div class="m-login">
+				<img src="../static/images/dog.png" alt="">
+				<div class="m-login-warp">
+					<form class="layui-form">
+						<h3>影票购物系统登录</h3>
+						<div class="layui-form-item">
+							<input type="email" name="email" required lay-verify="required" placeholder="邮箱" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-form-item">
+							<input type="text" name="password" required lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input">
+						</div>
+						<div class="layui-form-item m-login-btn">
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-normal" lay-submit lay-filter="login">登录</button>
+							</div>
+							<div class="layui-inline">
+								<button class="layui-btn layui-btn-primary">去注册</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<p class="copyright">&copy;Copyright 影票购物系统 by 刘军辉、徐红、杜佳霖、叶耿</p>
+			</div>
+		</div>
+		<script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use(['form', 'layedit', 'laydate'], function() {
+				var form = layui.form,
+					layer = layui.layer;
+
+
+				//自定义验证规则
+				form.verify({
+					password: [/(.+){6,16}$/, '密码必须6到16位'],
+				});
+
+				
+				//监听提交
+				form.on('submit(login)', function(data) {
+					$.ajax({
+						type: "POST",
+						url: '/user/emailpage',
+						data: {
+							email: data.field.email,
+							password: data.field.password
+						},
+						success: function (res) {
+							layer.msg(res.message);
+						},
+						error: function (data) {
+							console.log(data)
+						}
+					});
+					return false;
+				});
+
+			});
+		</script>
+	</body>
+
 </html>
