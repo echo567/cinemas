@@ -27,7 +27,7 @@ public class UserController {
 
     @GetMapping("/")
     public ModelAndView login() {
-        return new ModelAndView("login2");
+        return new ModelAndView("login");
     }
 
     @GetMapping("/emailpage")
