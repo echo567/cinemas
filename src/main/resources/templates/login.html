@@ -45,6 +45,7 @@
         var form = layui.form,
             $ = layui.jquery,
             layer = layui.layer;
+
         //自定义验证规则
         form.verify({
             password: [/(.+){6,16}$/, '密码必须6到16位'],
@@ -63,8 +64,12 @@
                 },
                 success: function (res) {
                     console.log(res);
-                    
-                    //layer.msg(res.message);
+                    if (res.flag==0) {
+                        window.location.href = ("/user/toindex");
+                    }else {
+                        layer.msg("账号或密码错误");
+                    }
+
                     // window.location.href("/user/index");
                     // location.href("user/index.html");
                 },

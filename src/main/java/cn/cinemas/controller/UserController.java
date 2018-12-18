@@ -36,6 +36,11 @@ public class UserController {
         return new ModelAndView("register");
     }
 
+    @GetMapping("/toindex")
+    public ModelAndView toIndex(){
+        return new ModelAndView("/user/index");
+    }
+
 
 /*    @PostMapping("/email")
     public ModelAndView email(@RequestParam("email") String email, HttpServletRequest request) {
