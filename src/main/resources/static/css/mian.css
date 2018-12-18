@@ -54,6 +54,76 @@
 }
 /*end：正在热映*/
 
+
+/*start: 今日票房*/
+.filmlistfirstbox {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.filmlistfirst {
+	font-size: 14px;
+	margin-left: 10px;
+	color: #ef4238;
+	display: flex;
+	flex-direction:column;
+}
+.filmlistfirst>h6 {
+	margin-bottom: 20px;
+	color: #333;
+	font-size: 16px;
+}
+.filmlistlistbox {
+	display: flex;
+	justify-content: space-between;
+	color: #333;
+	font-size: 16px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.filmlistlistbox:hover {
+	background-color: #f8f8f8;
+}
+.filmlistlistbox>div:first-child {
+	margin-top: 0;
+}
+.filmlistlistbox>div>span:first-child {
+	font-size: 18px;
+	color: #999;
+	font-style:oblique;
+}
+.filmlistlistbox>span {
+	color: #ef4238;
+}
+.beforethree>div>span:first-child {
+	color: #ef4238;
+}
+/*end: 今日票房*/
+
+/*start：热门影院*/
+.filmcinema {
+	width: 100%;
+}
+.filmcinema>h6 {
+	font-size: 16px;
+}
+.filmcinema>span {
+	color: #999;
+	width: 100%;
+	display: inline-block;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.filmcinema>span>strong {
+	color: #ffb400;
+	margin-right: 10px;
+}
+/*end：热门影院*/
+
+
+/*start: 即将上映*/
 .filtruefilm>p {
 	color: #ffb400;
 	font-size: 14px;
@@ -86,6 +156,9 @@
 	color: #fff;
 	cursor: pointer;
 }
+/*end: 即将上映*/
+
+
 
 
 .pull-right{
