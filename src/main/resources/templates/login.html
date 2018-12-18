@@ -1,73 +1,82 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>后台登录</title>
-		<link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css" />
-		<link rel="stylesheet" type="text/css" href="../static/css/login.css" />
-	</head>
+<html xmlns:th="http://www.thymeleaf.org">
 
-	<body>
-		<div class="m-login-bg">
-			<div class="m-login">
-				<img src="../static/images/dog.png" alt="">
-				<div class="m-login-warp">
-					<form class="layui-form">
-						<h3>影票购物系统登录</h3>
-						<div class="layui-form-item">
-							<input type="email" name="email" required lay-verify="required" placeholder="邮箱" autocomplete="off" class="layui-input">
-						</div>
-						<div class="layui-form-item">
-							<input type="text" name="password" required lay-verify="required|password" placeholder="密码" autocomplete="off" class="layui-input">
-						</div>
-						<div class="layui-form-item m-login-btn">
-							<div class="layui-inline">
-								<button class="layui-btn layui-btn-normal" lay-submit lay-filter="login">登录</button>
-							</div>
-							<div class="layui-inline">
-								<button class="layui-btn layui-btn-primary">去注册</button>
-							</div>
-						</div>
-					</form>
-				</div>
-				<p class="copyright">&copy;Copyright 影票购物系统 by 刘军辉、徐红、杜佳霖、叶耿</p>
-			</div>
-		</div>
-		<script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-		<script>
-			layui.use(['form', 'layedit', 'laydate'], function() {
-				var form = layui.form,
-					layer = layui.layer;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>后台登录</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/static/layui/css/layui.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css"/>
+</head>
+
+<body>
+<div class="m-login-bg">
+    <div class="m-login">
+        <img src="../static/images/dog.png" alt="">
+        <div class="m-login-warp">
+            <div class="layui-form" method="post">
+                <h3>影票购物系统</h3>
+                <div class="layui-form-item">
+                    <input type="email" name="email" required lay-verify="required" placeholder="邮箱" autocomplete="off"
+                           class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <input type="text" name="password" required lay-verify="required|password" placeholder="密码"
+                           autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item m-login-btn">
+                    <div class="layui-inline">
+                        <button class="layui-btn layui-btn-normal" lay-submit lay-filter="login">登录</button>
+                    </div>
+                    <div class="layui-inline">
+                        <button type="reset" class="layui-btn layui-btn-primary">去注册</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy;Copyright 影票购物系统 by 刘军辉、徐红、杜佳霖、叶耿</p>
+    </div>
+</div>
+<script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    layui.use(['form', 'jquery', 'layedit', 'laydate'], function () {
+        var form = layui.form,
+            $ = layui.jquery,
+            layer = layui.layer;
+        //自定义验证规则
+        form.verify({
+            password: [/(.+){6,16}$/, '密码必须6到16位'],
+        });
 
 
-				//自定义验证规则
-				form.verify({
-					password: [/(.+){6,16}$/, '密码必须6到16位'],
-				});
+        //监听提交
+        form.on('submit(login)', function (data) {
+            console.log("546:");
+            $.ajax({
+                type: "POST",
+                url: '/user/login',
+                data: {
+                    email: data.field.email,
+                    password: data.field.password
+                },
+                success: function (res) {
+                    console.log(res);
+                    //layer.msg(res.message);
+                    // window.location.href("/user/index");
+                    // location.href("user/index.html");
+                },
+                error: function (data) {
+                    console.log(data);
+                    //layer.msg("账号或密码错误");
+                }
+            });
+            return false;
+        });
 
-				
-				//监听提交
-				form.on('submit(login)', function(data) {
-					$.ajax({
-						type: "POST",
-						url: '/user/emailpage',
-						data: {
-							email: data.field.email,
-							password: data.field.password
-						},
-						success: function (res) {
-							layer.msg(res.message);
-						},
-						error: function (data) {
-							console.log(data)
-						}
-					});
-					return false;
-				});
-
-			});
-		</script>
-	</body>
+    });
+</script>
+</body>
 
 </html>

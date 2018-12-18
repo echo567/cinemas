@@ -10,7 +10,7 @@
     <table>
         <tr>
             <td>邮箱:</td>
-            <td><input type="email" name="email" id="email"></td>
+            <td><input type="email" name="email" id="email" required></td>
         </tr>
         <tr>
             <td colspan="2">
@@ -27,15 +27,17 @@
                 <button type="submit">提交</button>
             </td>
         </tr>
+        <tr>
+            <td colspan="2">
+                <p th:if="${msg} != null" th:text="${msg}"></p>
+            </td>
+
+        </tr>
     </table>
-    <p th:text="${code != null ? code :'无'}"></p>
+
 </form>
 <script>
-    //var email = document.getElementById("#email").value;
-    /*    $("#code").click(function () {
-            console.log("code:" + email);
-            return;
-        })*/
+
 
     $(document).on("click", "#code", function () {
         var email = $("#email").val();
