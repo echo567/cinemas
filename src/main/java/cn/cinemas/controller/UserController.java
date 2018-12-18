@@ -27,18 +27,18 @@ public class UserController {
 
     @GetMapping("/")
     public ModelAndView login() {
-        return new ModelAndView("login2");
+        return new ModelAndView("login");
     }
 
-    @GetMapping("/emailpage")
+  /*  @GetMapping("/emailpage")
     public ModelAndView emailPage() {
         return new ModelAndView("email");
-    }
+    }*/
 
-/*    @GetMapping("/registerpage")
+    @GetMapping("/registerpage")
     public ModelAndView registerPage() {
         return new ModelAndView("register");
-    }*/
+    }
 
 
     @PostMapping("/email")
@@ -49,7 +49,7 @@ public class UserController {
 
     /*    */
 
-    @PostMapping("/registerpage")
+/*    @PostMapping("/registerpage")
     public ModelAndView registerpage(@RequestParam("code") String code, HttpServletRequest request) {
 
         if (code != null) {
@@ -64,15 +64,26 @@ public class UserController {
         }
 
 
-    }
+    }*/
 
     @PostMapping("/register")
-    public ModelAndView register(User user, HttpServletRequest request) {
-        System.out.println("user :" + user);
-        userService.register(user, request);
+    @ResponseBody
+    public Message register(User user) {
+        System.out.println("处理注册请求 user :" + user);
+        /*  userService.register(user, request);*/
         //return new ModelAndView("redirect:index");
         //  return new ModelAndView("login", "user", user);
-        return new ModelAndView("login");
+        Message message = new Message();
+       /*   message.setFlag(1);
+            message.setMsg("账号或密码错误");
+
+            message.setFlag(0);
+            message.setMsg("成功");
+        */
+        message.setFlag(0);
+        message.setMsg("成功");
+        System.out.println(message);
+        return message;
     }
 
     /*   @PostMapping("/login")
@@ -92,7 +103,7 @@ public class UserController {
     @PostMapping("/login")
     @ResponseBody
     public Message login(User user) {
-        System.out.println("user:" + user);
+        System.out.println("处理登录请求 user:" + user);
         //return new ModelAndView("/user/index", "user", user);
         Message message = new Message();
        /*   message.setFlag(1);
