@@ -1,6 +1,6 @@
 package cn.cinemas.bean;
 
-import javax.xml.crypto.Data;
+
 import java.util.Date;
 
 /**
@@ -11,11 +11,11 @@ import java.util.Date;
 public class Movie {
 
     private Integer movieId;
-    private Float price;
-    private Float boxOffice;
-    private Float score;
+    private Double price;
+    private Double boxOffice;
+    private Double score;
     private String duration;
-    private Data date;
+    private Date date;
     private String name;
     private String movieType;
     private String introduction;
@@ -34,8 +34,7 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(Integer movieId, Float price, Float boxOffice, Float score, String duration, Data date, String name, String movieType, String introduction, String prevue, String photo, String starring, String director, String language, String note) {
-        this.movieId = movieId;
+    public Movie(Double price, Double boxOffice, Double score, String duration, Date date, String name, String movieType, String introduction, String prevue, String photo, String starring, String director, String language) {
         this.price = price;
         this.boxOffice = boxOffice;
         this.score = score;
@@ -49,7 +48,7 @@ public class Movie {
         this.starring = starring;
         this.director = director;
         this.language = language;
-        this.note = note;
+
     }
 
     public Integer getMovieId() {
@@ -60,27 +59,27 @@ public class Movie {
         this.movieId = movieId;
     }
 
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public Float getBoxOffice() {
+    public Double getBoxOffice() {
         return boxOffice;
     }
 
-    public void setBoxOffice(Float boxOffice) {
+    public void setBoxOffice(Double boxOffice) {
         this.boxOffice = boxOffice;
     }
 
-    public Float getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(Float score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 
@@ -92,11 +91,11 @@ public class Movie {
         this.duration = duration;
     }
 
-    public Data getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Data date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

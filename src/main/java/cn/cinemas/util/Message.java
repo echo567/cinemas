@@ -4,9 +4,12 @@ package cn.cinemas.util;
  * 军辉
  * 2018-12-18 11:39
  */
-public class Message {
+public class Message<T> {
     private String msg;
     private Integer flag;
+/*
+    private final static Integer SUCCCESS = 0;
+    private final static Integer Fail = 1;*/
 
     public Message() {
     }
