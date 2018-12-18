@@ -5,9 +5,12 @@ import cn.cinemas.service.IUserService;
 import cn.cinemas.util.Message;
 import cn.cinemas.util.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * 军辉
@@ -26,10 +29,6 @@ public class UserController {
         return new ModelAndView("login");
     }
 
-  /*  @GetMapping("/emailpage")
-    public ModelAndView emailPage() {
-        return new ModelAndView("email");
-    }*/
 
     @GetMapping("/registerpage")
     public ModelAndView registerPage() {
@@ -37,35 +36,25 @@ public class UserController {
     }
 
     @GetMapping("/toindex")
-    public ModelAndView toIndex(){
+    public ModelAndView toIndex() {
         return new ModelAndView("/user/index");
     }
 
+    @GetMapping("/tofilm")
+    public ModelAndView toFilm() {
+        return new ModelAndView("/user/film");
+    }
 
-/*    @PostMapping("/email")
-    public ModelAndView email(@RequestParam("email") String email, HttpServletRequest request) {
-        userService.email(email, request);
-        return new ModelAndView("/register");
-    }*/
+    @GetMapping("/tocinema")
+    public ModelAndView toCinema() {
+        return new ModelAndView("/user/cinema");
+    }
 
-    /*    */
+    @GetMapping("/tolist")
+    public ModelAndView toList() {
+        return new ModelAndView("/user/list");
+    }
 
-/*    @PostMapping("/registerpage")
-    public ModelAndView registerpage(@RequestParam("code") String code, HttpServletRequest request) {
-
-        if (code != null) {
-            if (userService.registerPage(code, request)) {
-                //动态码一致
-                return new ModelAndView("register");
-            } else {
-                return new ModelAndView("email", "msg", "验证码错误");
-            }
-        } else {
-            return new ModelAndView("email", "msg", "邮箱不能为空");
-        }
-
-
-    }*/
 
     @PostMapping("/register")
     public Message register(User user) {

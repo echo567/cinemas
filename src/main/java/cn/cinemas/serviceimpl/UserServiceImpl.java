@@ -12,6 +12,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Random;
 
 /**
@@ -30,11 +31,16 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     private IUserDao userDao;
 
+    @Autowired
+    private HttpSession session;
+
     @Override
     public Message login(User user) {
         User databaseUser = userDao.selectUserByEmail(user.getEmail());
         if (databaseUser != null) {
             if (user.getPassword().equals(databaseUser.getPassword())) {
+                session.setAttribute("user", databaseUser);
+                System.out.println("session:" + session.getAttribute("user"));
                 return MessageUtil.Succees("登录成功");
             }
         }

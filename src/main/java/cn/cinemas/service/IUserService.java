@@ -4,6 +4,7 @@ import cn.cinemas.bean.User;
 import cn.cinemas.util.Message;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * 军辉
