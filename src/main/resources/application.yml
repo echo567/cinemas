@@ -13,5 +13,8 @@ spring:
     username: 1329148394@qq.com
     password: hatjkmmjfwkzijeb
     default-encoding: UTF-8
+  mvc:
+    static-path-pattern: /static/**
 server:
   port: 80
+

@@ -2,16 +2,16 @@ package cn.cinemas.controller;
 
 import cn.cinemas.bean.User;
 import cn.cinemas.service.IUserService;
+import cn.cinemas.util.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 军辉
@@ -27,7 +27,7 @@ public class UserController {
 
     @GetMapping("/")
     public ModelAndView login() {
-        return new ModelAndView("login");
+        return new ModelAndView("login2");
     }
 
     @GetMapping("/emailpage")
@@ -68,17 +68,58 @@ public class UserController {
 
     @PostMapping("/register")
     public ModelAndView register(User user, HttpServletRequest request) {
+        System.out.println("user :" + user);
         userService.register(user, request);
         //return new ModelAndView("redirect:index");
-        return new ModelAndView("login", "user", user);
+        //  return new ModelAndView("login", "user", user);
+        return new ModelAndView("login");
     }
 
+    /*   @PostMapping("/login")
+       public ModelAndView login(User user) {
+           if (userService.login(user)) {
+               return new ModelAndView("/user/index");
+           } else {
+               return new ModelAndView("/login", "msg", "账号或密码错误");
+           }
+       }*/
+
+    /*  @PostMapping("/login")
+      public ModelAndView login(User user) {
+          System.out.println("user:" + user);
+          return new ModelAndView("/user/index", "user", user);
+      }*/
     @PostMapping("/login")
-    public ModelAndView login(User user) {
-        if (userService.login(user)) {
+    @ResponseBody
+    public Message login(User user) {
+        System.out.println("user:" + user);
+        //return new ModelAndView("/user/index", "user", user);
+        Message message = new Message();
+       /*   message.setFlag(1);
+            message.setMsg("账号或密码错误");
+
+            message.setFlag(0);
+            message.setMsg("成功");
+        */
+        message.setFlag(0);
+        message.setMsg("成功");
+        System.out.println(message);
+        return message;
+    }
+
+    //@PostMapping("/login")
+    public ModelAndView login(String email, String password) {
+        //login的post
+        System.out.println("email:" + email + " password:" + password);
+     /*   if (userService.login(user)) {
             return new ModelAndView("/user/index");
         } else {
             return new ModelAndView("/login", "msg", "账号或密码错误");
-        }
+        }*/
+        //System.out.println("login:" + email + " " + password);
+        // return new ModelAndView("");
+        return new ModelAndView("/user/index");
     }
+
+
 }
