@@ -43,8 +43,8 @@
                 <div class="personal pull-left">
                     <span th:if="${session.user != null}" class="headerlogo"
                       th:text = "${#strings.substring(session.user.userName,0,1)}"></span>
-                    <i th:if="${session.user == null}" class="layui-icon layui-icon-username"></i>
-                    <div class="ulmenubox">
+                    <i th:if="${session.user == null}" class="layui-icon layui-icon-username" onclick="jumplogin()"></i>
+                    <div class="ulmenubox" th:if="${session.user != null}">
                         <p><a href="#">我的订单</a></p>
                         <p><a href="#">退出</a></p>
                     </div>
@@ -58,10 +58,15 @@
     <p>
         <span>&copy; 2018-12-18</span>
         <span>刘军辉、徐红、杜佳霖、叶耿课程设计</span>
-        <!--<span>MIT license</span>-->
     </p>
     <p><span>一个人可以走的很快，但是一群人却可以走的很远</span></p>
 </div>
 
+<!--登录跳转-->
+<script  th:fragment="login_js">
+    function jumplogin() {
+        window.location.href = "/user/";
+    }
+</script>
 </body>
 </html>
