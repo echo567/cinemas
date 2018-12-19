@@ -6,11 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../static/layui/css/layui.css">
     <link rel="stylesheet" href="../../static/css/mian.css">
+    <link rel="stylesheet" href="../../static/css/list.css">
 </head>
 <body class="lay-blog">
-<div th:replace="user/commons :: top(activeUrl='list')"></div>
-影院页面~~~~~~，还没写，军辉是个大笨蛋~~~~
-<div th:replace="user/commons :: footer"></div>
+    <div th:replace="user/commons :: top(activeUrl='list')"></div>
+    <div class="container-wrap">
+        <div class="container">
+            <div>
+                <h4 class="item-title listheader">
+                    <p><i class="layui-icon layui-icon-speaker"></i>更新：<span>2018-12-19日已更新</span></p>
+                </h4>
+                <h4 class="item-title">
+                    <p>榜单规则：<span>将昨日国内热映的电影，按照评分从高到低排列取前10名，数据来源于“猫眼电影库”</span></p>
+                </h4>
+                <div class="whitebox">
+                    <div class="listmessagebox">
+                        <div class="listmessage firstlist">
+                            <span><i class="layui-icon layui-icon-fire"></i></span>
+                            <img src="../../static/images/film.jpg" alt="">
+                            <div class="textbox">
+                                <h5>海王</h5>
+                                <p>主演：杰森·莫玛,艾梅柏·希尔德,妮可·基德曼</p>
+                                <strong>上映时间：2018-12-07</strong>
+                            </div>
+                        </div>
+                        <span><strong>9.</strong>4</span>
+                    </div>
+                    <div class="listmessagebox">
+                        <div class="listmessage headerthreelist">
+                            <span>1</span>
+                            <img src="../../static/images/film.jpg" alt="">
+                            <div class="textbox">
+                                <h5>海王</h5>
+                                <p>主演：杰森·莫玛,艾梅柏·希尔德,妮可·基德曼</p>
+                                <strong>上映时间：2018-12-07</strong>
+                            </div>
+                        </div>
+                        <span><strong>9.</strong>4</span>
+                    </div>
+                    <div class="listmessagebox">
+                        <div class="listmessage headerthreelist">
+                            <span>1</span>
+                            <img src="../../static/images/film.jpg" alt="">
+                            <div class="textbox">
+                                <h5>海王</h5>
+                                <p>主演：杰森·莫玛,艾梅柏·希尔德,妮可·基德曼</p>
+                                <strong>上映时间：2018-12-07</strong>
+                            </div>
+                        </div>
+                        <span><strong>9.</strong>4</span>
+                    </div>
+                    <div class="listmessagebox">
+                        <div class="listmessage">
+                            <span>1</span>
+                            <img src="../../static/images/film.jpg" alt="">
+                            <div class="textbox">
+                                <h5>海王</h5>
+                                <p>主演：杰森·莫玛,艾梅柏·希尔德,妮可·基德曼</p>
+                                <strong>上映时间：2018-12-07</strong>
+                            </div>
+                        </div>
+                        <span><strong>9.</strong>4</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div th:replace="user/commons :: footer"></div>
 <script src="../../static/layui/layui.js"></script>
 </body>
 </html>

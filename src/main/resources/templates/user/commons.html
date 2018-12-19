@@ -37,7 +37,7 @@
                     <a th:href="@{/user/tolist}">榜单</a></li>
             </ul>
             <a href=" #" class="personal pull-left">
-                <i class="layui-icon layui-icon-username"></i>
+                <span th:text="${session.user != null} ? '${session.user.name}':'用户未登录' "></span>
             </a>
         </div>
         <div class="mobile-nav pull-right" id="mobile-nav">

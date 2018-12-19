@@ -190,7 +190,7 @@ body{
 }
 .lay-blog .header{
 	height: 100px;
-	margin-bottom: -100px;
+	/*margin-bottom: -100px;*/
 	line-height:100px;
 	background: #ef4238;
 }
@@ -329,7 +329,7 @@ body{
 
 .lay-blog .container .count .layblog-this{color: #FF5722 !important;}
 
-.lay-blog .container-wrap{margin:0 auto 0;min-height:100%;padding:120px 0 160px 0;box-sizing: border-box;}
+.lay-blog .container-wrap{margin:0 auto 0;min-height:100%;padding:40px 0 60px 0;box-sizing: border-box;}
 .lay-blog .container{width:1280px;margin:0 auto; display: flex;justify-content: space-between;}
 .lay-blog .container h4{margin-bottom: 15px; line-height: 50px;background: #fff;font-size:16px;}
 .lay-blog .container h4 p{padding-left:20px;color:#666666;}
@@ -370,7 +370,6 @@ body{
 	color: rgba(255,255,255,0.5);
 	font-size: 14px;
 	text-align:center;
-	margin-top: -120px;
 }
 
 .lay-blog .footer span{padding: 0 5px;}

@@ -6,11 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../static/layui/css/layui.css">
     <link rel="stylesheet" href="../../static/css/mian.css">
+    <link rel="stylesheet" href="../../static/css/cinema.css">
 </head>
 <body class="lay-blog">
-<div th:replace="user/commons :: top(activeUrl='cinema')"></div>
-影院页面~~~~~~，还没写，军辉是个大笨蛋~~~~
-<div th:replace="user/commons :: footer"></div>
+    <div th:replace="user/commons :: top(activeUrl='cinema')"></div>
+    <div class="container-wrap">
+        <div class="container">
+            <div class="whitebox">
+                <h5>影院列表</h5>
+                <div class="messagebox">
+                    <div class="textbox">
+                        <h5>华纳国际影城(辉县店)</h5>
+                        <span>地址：辉县市涌金城市广场三楼（南关十字苏宁电器三楼）</span>
+                    </div>
+                    <div class="operatebox">
+                        <span><strong>￥19</strong>起</span>
+                        <button class="layui-btn layui-btn-danger layui-btn-radius">点击购买</button>
+                    </div>
+                </div>
+                <div class="messagebox">
+                    <div class="textbox">
+                        <h5>华纳国际影城(辉县店)</h5>
+                        <span>地址：辉县市涌金城市广场三楼（南关十字苏宁电器三楼）</span>
+                    </div>
+                    <div class="operatebox">
+                        <span><strong>￥19</strong>起</span>
+                        <button class="layui-btn layui-btn-danger layui-btn-radius">点击购买</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="user/commons :: footer"></div>
 <script src="../../static/layui/layui.js"></script>
 </body>
 </html>
