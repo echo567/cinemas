@@ -1,0 +1,45 @@
+.cinamedetailheader {
+    background-color: #fff;
+    width: 1240px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+.layui-carousel {
+    background-color: rgba(225,225,225,0) !important;
+}
+.layui-carousel>[carousel-item]>* {
+    background-color: rgba(225,225,225,0) !important;
+}
+.layui-carousel-ind {
+    display: none;
+}
+.whitebox2 {
+    width: 1280px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.whitebox2 .filmbox {
+    margin: 7px;
+}
+.lunbobackground {
+    background-image: url("../images/film.jpg");
+    overflow: hidden;
+    background-size: cover;
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+.endmoyang {
+    position: relative;
+    top: -350px;
+    height: 0;
+    left: 0;
+    background: none;
+}
+.lay-blog .container-wrap {
+    padding-top: 0;
+}
