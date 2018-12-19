@@ -65,4 +65,10 @@ public class MovieTest {
 
         System.out.println(movieDao.selectAllMovieByScore());
     }
+
+    @Test
+    public void selectAllMovieByDate() {
+
+        System.out.println(movieDao.selectAllMovieByDate());
+    }
 }
