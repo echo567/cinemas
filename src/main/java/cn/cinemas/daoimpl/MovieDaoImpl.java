@@ -45,4 +45,9 @@ public class MovieDaoImpl implements IMovieDao {
     public List<Movie> selectAllMovieByScore() {
         return movieDao.selectAllMovieByPrice();
     }
+
+    @Override
+    public List<Movie> selectAllMovieByDate() {
+        return movieDao.selectAllMovieByDate();
+    }
 }

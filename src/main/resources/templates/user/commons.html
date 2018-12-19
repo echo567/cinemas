@@ -26,30 +26,30 @@
         </div>
 
         <div class="blog-nav pull-right">
-                <ul class="layui-nav pull-left">
-                    <li th:class="${activeUrl == 'index' ? 'layui-nav-item layui-this' :'layui-nav-item'}">
-                        <a th:href="@{/user/toindex}">首页</a></li>
+            <ul class="layui-nav pull-left">
+                <li th:class="${activeUrl == 'index' ? 'layui-nav-item layui-this' :'layui-nav-item'}">
+                    <a th:href="@{/user/toindex}">首页</a></li>
 
-                    <li th:class="${activeUrl == 'cinema' ?'layui-nav-item layui-this':'layui-nav-item'}">
-                        <a th:href="@{/user/tocinema}">影院</a></li>
+                <li th:class="${activeUrl == 'cinema' ?'layui-nav-item layui-this':'layui-nav-item'}">
+                    <a th:href="@{/user/tocinema}">影院</a></li>
 
-                    <li th:class="${activeUrl == 'film' ?'layui-nav-item layui-this':'layui-nav-item'}">
-                        <a th:href="@{/user/tofilm}">电影</a></li>
-                    <li th:class="${activeUrl == 'list' ?'layui-nav-item layui-this':'layui-nav-item'}">
-                        <a th:href="@{/user/tolist}">榜单</a>
+                <li th:class="${activeUrl == 'film' ?'layui-nav-item layui-this':'layui-nav-item'}">
+                    <a th:href="@{/user/tofilm}">电影</a></li>
+                <li th:class="${activeUrl == 'list' ?'layui-nav-item layui-this':'layui-nav-item'}">
+                    <a th:href="@{/movie/tolist}">榜单</a>
 
-                    </li>
-                </ul>
-                <div class="personal pull-left">
-                    <span th:if="${session.user != null}" class="headerlogo"
-                      th:text = "${#strings.substring(session.user.userName,0,1)}"></span>
-                    <i th:if="${session.user == null}" class="layui-icon layui-icon-username" onclick="jumplogin()"></i>
-                    <div class="ulmenubox" th:if="${session.user != null}">
-                        <p><a href="#">我的订单</a></p>
-                        <p><a href="#">退出</a></p>
-                    </div>
+                </li>
+            </ul>
+            <div class="personal pull-left">
+                <span th:if="${session.user != null}" class="headerlogo"
+                  th:text = "${#strings.substring(session.user.userName,0,1)}"></span>
+                <i th:if="${session.user == null}" class="layui-icon layui-icon-username" onclick="jumplogin()"></i>
+                <div class="ulmenubox" th:if="${session.user != null}">
+                    <p><a href="#">我的订单</a></p>
+                    <p><a href="#">退出</a></p>
                 </div>
             </div>
+        </div>
     </div>
 </div>
 

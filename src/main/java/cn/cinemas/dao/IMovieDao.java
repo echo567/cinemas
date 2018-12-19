@@ -36,4 +36,7 @@ public interface IMovieDao {
      */
     @Select("select * from tb_movie order by score desc")
     public List<Movie> selectAllMovieByScore();
+
+    @Select("select * from tb_movie order by date")
+    public List<Movie> selectAllMovieByDate();
 }

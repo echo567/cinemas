@@ -1,6 +1,7 @@
 package cn.cinemas.controller;
 
 import cn.cinemas.bean.User;
+import cn.cinemas.dao.IMovieDao;
 import cn.cinemas.service.IUserService;
 import cn.cinemas.util.Message;
 import cn.cinemas.util.MessageUtil;
@@ -23,6 +24,8 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
+
+
 
     @GetMapping("/")
     public ModelAndView login() {
@@ -50,10 +53,7 @@ public class UserController {
         return new ModelAndView("/user/cinema");
     }
 
-    @GetMapping("/tolist")
-    public ModelAndView toList() {
-        return new ModelAndView("/user/list");
-    }
+
 
     @GetMapping("/detailcinema")
     public ModelAndView detailcinema() {
