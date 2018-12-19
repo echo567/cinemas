@@ -158,17 +158,6 @@
 }
 /*end: 即将上映*/
 
-
-
-
-.pull-right{
-	float: right !important;
-}
-
-.pull-left{
-	float: left !important;
-}
-
 html,body{
 	height: 100%;
 }
@@ -178,20 +167,35 @@ body{
 	background: #f2f2f2;
 }
 
-.lay-blog .header{
-	position:relative;
+.headerlogo {
+	background-color: #e1dadae6;
+	width: 40px;
+	height:40px;
+	line-height:40px;
+	text-align: center;
+	border-radius: 50%;
+	color: #ef4238;
+	display: inline-block;
 }
-.lay-blog .header-wrap{
-	padding:0 70px 0 40px;
+.lay-blog .header{
+	/*position:relative;*/
+}
+.rightboxnav {
+	display: flex;
+	justify-content: space-between;
 }
 .header-wrap {
-	width: 1258px;
+	width: 1280px;
 	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.pull-right {
+	display: flex;
+	justify-content: flex-start;
 }
 .lay-blog .header{
 	height: 100px;
-	/*margin-bottom: -100px;*/
-	line-height:100px;
 	background: #ef4238;
 }
 .lay-blog .logo-img{
@@ -238,7 +242,6 @@ body{
 .lay-blog .blog-nav ul{
 	background:transparent;
 	padding-left:0;
-	padding-right: 20px;
 }
 .lay-blog .blog-nav ul li{
 	line-height: 100px;
@@ -280,7 +283,6 @@ body{
 	text-align:center;
 	background:#1e9fff;
 	display:none;
-	z-index: 2;
 }
 .lay-blog ul.pop-nav  li{
 	border-top: 2px solid rgba(255,255,255,0.08);
@@ -315,7 +317,7 @@ body{
 		display:block;
 	}
 	.lay-blog .header-wrap{
-	padding:0 20px 0 40px;
+		padding:0 20px 0 40px;
 	}
 	.lay-blog ul#pop-nav{
 		display:none;
@@ -440,4 +442,41 @@ body{
     border: none;
     border-radius: 2px;
     cursor: pointer;
+}
+
+
+/*二级导航*/
+.pull-left {
+	position: relative;
+}
+.logoimg {
+	line-height: 100px;
+}
+.personal {
+	line-height: 100px;
+	margin: 0 20px;
+}
+.layui-nav {
+	padding: 0;
+}
+.ulmenubox {
+	position: absolute;
+	top: 82px;
+	right: -45px;
+	width: 100px;
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid #eee;
+	display: none;
+	z-index: 3;
+	padding-bottom: 20px;
+	line-height: normal !important;
+}
+.ulmenubox>p>a {
+	display: inline-block;
+	font-size: 14px;
+	padding: 10px 5px 0;
+}
+.personal:hover .ulmenubox{
+	display: block;
 }
