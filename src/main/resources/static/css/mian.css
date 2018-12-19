@@ -54,6 +54,76 @@
 }
 /*end：正在热映*/
 
+
+/*start: 今日票房*/
+.filmlistfirstbox {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.filmlistfirst {
+	font-size: 14px;
+	margin-left: 10px;
+	color: #ef4238;
+	display: flex;
+	flex-direction:column;
+}
+.filmlistfirst>h6 {
+	margin-bottom: 20px;
+	color: #333;
+	font-size: 16px;
+}
+.filmlistlistbox {
+	display: flex;
+	justify-content: space-between;
+	color: #333;
+	font-size: 16px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.filmlistlistbox:hover {
+	background-color: #f8f8f8;
+}
+.filmlistlistbox>div:first-child {
+	margin-top: 0;
+}
+.filmlistlistbox>div>span:first-child {
+	font-size: 18px;
+	color: #999;
+	font-style:oblique;
+}
+.filmlistlistbox>span {
+	color: #ef4238;
+}
+.beforethree>div>span:first-child {
+	color: #ef4238;
+}
+/*end: 今日票房*/
+
+/*start：热门影院*/
+.filmcinema {
+	width: 100%;
+}
+.filmcinema>h6 {
+	font-size: 16px;
+}
+.filmcinema>span {
+	color: #999;
+	width: 100%;
+	display: inline-block;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.filmcinema>span>strong {
+	color: #ffb400;
+	margin-right: 10px;
+}
+/*end：热门影院*/
+
+
+/*start: 即将上映*/
 .filtruefilm>p {
 	color: #ffb400;
 	font-size: 14px;
@@ -86,15 +156,7 @@
 	color: #fff;
 	cursor: pointer;
 }
-
-
-.pull-right{
-	float: right !important;
-}
-
-.pull-left{
-	float: left !important;
-}
+/*end: 即将上映*/
 
 html,body{
 	height: 100%;
@@ -105,20 +167,35 @@ body{
 	background: #f2f2f2;
 }
 
-.lay-blog .header{
-	position:relative;
+.headerlogo {
+	background-color: #e1dadae6;
+	width: 40px;
+	height:40px;
+	line-height:40px;
+	text-align: center;
+	border-radius: 50%;
+	color: #ef4238;
+	display: inline-block;
 }
-.lay-blog .header-wrap{
-	padding:0 70px 0 40px;
+.lay-blog .header{
+	/*position:relative;*/
+}
+.rightboxnav {
+	display: flex;
+	justify-content: space-between;
 }
 .header-wrap {
-	width: 1258px;
+	width: 1280px;
 	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.pull-right {
+	display: flex;
+	justify-content: flex-start;
 }
 .lay-blog .header{
 	height: 100px;
-	margin-bottom: -100px;
-	line-height:100px;
 	background: #ef4238;
 }
 .lay-blog .logo-img{
@@ -165,7 +242,6 @@ body{
 .lay-blog .blog-nav ul{
 	background:transparent;
 	padding-left:0;
-	padding-right: 20px;
 }
 .lay-blog .blog-nav ul li{
 	line-height: 100px;
@@ -207,7 +283,6 @@ body{
 	text-align:center;
 	background:#1e9fff;
 	display:none;
-	z-index: 2;
 }
 .lay-blog ul.pop-nav  li{
 	border-top: 2px solid rgba(255,255,255,0.08);
@@ -242,7 +317,7 @@ body{
 		display:block;
 	}
 	.lay-blog .header-wrap{
-	padding:0 20px 0 40px;
+		padding:0 20px 0 40px;
 	}
 	.lay-blog ul#pop-nav{
 		display:none;
@@ -256,7 +331,7 @@ body{
 
 .lay-blog .container .count .layblog-this{color: #FF5722 !important;}
 
-.lay-blog .container-wrap{margin:0 auto 0;min-height:100%;padding:120px 0 160px 0;box-sizing: border-box;}
+.lay-blog .container-wrap{margin:0 auto 0;min-height:100%;padding:40px 0 60px 0;box-sizing: border-box;}
 .lay-blog .container{width:1280px;margin:0 auto; display: flex;justify-content: space-between;}
 .lay-blog .container h4{margin-bottom: 15px; line-height: 50px;background: #fff;font-size:16px;}
 .lay-blog .container h4 p{padding-left:20px;color:#666666;}
@@ -297,7 +372,6 @@ body{
 	color: rgba(255,255,255,0.5);
 	font-size: 14px;
 	text-align:center;
-	margin-top: -120px;
 }
 
 .lay-blog .footer span{padding: 0 5px;}
@@ -368,4 +442,41 @@ body{
     border: none;
     border-radius: 2px;
     cursor: pointer;
+}
+
+
+/*二级导航*/
+.pull-left {
+	position: relative;
+}
+.logoimg {
+	line-height: 100px;
+}
+.personal {
+	line-height: 100px;
+	margin: 0 20px;
+}
+.layui-nav {
+	padding: 0;
+}
+.ulmenubox {
+	position: absolute;
+	top: 82px;
+	right: -45px;
+	width: 100px;
+	border-radius: 5px;
+	background-color: #fff;
+	border: 1px solid #eee;
+	display: none;
+	z-index: 3;
+	padding-bottom: 20px;
+	line-height: normal !important;
+}
+.ulmenubox>p>a {
+	display: inline-block;
+	font-size: 14px;
+	padding: 10px 5px 0;
+}
+.personal:hover .ulmenubox{
+	display: block;
 }

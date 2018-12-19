@@ -1,0 +1,10 @@
+.whitebox {
+    background-color: #fff;
+    padding: 20px;
+    width: 1280px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.whitebox .filmbox {
+    margin: 7px;
+}
