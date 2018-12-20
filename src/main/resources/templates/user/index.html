@@ -17,7 +17,7 @@
 				<!--正在热映-->
 				<h4 class="item-title filmheader">
 					<p><i class="layui-icon layui-icon-speaker"></i>通知：<span>一大波电影正在热映中</span></p>
-					<a href="#">查看更多<i class="layui-icon layui-icon-right"></i></a>
+					<a th:href="@{/user/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
 				</h4>
 				<div class="item">
 					<div class="filmbox" th:each="prod: ${8}">
@@ -33,8 +33,9 @@
 				</div>
 
 				<!--即将上映-->
-				<h4 class="item-title">
+				<h4 class="item-title filmheader">
 					<p><i class="layui-icon layui-icon-release" style="color: #2d98f3;"></i><span>一大波电影即将到来</span></p>
+					<a th:href="@{/user/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
 				</h4>
 				<div class="item">
 					<div class="filmbox">
@@ -57,7 +58,7 @@
 			<div class="contar-wrap2">
 				<h4 class="item-title filmheader">
 					<p><span>热门影院</span></p>
-					<a href="#">更多影院<i class="layui-icon layui-icon-right"></i></a>
+					<a th:href="@{/user/tocinema}">更多影院<i class="layui-icon layui-icon-right"></i></a>
 				</h4>
 
 				<div class="item">
@@ -75,7 +76,7 @@
 				<!--当前票房-->
 				<h4 class="item-title filmheader">
 					<p><span>今日票房</span></p>
-					<a href="#">更多电影<i class="layui-icon layui-icon-right"></i></a>
+					<a th:href="@{/user/tolist}">今日榜单<i class="layui-icon layui-icon-right"></i></a>
 				</h4>
 
 				<div class="item">
@@ -124,5 +125,7 @@
 
 
 	<script src="../../static/layui/layui.js"></script>
+	<!--登录跳转-->
+	<div th:replace="user/commons :: login_js"></div>
 </body>
 </html>

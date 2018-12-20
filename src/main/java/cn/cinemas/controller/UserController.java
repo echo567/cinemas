@@ -55,6 +55,11 @@ public class UserController {
 
 
 
+    @GetMapping("/detailcinema")
+    public ModelAndView detailcinema() {
+        return new ModelAndView("/detail/detailcinema");
+    }
+
 
     @PostMapping("/register")
     public Message register(User user) {

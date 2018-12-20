@@ -18,6 +18,10 @@
 .filmblock {
 	position: relative;
 }
+.filmblock>img {
+	width: 100%;
+	max-height: 220px;
+}
 .filmblock>div {
 	width: 100%;
 	position: absolute;
