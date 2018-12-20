@@ -22,8 +22,11 @@
             <div class="whitebox">
                 <div class="listmessagebox" th:each="movies:${session.list}">
                     <div class="listmessage firstlist">
-                        <span><i class="layui-icon layui-icon-fire"></i></span>
+                        <span th:if="${moviesStat.count == 1}"><i class="layui-icon layui-icon-fire"></i></span>
+                        <span th:if="${moviesStat.count != 1}" th:text="${moviesStat.count != 1} ? ${moviesStat.count} : '' "
+                              ></span>
                         <!-- <img src="../../static/images/film.jpg" alt="">-->
+
 
                         <img th:src="${movies.getPhoto()}"
                              width="160" alt="">
