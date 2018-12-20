@@ -31,7 +31,7 @@ public class MovieController {
 
     @GetMapping("/tolist")
     public ModelAndView toList() {
-        movieService.listByDate();
-        return new ModelAndView("/user/list");
+        List<Movie> movieList = movieService.listByDate();
+        return new ModelAndView("/user/list", "list", movieList);
     }
 }

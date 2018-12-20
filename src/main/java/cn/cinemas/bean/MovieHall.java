@@ -8,6 +8,7 @@ import java.util.Date;
  */
 public class MovieHall {
     private Integer hallId;
+    private Integer cinemaId;//外键
     private String status;
     private Integer seatId;
     private String session;
@@ -21,8 +22,7 @@ public class MovieHall {
     public MovieHall() {
     }
 
-    public MovieHall(Integer hallId, String status, Integer seatId, String session, Integer amount, Integer column, Integer row, String note) {
-        this.hallId = hallId;
+    public MovieHall(String status, Integer seatId, String session, Integer amount, Integer column, Integer row, String note) {
         this.status = status;
         this.seatId = seatId;
         this.session = session;
@@ -38,6 +38,14 @@ public class MovieHall {
 
     public void setHallId(Integer hallId) {
         this.hallId = hallId;
+    }
+
+    public Integer getCinemaId() {
+        return cinemaId;
+    }
+
+    public void setCinemaId(Integer cinemaId) {
+        this.cinemaId = cinemaId;
     }
 
     public String getStatus() {
@@ -116,6 +124,7 @@ public class MovieHall {
     public String toString() {
         return "MovieHall{" +
                 "hallId=" + hallId +
+                ", cinemaId=" + cinemaId +
                 ", status='" + status + '\'' +
                 ", seatId=" + seatId +
                 ", session='" + session + '\'' +

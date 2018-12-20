@@ -48,10 +48,6 @@ public class UserController {
         return new ModelAndView("/user/film");
     }
 
-    @GetMapping("/tocinema")
-    public ModelAndView toCinema() {
-        return new ModelAndView("/user/cinema");
-    }
 
 
 

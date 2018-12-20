@@ -20,14 +20,11 @@ public class MoviceServiceImpl implements IMovieService {
     @Autowired
     private IMovieDao movieDao;
 
-    @Autowired
-    private HttpSession session;
-
 
     @Override
     public List<Movie> listByDate() {
         List<Movie> movieListByDate = movieDao.selectAllMovieByDate();
-        session.setAttribute("list", movieListByDate);
+        //   session.setAttribute("list", movieListByDate);
         return movieListByDate;
         // return MessageUtil.Succees("movieListByDate");
     }

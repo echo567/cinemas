@@ -20,7 +20,7 @@
                 <p>榜单规则：<span>将昨日国内热映的电影，按照评分从高到低排列取前10名，数据来源于“猫眼电影库”</span></p>
             </h4>
             <div class="whitebox">
-                <div class="listmessagebox" th:each="movies:${session.list}">
+                <div class="listmessagebox" th:each="movies:${list}">
                     <div class="listmessage firstlist">
                         <span th:if="${moviesStat.count == 1}"><i class="layui-icon layui-icon-fire"></i></span>
                         <span th:if="${moviesStat.count != 1}" th:text="${moviesStat.count != 1} ? ${moviesStat.count} : '' "
