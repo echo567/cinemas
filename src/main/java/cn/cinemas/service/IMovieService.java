@@ -13,5 +13,13 @@ import java.util.List;
 
 public interface IMovieService {
 
+    /*
+    查询全部电影按上映日期从前到后
+     */
     public List<Movie> listByDate();
+
+    /*
+    查询所有以上已上映的电影
+     */
+    public List<Movie> listAlready();
 }

@@ -50,4 +50,14 @@ public class MovieDaoImpl implements IMovieDao {
     public List<Movie> selectAllMovieByDate() {
         return movieDao.selectAllMovieByDate();
     }
+
+    @Override
+    public List<Movie> alreadyReleased() {
+        return movieDao.alreadyReleased();
+    }
+
+    @Override
+    public List<Movie> notReleased() {
+        return movieDao.notReleased();
+    }
 }

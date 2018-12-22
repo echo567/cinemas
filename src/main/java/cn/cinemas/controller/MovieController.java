@@ -31,7 +31,7 @@ public class MovieController {
 
     @GetMapping("/tolist")
     public ModelAndView toList() {
-        List<Movie> movieList = movieService.listByDate();
+        List<Movie> movieList = movieService.listAlready();
         return new ModelAndView("/user/list", "list", movieList);
     }
 

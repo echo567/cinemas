@@ -18,4 +18,9 @@ public class CinemaDaoImpl implements ICinemaDao {
     public List<Cinema> getAllCinemaByScore() {
         return cinemaDao.getAllCinemaByScore();
     }
+
+    @Override
+    public List<Cinema> getTwoCinemas() {
+        return cinemaDao.getTwoCinemas();
+    }
 }

@@ -8,124 +8,121 @@
     <link rel="stylesheet" href="../../static/css/mian.css">
 </head>
 <body class="lay-blog">
-	<!--header-->
-	<div th:replace="user/commons :: top(activeUrl='index')"></div>
-	<!--主题部分-->
-	<div class="container-wrap">
-		<div class="container">
-			<div class="contar-wrap">
-				<!--正在热映-->
-				<h4 class="item-title filmheader">
-					<p><i class="layui-icon layui-icon-speaker"></i>通知：<span>一大波电影正在热映中</span></p>
-					<a th:href="@{/user/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
-				</h4>
-				<div class="item">
-					<div class="filmbox" th:each="prod: ${8}">
-						<div class="filmblock">
-							<img src="../../static/images/film.jpg" alt="">
-							<div>
-								<span>海王</span>
-								<strong>9.4</strong>
-							</div>
-						</div>
-						<div class="buyfilm">购票</div>
-					</div>
-				</div>
+<!--header-->
+<div th:replace="user/commons :: top(activeUrl='index')"></div>
+<!--主题部分-->
+<div class="container-wrap">
+    <div class="container">
+        <div class="contar-wrap">
+            <!--正在热映-->
+            <h4 class="item-title filmheader">
+                <p><i class="layui-icon layui-icon-speaker"></i>通知：<span>一大波电影正在热映中</span></p>
+                <a th:href="@{/movie/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
+            </h4>
+            <div class="item">
+                <div class="filmbox" th:each="movies:${already}">
+                    <div class="filmblock">
+                        <img th:src="${movies.getPhoto()}" alt="">
+                        <div>
+                            <span>[[${movies.getName()}]]</span>
+                            <strong>[[${movies.getScore()}]]</strong>
+                        </div>
+                    </div>
+                    <div class="buyfilm">购票</div>
+                </div>
+            </div>
 
-				<!--即将上映-->
-				<h4 class="item-title filmheader">
-					<p><i class="layui-icon layui-icon-release" style="color: #2d98f3;"></i><span>一大波电影即将到来</span></p>
-					<a th:href="@{/user/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
-				</h4>
-				<div class="item">
-					<div class="filmbox">
-						<div class="filmblock">
-							<img src="../../static/images/film.jpg" alt="">
-							<div>
-								<span>海王</span>
-							</div>
-						</div>
-						<div class="filtruefilm">
-							<p>324人想看</p>
-							<div>
-								<span>预告片</span>
-								<span class="spanend">预售</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="contar-wrap2">
-				<h4 class="item-title filmheader">
-					<p><span>热门影院</span></p>
-					<a th:href="@{/user/tocinema}">更多影院<i class="layui-icon layui-icon-right"></i></a>
-				</h4>
+            <!--即将上映-->
+            <h4 class="item-title filmheader">
+                <p><i class="layui-icon layui-icon-release" style="color: #2d98f3;"></i><span>一大波电影即将到来</span></p>
+                <a th:href="@{/movie/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
+            </h4>
+            <div class="item">
+                <div class="filmbox" th:each="movies:${notReleased}">
+                    <div class="filmblock">
+                        <img th:src="${movies.getPhoto()}" alt="">
+                        <div>
+                            <span>[[${movies.getName()}]]</span>
+                        </div>
+                    </div>
+                    <div class="filtruefilm">
+                        <p>324人想看</p>
+                        <div>
+                            <span>预告片</span>
+                            <span class="spanend">预售</span>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="item">
-					<div class="filmcinema">
-						<h6>万达影城（成都金牛万达广场店）</h6>
-						<span>成都市金牛区一环路北三段1号万达广场4楼成都市金牛区一环路北三段1号万达广场4楼</span>
-						<span><strong>￥40</strong>起</span>
-					</div>
-					<div class="filmcinema">
-						<h6>万达影城（成都金牛万达广场店）</h6>
-						<span>成都市金牛区一环路北三段1号万达广场4楼成都市金牛区一环路北三段1号万达广场4楼</span>
-						<span><strong>￥40</strong>起</span>
-					</div>
-				</div>
-				<!--当前票房-->
-				<h4 class="item-title filmheader">
-					<p><span>今日票房</span></p>
-					<a th:href="@{/user/tolist}">今日榜单<i class="layui-icon layui-icon-right"></i></a>
-				</h4>
+            </div>
+        </div>
+        <div class="contar-wrap2">
+            <h4 class="item-title filmheader">
+                <p><span>热门影院</span></p>
+                <a th:href="@{/cinema/tocinema}">更多影院<i class="layui-icon layui-icon-right"></i></a>
+            </h4>
 
-				<div class="item">
-					<div class="filmlistfirstbox">
-						<img src="../../static/images/haiwang.jpg" alt="">
-						<div class="filmlistfirst">
-							<h6>海王</h6>
-							<span>2033.29万</span>
-						</div>
-					</div>
-					<div class="filmlistlistbox beforethree">
-						<div>
-							<span>1</span>
-							<span>龙猫</span>
-						</div>
-						<span>394.65万</span>
-					</div>
-					<div class="filmlistlistbox beforethree">
-						<div>
-							<span>2</span>
-							<span>龙猫</span>
-						</div>
-						<span>394.65万</span>
-					</div>
-					<div class="filmlistlistbox beforethree">
-						<div>
-							<span>3</span>
-							<span>龙猫</span>
-						</div>
-						<span>394.65万</span>
-					</div>
-					<div class="filmlistlistbox">
-						<div>
-							<span>4</span>
-							<span>龙猫</span>
-						</div>
-						<span>394.65万</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="item">
+                <div class="filmcinema" th:each="hot:${hotCinemas}">
+                    <h6 th:text="${hot.getName()}"></h6>
+                    <span th:text="${hot.getAddress()}"></span>
+                    <span><strong>[[${hot.getScore()}]]</strong>分</span>
+                </div>
 
-	<!--footer-->
-	<div th:replace="user/commons :: footer"></div>
+            </div>
+            <!--当前票房-->
+            <h4 class="item-title filmheader">
+                <p><span>今日票房</span></p>
+                <a th:href="@{/movie/tolist}">今日榜单<i class="layui-icon layui-icon-right"></i></a>
+            </h4>
+
+            <div class="item">
+                <div class="filmlistfirstbox">
+                    <img src="../../static/images/haiwang.jpg" alt="">
+                    <div class="filmlistfirst">
+                        <h6>海王</h6>
+                        <span>2033.29万</span>
+                    </div>
+                </div>
+                <div class="filmlistlistbox beforethree">
+                    <div>
+                        <span>1</span>
+                        <span>龙猫</span>
+                    </div>
+                    <span>394.65万</span>
+                </div>
+                <div class="filmlistlistbox beforethree">
+                    <div>
+                        <span>2</span>
+                        <span>龙猫</span>
+                    </div>
+                    <span>394.65万</span>
+                </div>
+                <div class="filmlistlistbox beforethree">
+                    <div>
+                        <span>3</span>
+                        <span>龙猫</span>
+                    </div>
+                    <span>394.65万</span>
+                </div>
+                <div class="filmlistlistbox">
+                    <div>
+                        <span>4</span>
+                        <span>龙猫</span>
+                    </div>
+                    <span>394.65万</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<div th:replace="user/commons :: footer"></div>
 
 
-	<script src="../../static/layui/layui.js"></script>
-	<!--登录跳转-->
-	<div th:replace="user/commons :: login_js"></div>
+<script src="../../static/layui/layui.js"></script>
+<!--登录跳转-->
+<div th:replace="user/commons :: login_js"></div>
 </body>
 </html>

@@ -14,8 +14,14 @@ import java.util.List;
 public interface ICinemaDao {
 
     /*
-    按照评分从低到高排序
+    按照评分从高到底排序
      */
     @Select("select * from tb_cinema order by score desc")
     public List<Cinema> getAllCinemaByScore();
+
+    /*
+    按照影院评分从高到低的前两位影院
+     */
+    @Select("select * from tb_cinema order by score desc limit 2")
+    public List<Cinema> getTwoCinemas();
 }

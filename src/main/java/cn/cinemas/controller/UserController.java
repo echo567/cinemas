@@ -1,6 +1,9 @@
 package cn.cinemas.controller;
 
+import cn.cinemas.bean.Cinema;
+import cn.cinemas.bean.Movie;
 import cn.cinemas.bean.User;
+import cn.cinemas.dao.ICinemaDao;
 import cn.cinemas.dao.IMovieDao;
 import cn.cinemas.service.IUserService;
 import cn.cinemas.util.Message;
@@ -8,10 +11,13 @@ import cn.cinemas.util.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.Null;
+import java.util.List;
 
 /**
  * 军辉
@@ -24,6 +30,13 @@ public class UserController {
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private IMovieDao movieDao;
+
+    @Autowired
+    private ICinemaDao cinemaDao;
+
 
 
 
@@ -39,13 +52,17 @@ public class UserController {
     }
 
     @GetMapping("/toindex")
-    public ModelAndView toIndex() {
+    public ModelAndView toIndex(Model model) {
+        List<Movie> alreadyReleased = movieDao.alreadyReleased();
+        List<Movie> notReleased = movieDao.notReleased();
+        List<Cinema> hotCinemas = cinemaDao.getTwoCinemas();
+
+        model.addAttribute("already", alreadyReleased);
+        model.addAttribute("notReleased", notReleased);
+        model.addAttribute("hotCinemas", hotCinemas);
+
         return new ModelAndView("/user/index");
     }
-
-
-
-
 
 
     @GetMapping("/detailcinema")
