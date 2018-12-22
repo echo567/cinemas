@@ -13,7 +13,17 @@
 <div class="container-wrap">
     <div class="container">
         <div class="whitebox">
-            <div class="filmbox">
+            <div class="filmbox" th:each="films:${list}">
+                <div class="filmblock" >
+                    <img src="../../static/images/film.jpg" th:src="${films.getPhoto()}" alt="">
+                    <div>
+                        <span>[[${films.getName()}]]</span>
+                        <strong>[[${films.getScore()}]]</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>
+            <!--<div class="filmbox">
                 <div class="filmblock">
                     <img src="../../static/images/film.jpg" alt="">
                     <div>
@@ -92,17 +102,7 @@
                     </div>
                 </div>
                 <div class="buyfilm">购票</div>
-            </div>
-            <div class="filmbox">
-                <div class="filmblock">
-                    <img src="../../static/images/film.jpg" alt="">
-                    <div>
-                        <span>海王</span>
-                        <strong>9.4</strong>
-                    </div>
-                </div>
-                <div class="buyfilm">购票</div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

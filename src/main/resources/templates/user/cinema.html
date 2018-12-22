@@ -9,37 +9,28 @@
     <link rel="stylesheet" href="../../static/css/cinema.css">
 </head>
 <body class="lay-blog">
-    <div th:replace="user/commons :: top(activeUrl='cinema')"></div>
-    <div class="container-wrap">
-        <div class="container">
-            <div class="whitebox">
-                <h5>影院列表</h5>
-                <div class="messagebox">
-                    <div class="textbox">
-                        <h5>华纳国际影城(辉县店)</h5>
-                        <span th:text="${list}">地址：辉县市涌金城市广场三楼（南关十字苏宁电器三楼）</span>
-                    </div>
-                    <div class="operatebox">
-                        <span><strong>￥19</strong>起</span>
-                        <button class="layui-btn layui-btn-danger layui-btn-radius">点击购买</button>
-                    </div>
+<div th:replace="user/commons :: top(activeUrl='cinema')"></div>
+<div class="container-wrap">
+    <div class="container">
+        <div class="whitebox">
+            <h5>影院列表</h5>
+            <div class="messagebox" th:each="cinemas:${list}">
+                <div class="textbox">
+                    <h5 th:text="${cinemas.name}">华纳国际影城(辉县店)</h5>
+                    <span th:text="${cinemas.address}">地址：辉县市涌金城市广场三楼（南关十字苏宁电器三楼）</span>
                 </div>
-                <div class="messagebox">
-                    <div class="textbox">
-                        <h5>华纳国际影城(辉县店)</h5>
-                        <span>地址：辉县市涌金城市广场三楼（南关十字苏宁电器三楼）</span>
-                    </div>
-                    <div class="operatebox">
-                        <span><strong>￥19</strong>起</span>
-                        <button class="layui-btn layui-btn-danger layui-btn-radius">点击购买</button>
-                    </div>
+                <div class="operatebox">
+                    <span><strong>[[${cinemas.score}]]</strong>分</span>
+                    <button class="layui-btn layui-btn-danger layui-btn-radius">点击购买</button>
                 </div>
             </div>
+
         </div>
     </div>
-    <div th:replace="user/commons :: footer"></div>
-    <script src="../../static/layui/layui.js"></script>
-    <!--登录跳转-->
-    <div th:replace="user/commons :: login_js"></div>
+</div>
+<div th:replace="user/commons :: footer"></div>
+<script src="../../static/layui/layui.js"></script>
+<!--登录跳转-->
+<div th:replace="user/commons :: login_js"></div>
 </body>
 </html>

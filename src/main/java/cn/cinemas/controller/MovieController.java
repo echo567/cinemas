@@ -34,4 +34,10 @@ public class MovieController {
         List<Movie> movieList = movieService.listByDate();
         return new ModelAndView("/user/list", "list", movieList);
     }
+
+    @GetMapping("/tofilm")
+    public ModelAndView toFilm() {
+        List<Movie> movieList = movieService.listByDate();
+        return new ModelAndView("/user/film", "list", movieList);
+    }
 }

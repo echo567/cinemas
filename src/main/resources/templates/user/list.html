@@ -17,17 +17,15 @@
                 <p><i class="layui-icon layui-icon-speaker"></i>更新：<span>2018-12-19日已更新</span></p>
             </h4>
             <h4 class="item-title">
-                <p>榜单规则：<span>将昨日国内热映的电影，按照评分从高到低排列取前10名，数据来源于“猫眼电影库”</span></p>
+                <p>榜单规则：<span>将昨日国内热映的电影，按照评分从高到低排列取前5名，数据来源于“猫眼电影库”</span></p>
             </h4>
             <div class="whitebox">
                 <div class="listmessagebox" th:each="movies:${list}">
                     <div class="listmessage firstlist">
                         <span th:if="${moviesStat.count == 1}"><i class="layui-icon layui-icon-fire"></i></span>
-                        <span th:if="${moviesStat.count != 1}" th:text="${moviesStat.count != 1} ? ${moviesStat.count} : '' "
-                              ></span>
-                        <!-- <img src="../../static/images/film.jpg" alt="">-->
-
-
+                        <span th:if="${moviesStat.count != 1}"
+                              th:text="${moviesStat.count != 1} ? ${moviesStat.count} : '' "
+                        ></span>
                         <img th:src="${movies.getPhoto()}"
                              width="160" alt="">
                         <div class="textbox">
@@ -38,53 +36,14 @@
                     </div>
                     <span><strong>[[${#strings.substring(movies.getScore(),0,1)}]].</strong>[[${#strings.substring(movies.getScore(),2,3)}]]</span>
                 </div>
-                <!-- <div class="listmessagebox">
-                     <div class="listmessage headerthreelist">
-                         <span>1</span>
-                         <img src="../../static/images/film.jpg" alt="">
-                         <div class="textbox">
-                             <h5>海王</h5>
-                             <p>主演：杰森·莫玛,艾梅柏·希尔德,妮可·基德曼</p>
-                             <strong>上映时间：2018-12-07</strong>
-                         </div>
-                     </div>
-                     <span><strong>9.</strong>4</span>
-                 </div>
-                 <div class="listmessagebox">
-                     <div class="listmessage headerthreelist">
-                         <span>1</span>
-                         <img src="../../static/images/film.jpg" alt="">
-                         <div class="textbox">
-                             <h5>海王</h5>
-                             <p>主演：杰森·莫玛,艾梅柏·希尔德,妮可·基德曼</p>
-                             <strong>上映时间：2018-12-07</strong>
-                         </div>
-                     </div>
-                     <span><strong>9.</strong>4</span>
-                 </div>
-                 <div class="listmessagebox">
-                     <div class="listmessage">
-                         <span>1</span>
-                         <img src="../../static/images/film.jpg" alt="">
-                         <div class="textbox">
-                             <h5>海王</h5>
-                             <p>主演：杰森·莫玛,艾梅柏·希尔德,妮可·基德曼</p>
-                             <strong>上映时间：2018-12-07</strong>
-                         </div>
-                     </div>
-                     <span><strong>9.</strong>4</span>
-                 </div>
-             </div>-->
 
             </div>
         </div>
     </div>
-    <div th:replace="user/commons :: footer"></div>
-    <script src="../../static/layui/layui.js"></script>
-<<<<<<< HEAD
-    <!--登录跳转-->
-    <div th:replace="user/commons :: login_js"></div>
-=======
->>>>>>> d97f975b784bd7bf8b5d08a4b0d1f81d7f14f2be
+</div>
+<div th:replace="user/commons :: footer"></div>
+<script src="../../static/layui/layui.js"></script>
+<!--登录跳转-->
+<div th:replace="user/commons :: login_js"></div>
 </body>
 </html>

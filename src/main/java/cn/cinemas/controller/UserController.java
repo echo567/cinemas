@@ -43,10 +43,7 @@ public class UserController {
         return new ModelAndView("/user/index");
     }
 
-    @GetMapping("/tofilm")
-    public ModelAndView toFilm() {
-        return new ModelAndView("/user/film");
-    }
+
 
 
 
