@@ -22,4 +22,9 @@ public class CinemaTest {
     public void getAllCinemaByScore() {
         System.out.println(cinemaDao.getAllCinemaByScore());
     }
+
+    @Test
+    public void fuzzyQuery() {
+        System.out.println(cinemaDao.fuzzyQuery("新乡"));
+    }
 }

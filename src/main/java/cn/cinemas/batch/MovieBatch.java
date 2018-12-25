@@ -73,28 +73,43 @@ public class MovieBatch {
                 SET("boxOffice=#{boxOffice}");
             }
             if (movie.getScore() != null) {
-                SET("price=#{price}");
+                SET("score=#{score}");
             }
-            if (movie.getPrice() != null) {
-                SET("price=#{price}");
+            if (movie.getDuration() != null) {
+                SET("duration=#{duration}");
             }
-            if (movie.getPrice() != null) {
-                SET("price=#{price}");
+            if (movie.getDate() != null) {
+                SET("date=#{date}");
             }
-            if (movie.getPrice() != null) {
-                SET("price=#{price}");
+            if (movie.getName() != null) {
+                SET("name=#{name}");
             }
-            if (movie.getPrice() != null) {
-                SET("price=#{price}");
+            if (movie.getMovieType() != null) {
+                SET("movieType=#{movieType}");
             }
-            if (movie.getPrice() != null) {
-                SET("price=#{price}");
+            if (movie.getIntroduction() != null) {
+                SET("introduction=#{introduction}");
             }
-            if (movie.getPrice() != null) {
-                SET("price=#{price}");
+            if (movie.getPrevue() != null) {
+                SET("prevue=#{prevue}");
             }
-            if (movie.getPrice() != null) {
-                SET("price=#{price}");
+            if (movie.getPhoto() != null) {
+                SET("photo=#{photo}");
+            }
+            if (movie.getStarring() != null) {
+                SET("starring=#{starring}");
+            }
+            if (movie.getDirector() != null) {
+                SET("director=#{director}");
+            }
+            if (movie.getLanguage() != null) {
+                SET("language=#{language}");
+            }
+            if (movie.getNote() != null) {
+                SET("note=#{note}");
+            }
+            if (movie.getUpdateTime() != null) {
+                SET("updateTime=#{updateTime}");
             }
 
 

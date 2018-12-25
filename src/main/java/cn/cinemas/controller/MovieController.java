@@ -31,7 +31,7 @@ public class MovieController {
 
     @GetMapping("/tolist")
     public ModelAndView toList() {
-        List<Movie> movieList = movieService.listAlready();
+        List<Movie> movieList = movieService.alreadyByScore();
         return new ModelAndView("/user/list", "list", movieList);
     }
 

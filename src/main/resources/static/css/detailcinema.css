@@ -5,6 +5,12 @@
     margin: 0 auto;
     margin-top: 35px;
 }
+.cinamedetailheader2 {
+    width: 1240px;
+    padding-top: 20px;
+    margin: 0 auto;
+    margin-top: 35px;
+}
 .layui-carousel {
     background-color: rgba(225,225,225,0) !important;
 }
@@ -24,22 +30,25 @@
     margin: 7px;
 }
 .lunbobackground {
-    background-image: url("../images/film.jpg");
+    border: 1px solid #eee;
     overflow: hidden;
     background-size: cover;
-    -webkit-filter: blur(15px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px);
-    filter: blur(15px);
+    -webkit-filter: blur(30px);
+    -moz-filter: blur(30px);
+    -o-filter: blur(30px);
+    -ms-filter: blur(30px);
+    filter: blur(30px);
 }
 .endmoyang {
     position: relative;
-    top: -350px;
+    top: -332px;
     height: 0;
     left: 0;
     background: none;
 }
 .lay-blog .container-wrap {
     padding-top: 0;
+}
+.active {
+    border: 1px solid red;
 }

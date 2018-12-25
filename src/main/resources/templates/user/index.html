@@ -19,7 +19,7 @@
                 <p><i class="layui-icon layui-icon-speaker"></i>通知：<span>一大波电影正在热映中</span></p>
                 <a th:href="@{/movie/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
             </h4>
-            <div class="item">
+            <div class="item stylebox">
                 <div class="filmbox" th:each="movies:${already}">
                     <div class="filmblock">
                         <img th:src="${movies.getPhoto()}" alt="">
@@ -30,6 +30,7 @@
                     </div>
                     <div class="buyfilm">购票</div>
                 </div>
+
             </div>
 
             <!--即将上映-->
@@ -37,7 +38,7 @@
                 <p><i class="layui-icon layui-icon-release" style="color: #2d98f3;"></i><span>一大波电影即将到来</span></p>
                 <a th:href="@{/movie/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
             </h4>
-            <div class="item">
+            <div class="item stylebox">
                 <div class="filmbox" th:each="movies:${notReleased}">
                     <div class="filmblock">
                         <img th:src="${movies.getPhoto()}" alt="">
@@ -72,26 +73,38 @@
             </div>
             <!--当前票房-->
             <h4 class="item-title filmheader">
-                <p><span>今日票房</span></p>
+                <p><span>今日票房(总票房)</span></p>
                 <a th:href="@{/movie/tolist}">今日榜单<i class="layui-icon layui-icon-right"></i></a>
             </h4>
 
             <div class="item">
-                <div class="filmlistfirstbox">
-                    <img src="../../static/images/haiwang.jpg" alt="">
-                    <div class="filmlistfirst">
-                        <h6>海王</h6>
-                        <span>2033.29万</span>
+                <!--第一-->
+                <div class="filmlistfirstbox" th:each="list:${boxOffice}">
+                    <img src="../../static/images/haiwang.jpg" th:src="${list.getPhoto()}" width="120" alt="" th:if="${listStat.count== 1}">
+                    <div class="filmlistfirst" th:if="${listStat.count== 1}">
+                        <h6>[[${list.getName()}]]</h6>
+                        <span>[[${list.getBoxOffice()}]]万</span>
                     </div>
                 </div>
-                <div class="filmlistlistbox beforethree">
+                <!--第二三-->
+                <div class="filmlistlistbox beforethree" th:each="list:${boxOffice}"
+                     th:if="${listStat.count == 2} or  ${listStat.count == 3}">
                     <div>
-                        <span>1</span>
-                        <span>龙猫</span>
+                        <span>[[${listStat.count}]]</span>
+                        <span>[[${list.getName()}]]</span>
                     </div>
-                    <span>394.65万</span>
+                    <span>[[${list.getBoxOffice()}]]万</span>
                 </div>
-                <div class="filmlistlistbox beforethree">
+                <!--第三开外的-->
+                <div class="filmlistlistbox " th:each="list:${boxOffice}" th:if="${listStat.count > 3}">
+                    <div>
+                        <span>[[${listStat.count}]]</span>
+                        <span>[[${list.getName()}]]</span>
+                    </div>
+                    <span>[[${list.getBoxOffice()}]]万</span>
+                </div>
+                <hr>
+                <!--<div class="filmlistlistbox beforethree">
                     <div>
                         <span>2</span>
                         <span>龙猫</span>
@@ -111,7 +124,7 @@
                         <span>龙猫</span>
                     </div>
                     <span>394.65万</span>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

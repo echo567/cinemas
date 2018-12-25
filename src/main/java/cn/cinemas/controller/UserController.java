@@ -38,8 +38,6 @@ public class UserController {
     private ICinemaDao cinemaDao;
 
 
-
-
     @GetMapping("/")
     public ModelAndView login() {
         return new ModelAndView("login");
@@ -53,13 +51,18 @@ public class UserController {
 
     @GetMapping("/toindex")
     public ModelAndView toIndex(Model model) {
-        List<Movie> alreadyReleased = movieDao.alreadyReleased();
+        List<Movie> alreadyByScore = movieDao.alreadyByScore();
         List<Movie> notReleased = movieDao.notReleased();
         List<Cinema> hotCinemas = cinemaDao.getTwoCinemas();
+        List<Movie> all = movieDao.selectAllMovieByDate();
+        List<Movie> alreadyByBoxOffice = movieDao.alreadyByBoxOffice();
 
-        model.addAttribute("already", alreadyReleased);
+
+        model.addAttribute("already", alreadyByScore);
         model.addAttribute("notReleased", notReleased);
         model.addAttribute("hotCinemas", hotCinemas);
+        model.addAttribute("all", all);
+        model.addAttribute("boxOffice", alreadyByBoxOffice);
 
         return new ModelAndView("/user/index");
     }

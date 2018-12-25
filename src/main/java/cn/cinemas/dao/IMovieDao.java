@@ -44,14 +44,20 @@ public interface IMovieDao {
     public List<Movie> selectAllMovieByDate();
 
     /*
-    已上映的电影
+    已上映的电影(评分从高到低)
      */
-    @Select("select * from tb_movie where date < now() order by date")
-    public List<Movie> alreadyReleased();
+    @Select("select * from tb_movie where date < now() order by score desc")
+    public List<Movie> alreadyByScore();
 
     /*
     未上映的电影
     */
     @Select("select * from tb_movie where date > now()")
     public List<Movie> notReleased();
+
+    /*
+    已上映的电影(评分从高到低)
+     */
+    @Select("select * from tb_movie where date < now() order by boxOffice desc")
+    public List<Movie> alreadyByBoxOffice();
 }

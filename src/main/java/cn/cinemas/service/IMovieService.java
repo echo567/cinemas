@@ -19,7 +19,13 @@ public interface IMovieService {
     public List<Movie> listByDate();
 
     /*
-    查询所有以上已上映的电影
+    查询所有已上映的电影(按评分从高到低)
      */
-    public List<Movie> listAlready();
+    public List<Movie> alreadyByScore();
+
+    /*
+    查询所有已上映电影(按票房从高到低)
+     */
+    public List<Movie> alreadyByBoxOffice();
+
 }

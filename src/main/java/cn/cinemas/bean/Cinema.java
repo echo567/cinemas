@@ -15,6 +15,7 @@ public class Cinema {
     private String phone;
     private Date createTime;
     private Date updateTime;
+    private String note;
 
     public Cinema() {
     }
@@ -83,6 +84,15 @@ public class Cinema {
         this.updateTime = updateTime;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+
     @Override
     public String toString() {
         return "Cinema{" +
@@ -93,6 +103,7 @@ public class Cinema {
                 ", phone='" + phone + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", note='" + note + '\'' +
                 '}';
     }
 }

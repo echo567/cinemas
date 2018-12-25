@@ -51,13 +51,23 @@ public class MovieDaoImpl implements IMovieDao {
         return movieDao.selectAllMovieByDate();
     }
 
-    @Override
+    /*@Override
     public List<Movie> alreadyReleased() {
         return movieDao.alreadyReleased();
-    }
+    }*/
 
     @Override
     public List<Movie> notReleased() {
         return movieDao.notReleased();
+    }
+
+    @Override
+    public List<Movie> alreadyByScore() {
+        return movieDao.alreadyByScore();
+    }
+
+    @Override
+    public List<Movie> alreadyByBoxOffice() {
+        return movieDao.alreadyByBoxOffice();
     }
 }

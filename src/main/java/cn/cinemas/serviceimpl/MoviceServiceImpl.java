@@ -29,11 +29,23 @@ public class MoviceServiceImpl implements IMovieService {
         // return MessageUtil.Succees("movieListByDate");
     }
 
-    @Override
+/*    @Override
     public List<Movie> listAlready() {
         List<Movie> alreadyReleased = movieDao.alreadyReleased();
         //   session.setAttribute("list", movieListByDate);
         return alreadyReleased;
         // return MessageUtil.Succees("movieListByDate");
+    }*/
+
+    @Override
+    public List<Movie> alreadyByScore() {
+        List<Movie> alreadyByScore = movieDao.alreadyByScore();
+        return alreadyByScore;
+    }
+
+    @Override
+    public List<Movie> alreadyByBoxOffice() {
+        List<Movie> alreadyByBoxOffice = movieDao.alreadyByBoxOffice();
+        return alreadyByBoxOffice;
     }
 }

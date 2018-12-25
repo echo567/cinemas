@@ -14,9 +14,6 @@ import java.util.List;
 public interface IUserDao {
 
 
-   /* @Insert("insert into tb_user (email,userName,password) values(#{user.email},#{user.userName},#{user.password})")
-    public Integer insertUser(@Param("user") User user);*/
-
     @InsertProvider(type = UserBatch.class, method = "dynamicInsertUser")
     public Integer insertUser(User user);
 

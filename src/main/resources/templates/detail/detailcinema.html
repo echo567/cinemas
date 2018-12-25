@@ -102,7 +102,7 @@
         </div>
     </div>
 </div>
-<div class="cinamedetailheader endmoyang">
+<div class="cinamedetailheader2 endmoyang">
     <div class="layui-carousel" id="test10">
         <div carousel-item="">
             <div>
@@ -266,15 +266,31 @@
 <!--登录跳转-->
 <div th:replace="user/commons :: login_js"></div>
 <script>
-    layui.use(['carousel','rate'], function(){
+    layui.use(['carousel','rate','jquery'], function(){
         var rate = layui.rate;
-        var carousel = layui.carousel;
+        var carousel = layui.carousel
+            ,$ = layui.jquery;
 
         rate.render({
             elem: '#score'
             ,length: 5
             ,value: 4.1 //初始值
             ,readonly: true
+        });
+
+
+        $(".filmbox").click(function() {
+            // body...
+            console.log(123);
+            var self = $(this);
+            $(".filmbox").removeClass("active");
+           /* self.addClass("active");*/
+            var bool = self.attr("class").indexOf("active");  //判断当前元素的class名是否包含active的class
+            if (bool!=-1) {  // -1表示没有找到匹配的“active”名字的class
+                self.removeClass("active");
+            }else{
+                self.addClass("active");
+            }
         });
 
         //图片轮播

@@ -23,4 +23,19 @@ public class CinemaDaoImpl implements ICinemaDao {
     public List<Cinema> getTwoCinemas() {
         return cinemaDao.getTwoCinemas();
     }
+
+    @Override
+    public Integer insertCinema(Cinema cinema) {
+        return cinemaDao.insertCinema(cinema);
+    }
+
+    @Override
+    public Integer updateCinems(Cinema cinema) {
+        return cinemaDao.updateCinems(cinema);
+    }
+
+    @Override
+    public List<Cinema> fuzzyQuery(String name) {
+        return cinemaDao.fuzzyQuery(name);
+    }
 }
