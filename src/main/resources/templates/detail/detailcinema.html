@@ -107,7 +107,7 @@
         <div carousel-item="">
             <div>
                 <div class="whitebox2">
-                    <div class="filmbox">
+                    <div key = "24252526" class="filmbox">
                         <div class="filmblock">
                             <img src="../../static/images/film.jpg" alt="">
                             <div>
@@ -221,31 +221,26 @@
         <div class="contar-wrap">
             <!--正在热映-->
             <h4 class="item-title filmheader">
-                <p><i class="layui-icon layui-icon-speaker"></i>通知：<span>一大波电影正在热映中</span></p>
-                <a th:href="@{/user/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
+                <p><i class="layui-icon layui-icon-speaker"></i><span>影院提前1分钟停止购票</span></p>
             </h4>
             <div class="item">
+                <div class="singlefilm">
+                    <div class="singlefilmmessage">
+                        <p>21:50</p><span>3D</span><span>11号厅</span><strong>￥45</strong>
+                    </div>
+                    <button class="layui-btn layui-btn-primary">购买</button>
+                </div>
+                <div class="singlefilm">
+                    <div class="singlefilmmessage">
+                        <p>21:50</p><span>3D</span><span>11号厅</span><strong>￥45</strong>
+                    </div>
+                    <button class="layui-btn layui-btn-primary">购买</button>
+                </div>
 
             </div>
 
-            <!--即将上映-->
-            <h4 class="item-title filmheader">
-                <p><i class="layui-icon layui-icon-release" style="color: #2d98f3;"></i><span>一大波电影即将到来</span></p>
-                <a th:href="@{/user/tofilm}">查看更多<i class="layui-icon layui-icon-right"></i></a>
-            </h4>
-            <div class="item">
-
-            </div>
         </div>
         <div class="contar-wrap2">
-            <h4 class="item-title filmheader">
-                <p><span>热门影院</span></p>
-                <a th:href="@{..//user/tocinema}">更多影院<i class="layui-icon layui-icon-right"></i></a>
-            </h4>
-
-            <div class="item">
-
-            </div>
             <!--当前票房-->
             <h4 class="item-title filmheader">
                 <p><span>今日票房</span></p>
@@ -253,7 +248,7 @@
             </h4>
 
             <div class="item">
-                132465
+
             </div>
         </div>
     </div>
@@ -290,6 +285,26 @@
                 self.removeClass("active");
             }else{
                 self.addClass("active");
+                /*console.log(self.attr("key"));*/
+                /*请求得到正在放映某一个电影的影院*/
+                $.ajax({
+                    type: "POST",
+                    url: '/user/login',
+                    data: {
+                        key: self.attr("key")
+                    },
+                    success: function (res) {
+                        console.log(res);
+                        if (res.flag==0) {
+                            console.log("成功啦~~~棒棒哒~~")
+                        }else {
+                            layer.msg("暂无影院播放");
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
             }
         });
 
