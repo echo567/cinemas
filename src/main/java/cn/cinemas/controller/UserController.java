@@ -73,6 +73,11 @@ public class UserController {
         return new ModelAndView("/detail/detailcinema");
     }
 
+    @GetMapping("/detailfilm")
+    public ModelAndView detailfilm() {
+        return new ModelAndView("/detail/detailfilm");
+    }
+
 
     @PostMapping("/register")
     public Message register(User user) {

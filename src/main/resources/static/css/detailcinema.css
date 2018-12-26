@@ -52,3 +52,25 @@
 .active {
     border: 1px solid red;
 }
+
+
+.singlefilm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.singlefilmmessage {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.singlefilmmessage>* {
+    margin-right: 100px;
+}
+.singlefilmmessage>span {
+    font-size: 14px;
+}
+.singlefilmmessage>strong {
+    color: red;
+}
