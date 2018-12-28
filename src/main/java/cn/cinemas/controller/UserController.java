@@ -78,6 +78,18 @@ public class UserController {
         return new ModelAndView("/detail/detailfilm");
     }
 
+    @GetMapping("/index")
+    public ModelAndView index() { return new ModelAndView("/backpage/listPage/index"); }
+
+    @GetMapping("/backindex")
+    public ModelAndView backindex() { return new ModelAndView("/backpage/listPage/index"); }
+
+    @GetMapping("/backoder")
+    public ModelAndView backoder() { return new ModelAndView("/backpage/listPage/backoder"); }
+
+    @GetMapping("/backfilm")
+    public ModelAndView backfilm() { return new ModelAndView("/backpage/listPage/backfilm"); }
+
 
     @PostMapping("/register")
     public Message register(User user) {

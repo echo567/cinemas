@@ -23,7 +23,7 @@
                 <p>蜘蛛侠：平行宇宙</p>
                 <div class="operatebox">
                     <div><div id="score"></div></div>
-                    <span><strong>8.4</strong></span>
+                    <span><strong id="test" key="6">8.4</strong></span>
                 </div>
                 <span>平行宇宙 蜘蛛六侠</span>
                 <span><span>导演：</span>鲍勃·佩尔西凯蒂,彼得·拉姆齐,罗德尼·罗斯曼。
@@ -70,10 +70,12 @@
             });
         });
 
+        var self = this;
+
         rate.render({
             elem: '#score'
             ,length: 5
-            ,value: 4.1 //初始值
+            ,value: $('#test').attr("key")/2 //初始值
             ,readonly: true
         });
 
