@@ -16,8 +16,10 @@
             <h5>影院列表</h5>
             <div class="messagebox" th:each="cinemas:${list}">
                 <div class="textbox">
-                    <h5 th:text="${cinemas.name}">华纳国际影城(辉县店)</h5>
-                    <span th:text="${cinemas.address}">地址：辉县市涌金城市广场三楼（南关十字苏宁电器三楼）</span>
+                    <h5>
+                        <a th:href="@{/cinema/detailcinema(cinemaId=${cinemas.cinemaId})}">[[${cinemas.name}]]</a>
+                    </h5>
+                    <span>[[${cinemas.address}]]</span>
                 </div>
                 <div class="operatebox">
                     <span><strong>[[${cinemas.score}]]</strong>分</span>

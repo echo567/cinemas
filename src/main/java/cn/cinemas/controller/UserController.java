@@ -5,6 +5,8 @@ import cn.cinemas.bean.Movie;
 import cn.cinemas.bean.User;
 import cn.cinemas.dao.ICinemaDao;
 import cn.cinemas.dao.IMovieDao;
+import cn.cinemas.service.ICinemaService;
+import cn.cinemas.service.IMovieService;
 import cn.cinemas.service.IUserService;
 import cn.cinemas.util.Message;
 import cn.cinemas.util.MessageUtil;
@@ -32,10 +34,10 @@ public class UserController {
     private IUserService userService;
 
     @Autowired
-    private IMovieDao movieDao;
+    private IMovieService movieService;
 
     @Autowired
-    private ICinemaDao cinemaDao;
+    private ICinemaService cinemaService;
 
 
     @GetMapping("/")
@@ -51,11 +53,12 @@ public class UserController {
 
     @GetMapping("/toindex")
     public ModelAndView toIndex(Model model) {
-        List<Movie> alreadyByScore = movieDao.alreadyByScore();
-        List<Movie> notReleased = movieDao.notReleased();
-        List<Cinema> hotCinemas = cinemaDao.getTwoCinemas();
-        List<Movie> all = movieDao.selectAllMovieByDate();
-        List<Movie> alreadyByBoxOffice = movieDao.alreadyByBoxOffice();
+        List<Movie> alreadyByScore = movieService.alreadyByScore();
+
+        List<Movie> notReleased = movieService.notReleased();
+        List<Cinema> hotCinemas = cinemaService.getTwoCinemas();
+        List<Movie> all = movieService.listByDate();
+        List<Movie> alreadyByBoxOffice = movieService.alreadyByBoxOffice();
 
 
         model.addAttribute("already", alreadyByScore);
@@ -73,10 +76,11 @@ public class UserController {
         return new ModelAndView("/detail/detailcinema");
     }
 
+    /*转移到 CinemaController下面了
     @GetMapping("/detailfilm")
     public ModelAndView detailfilm() {
         return new ModelAndView("/detail/detailfilm");
-    }
+    }*/
 
     @GetMapping("/index")
     public ModelAndView index() { return new ModelAndView("/backpage/listPage/index"); }

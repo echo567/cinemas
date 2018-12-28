@@ -1,6 +1,7 @@
 package cn.cinemas.service;
 
 import cn.cinemas.bean.Cinema;
+import cn.cinemas.bean.Movie;
 
 import java.util.List;
 
@@ -9,5 +10,23 @@ import java.util.List;
  * 2018-12-20 9:39
  */
 public interface ICinemaService {
+    /*
+    按照评分高低获取所有影院
+     */
     public List<Cinema> getCinemaListByScore();
+
+    /*
+    根据影院id查找影院
+     */
+    public Cinema selectCinemaByCinemaId(Integer cinemaId);
+
+    /*
+    获取评分前两位的影院（主页使用）
+     */
+    public List<Cinema> getTwoCinemas();
+
+    /*
+    查询影院上映的电影
+     */
+    public List<Movie> getMoviesByCinemaId(Integer cinemaId);
 }

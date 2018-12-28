@@ -12,210 +12,66 @@
 </head>
 <body class="lay-blog">
 <!--header-->
-<div th:replace="user/commons :: top(activeUrl='index')"></div>
+<div th:replace="user/commons :: top(activeUrl='cinema')"></div>
 
 <!--主题部分-->
 <div class="cinamedetailheader">
     <div class="messagebox">
         <div class="textbox">
-            <h5>华纳国际影城(辉县店)</h5>
-            <span>地址：辉县市涌金城市广场三楼（南关十字苏宁电器三楼）</span>
+            <h5>[[${cinema.name}]])</h5>
+            <span>地址：[[${cinema.address}]]</span>
+
         </div>
         <div class="operatebox">
-            <div><div id="score"></div></div>
+            <div>
+                <div id="score"></div>
+            </div>
             <span><strong>8.4</strong></span>
         </div>
     </div>
 </div>
 
-<div class="cinamedetailheader lunbobackground">
-    <div class="whitebox2">
-        <div class="filmbox">
-            <div class="filmblock">
-                <img src="../../static/images/film.jpg" alt="">
-                <div>
-                    <span>海王</span>
-                    <strong>9.4</strong>
-                </div>
-            </div>
-            <div class="buyfilm">购票</div>
-        </div>
-        <div class="filmbox">
-            <div class="filmblock">
-                <img src="../../static/images/film.jpg" alt="">
-                <div>
-                    <span>海王</span>
-                    <strong>9.4</strong>
-                </div>
-            </div>
-            <div class="buyfilm">购票</div>
-        </div>
-        <div class="filmbox">
-            <div class="filmblock">
-                <img src="../../static/images/film.jpg" alt="">
-                <div>
-                    <span>海王</span>
-                    <strong>9.4</strong>
-                </div>
-            </div>
-            <div class="buyfilm">购票</div>
-        </div>
-        <div class="filmbox">
-            <div class="filmblock">
-                <img src="../../static/images/film.jpg" alt="">
-                <div>
-                    <span>海王</span>
-                    <strong>9.4</strong>
-                </div>
-            </div>
-            <div class="buyfilm">购票</div>
-        </div>
-        <div class="filmbox">
-            <div class="filmblock">
-                <img src="../../static/images/film.jpg" alt="">
-                <div>
-                    <span>海王</span>
-                    <strong>9.4</strong>
-                </div>
-            </div>
-            <div class="buyfilm">购票</div>
-        </div>
-        <div class="filmbox">
-            <div class="filmblock">
-                <img src="../../static/images/film.jpg" alt="">
-                <div>
-                    <span>海王</span>
-                    <strong>9.4</strong>
-                </div>
-            </div>
-            <div class="buyfilm">购票</div>
-        </div>
-        <div class="filmbox">
-            <div class="filmblock">
-                <img src="../../static/images/film.jpg" alt="">
-                <div>
-                    <span>海王</span>
-                    <strong>9.4</strong>
-                </div>
-            </div>
-            <div class="buyfilm">购票</div>
-        </div>
-    </div>
-</div>
-<div class="cinamedetailheader2 endmoyang">
+
+
+<div class="cinamedetailheader2">
     <div class="layui-carousel" id="test10">
         <div carousel-item="">
             <div>
                 <div class="whitebox2">
-                    <div key = "24252526" class="filmbox">
+                    <div class="filmbox" th:each="movies:${movies}" key="${movie.movieId}"
+                         th:if="${moviesStat.count < 8}">
                         <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
+                            <img src="../../static/images/film.jpg" th:src="${movies.photo}" alt="">
                             <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
+                                <span>[[${movies.name}]]</span>
+                                <strong>[[${movies.score}]]</strong>
                             </div>
                         </div>
-                        <div class="buyfilm">购票</div>
-                    </div>
-                    <div class="filmbox">
-                        <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
-                            <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
-                            </div>
-                        </div>
-                        <div class="buyfilm">购票</div>
-                    </div>
-                    <div class="filmbox">
-                        <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
-                            <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
-                            </div>
-                        </div>
-                        <div class="buyfilm">购票</div>
-                    </div>
-                    <div class="filmbox">
-                        <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
-                            <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
-                            </div>
-                        </div>
-                        <div class="buyfilm">购票</div>
-                    </div>
-                    <div class="filmbox">
-                        <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
-                            <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
-                            </div>
-                        </div>
-                        <div class="buyfilm">购票</div>
-                    </div>
-                    <div class="filmbox">
-                        <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
-                            <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
-                            </div>
-                        </div>
-                        <div class="buyfilm">购票</div>
-                    </div>
-                    <div class="filmbox">
-                        <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
-                            <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
-                            </div>
-                        </div>
-                        <div class="buyfilm">购票</div>
+                        <div class="buyfilm" key="${movies.movieId}">购票</div>
                     </div>
                 </div>
             </div>
             <div>
                 <div class="whitebox2">
                     <div class="filmbox">
-                        <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
+                        <div class="filmblock" th:each="movies:${movies}" key="${movie.movieId}"
+                             th:if="${moviesStat.count > 7} and ${moviesStat.count < 15}">
+                            <img src="../../static/images/film.jpg" th:src="${movies.photo}" alt="">
                             <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
+                                <span>[[${movies.name}]]</span>
+                                <strong>[[${movies.score}]]</strong>
                             </div>
                         </div>
-                        <div class="buyfilm">购票</div>
-                    </div>
-                    <div class="filmbox">
-                        <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
-                            <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
-                            </div>
-                        </div>
-                        <div class="buyfilm">购票</div>
-                    </div>
-                    <div class="filmbox">
-                        <div class="filmblock">
-                            <img src="../../static/images/film.jpg" alt="">
-                            <div>
-                                <span>海王</span>
-                                <strong>9.4</strong>
-                            </div>
-                        </div>
-                        <div class="buyfilm">购票</div>
+                        <div class="buyfilm" key="${movies.movieId}">购票</div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
+
+
 <div class="container-wrap">
     <div class="container">
         <div class="contar-wrap">
@@ -261,29 +117,29 @@
 <!--登录跳转-->
 <div th:replace="user/commons :: login_js"></div>
 <script>
-    layui.use(['carousel','rate','jquery'], function(){
+    layui.use(['carousel', 'rate', 'jquery'], function () {
         var rate = layui.rate;
         var carousel = layui.carousel
-            ,$ = layui.jquery;
+            , $ = layui.jquery;
 
         rate.render({
             elem: '#score'
-            ,length: 5
-            ,value: 4.1 //初始值
-            ,readonly: true
+            , length: 5
+            , value: 4.1 //初始值
+            , readonly: true
         });
 
 
-        $(".filmbox").click(function() {
+        $(".filmbox").click(function () {
             // body...
             console.log(123);
             var self = $(this);
             $(".filmbox").removeClass("active");
-           /* self.addClass("active");*/
+            /* self.addClass("active");*/
             var bool = self.attr("class").indexOf("active");  //判断当前元素的class名是否包含active的class
-            if (bool!=-1) {  // -1表示没有找到匹配的“active”名字的class
+            if (bool != -1) {  // -1表示没有找到匹配的“active”名字的class
                 self.removeClass("active");
-            }else{
+            } else {
                 self.addClass("active");
                 /*console.log(self.attr("key"));*/
                 /*请求得到正在放映某一个电影的影院*/
@@ -295,9 +151,9 @@
                     },
                     success: function (res) {
                         console.log(res);
-                        if (res.flag==0) {
+                        if (res.flag == 0) {
                             console.log("成功啦~~~棒棒哒~~")
-                        }else {
+                        } else {
                             layer.msg("暂无影院播放");
                         }
                     },
@@ -311,9 +167,9 @@
         //图片轮播
         carousel.render({
             elem: '#test10'
-            ,width: '100%'
-            ,height: '270px'
-            ,interval: 10000
+            , width: '100%'
+            , height: '270px'
+            , interval: 10000
         });
     });
 </script>
