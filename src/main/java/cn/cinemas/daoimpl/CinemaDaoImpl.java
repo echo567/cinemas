@@ -38,4 +38,9 @@ public class CinemaDaoImpl implements ICinemaDao {
     public List<Cinema> fuzzyQuery(String name) {
         return cinemaDao.fuzzyQuery(name);
     }
+
+    @Override
+    public Cinema selectCinemaByCinemaId(Integer cinemaId) {
+        return cinemaDao.selectCinemaByCinemaId(cinemaId);
+    }
 }

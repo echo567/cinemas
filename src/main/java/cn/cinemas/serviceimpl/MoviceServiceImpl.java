@@ -48,4 +48,9 @@ public class MoviceServiceImpl implements IMovieService {
         List<Movie> alreadyByBoxOffice = movieDao.alreadyByBoxOffice();
         return alreadyByBoxOffice;
     }
+
+    @Override
+    public List<Movie> notReleased() {
+        return movieDao.notReleased();
+    }
 }

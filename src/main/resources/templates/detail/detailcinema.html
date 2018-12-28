@@ -12,14 +12,14 @@
 </head>
 <body class="lay-blog">
 <!--header-->
-<div th:replace="user/commons :: top(activeUrl='index')"></div>
+<div th:replace="user/commons :: top(activeUrl='cinema')"></div>
 
 <!--主题部分-->
 <div class="cinamedetailheader">
     <div class="messagebox">
         <div class="textbox">
-            <h5>华纳国际影城(辉县店)</h5>
-            <span>地址：辉县市涌金城市广场三楼（南关十字苏宁电器三楼）</span>
+            <h5>[[${cinema.name}]])</h5>
+            <span>地址：[[${cinema.address}]]</span>
         </div>
         <div class="operatebox">
             <div><div id="score"></div></div>

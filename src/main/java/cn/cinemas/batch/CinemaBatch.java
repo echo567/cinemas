@@ -1,9 +1,12 @@
 package cn.cinemas.batch;
 
 import cn.cinemas.bean.Cinema;
+import cn.cinemas.bean.Movie;
 import org.apache.ibatis.jdbc.SQL;
 import sun.awt.SunHints;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -58,5 +61,11 @@ public class CinemaBatch {
             }
             WHERE("cinemaId = #{cinemaId}");
         }}.toString();
+    }
+
+    public List<Movie> selectMovies(Integer cinemaId) {
+        List<Movie> list = new ArrayList<>();
+
+        return list;
     }
 }

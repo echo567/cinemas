@@ -43,4 +43,15 @@ public interface ICinemaDao {
      */
     @Select("select * from tb_cinema where LOCATE(#{name},name);")
     public List<Cinema> fuzzyQuery(@Param("name") String name);
+
+    /*
+    根据影院id查询影院
+     */
+    @Select("select * from tb_cinema where cinemaId = #{cinemaId}")
+    public Cinema selectCinemaByCinemaId(Integer cinemaId);
+
+    /*
+    查询影院上映的电影
+     */
+    @Select("")
 }

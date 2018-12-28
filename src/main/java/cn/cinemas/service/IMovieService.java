@@ -28,4 +28,9 @@ public interface IMovieService {
      */
     public List<Movie> alreadyByBoxOffice();
 
+    /*
+    未上映的电影
+     */
+    public List<Movie> notReleased();
+
 }

@@ -4,7 +4,7 @@ spring:
     url: jdbc:mysql://localhost:3306/cinemasonline?serverTimezone=GMT%2B8
     #url: jdbc:mysql://144.202.59.194:3306/cinemasonline?useSSL=false&serverTimezone=GMT%2B8
     username: root
-    password: 123456
+    password: root
 
 
   thymeleaf:

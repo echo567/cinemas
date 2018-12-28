@@ -21,4 +21,14 @@ public class CinemaServiceImpl implements ICinemaService {
     public List<Cinema> getCinemaListByScore() {
         return cinemaDao.getAllCinemaByScore();
     }
+
+    @Override
+    public Cinema selectCinemaByCinemaId(Integer cinemaId) {
+        return cinemaDao.selectCinemaByCinemaId(cinemaId);
+    }
+
+    @Override
+    public List<Cinema> getTwoCinemas() {
+        return cinemaDao.getTwoCinemas();
+    }
 }
