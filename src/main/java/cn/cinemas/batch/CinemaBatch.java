@@ -63,9 +63,9 @@ public class CinemaBatch {
         }}.toString();
     }
 
-    public List<Movie> selectMovies(Integer cinemaId) {
+/*    public List<Movie> selectMovies(Integer cinemaId) {
         List<Movie> list = new ArrayList<>();
 
         return list;
-    }
+    }*/
 }

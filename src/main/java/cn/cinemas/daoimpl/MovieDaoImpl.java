@@ -37,6 +37,11 @@ public class MovieDaoImpl implements IMovieDao {
     }
 
     @Override
+    public Movie selectMovieById(Integer movieId) {
+        return movieDao.selectMovieById(movieId);
+    }
+
+    @Override
     public List<Movie> selectAllMovieByPrice() {
         return movieDao.selectAllMovieByPrice();
     }

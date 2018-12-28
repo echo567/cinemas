@@ -25,6 +25,9 @@ public interface IMovieDao {
     @Select("select * from tb_movie where name = #{name}")
     public Movie selectMovieByName(String name);
 
+    @Select("select * from tb_movie where movieId = #{movieId}")
+    public Movie selectMovieById(Integer movieId);
+
     /*
     按照票价从低到高排序
      */

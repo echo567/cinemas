@@ -2,6 +2,7 @@ package cn.cinemas.dao;
 
 import cn.cinemas.batch.CinemaBatch;
 import cn.cinemas.bean.Cinema;
+import cn.cinemas.bean.Movie;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -51,7 +52,11 @@ public interface ICinemaDao {
     public Cinema selectCinemaByCinemaId(Integer cinemaId);
 
     /*
-    查询影院上映的电影
+    查询影院上映的电影id
      */
-    @Select("")
+    @Select("select note from tb_cinema where cinemaId = #{cinemaId}")
+    public String selectNoteByCinemaId(Integer cinemaId);
+
+//    public List<Movie> selectMoviesByNote(@Param("cinemaId") Integer cinemaId);
+
 }

@@ -1,6 +1,7 @@
 package cn.cinemas.service;
 
 import cn.cinemas.bean.Cinema;
+import cn.cinemas.bean.Movie;
 
 import java.util.List;
 
@@ -23,4 +24,9 @@ public interface ICinemaService {
     获取评分前两位的影院（主页使用）
      */
     public List<Cinema> getTwoCinemas();
+
+    /*
+    查询影院上映的电影
+     */
+    public List<Movie> getMoviesByCinemaId(Integer cinemaId);
 }

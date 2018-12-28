@@ -1,6 +1,7 @@
 package cn.cinemas.controller;
 
 import cn.cinemas.bean.Cinema;
+import cn.cinemas.bean.Movie;
 import cn.cinemas.dao.ICinemaDao;
 import cn.cinemas.service.ICinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,6 @@ public class CinemaController {
     private ICinemaService cinemaService;
 
 
-
-
     /*
     跳转到影院界面
      */
@@ -45,7 +44,9 @@ public class CinemaController {
     public ModelAndView detailcinema(@RequestParam("cinemaId") Integer cinemaId, Model model) {
         System.out.println("影院id" + cinemaId);
         Cinema cinema = cinemaService.selectCinemaByCinemaId(cinemaId);
+        List<Movie> moviesList = cinemaService.getMoviesByCinemaId(cinemaId);
         model.addAttribute("cinema", cinema);
+        model.addAttribute("movies", moviesList);
         return new ModelAndView("/detail/detailcinema");
     }
 
