@@ -7,7 +7,8 @@ package cn.cinemas.util;
 public class Message<T> {
     private String msg;
     private Integer code;
-    private Object date;
+    private Integer count;
+    private Object data;
 /*
     private final static Integer SUCCCESS = 0;
     private final static Integer Fail = 1;*/
@@ -20,10 +21,17 @@ public class Message<T> {
         this.code = code;
     }
 
-    public Message(String msg, Integer code, Object date) {
+    public Message(String msg, Integer code, Object data) {
         this.msg = msg;
         this.code = code;
-        this.date = date;
+        this.data = data;
+    }
+
+    public Message(String msg, Integer code, Integer count, Object data) {
+        this.msg = msg;
+        this.code = code;
+        this.count = count;
+        this.data = data;
     }
 
     public String getMsg() {
@@ -42,12 +50,20 @@ public class Message<T> {
         this.code = code;
     }
 
-    public Object getDate() {
-        return date;
+    public Integer getCount() {
+        return count;
     }
 
-    public void setDate(Object date) {
-        this.date = date;
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
     }
 
     @Override
@@ -55,7 +71,8 @@ public class Message<T> {
         return "Message{" +
                 "msg='" + msg + '\'' +
                 ", code=" + code +
-                ", date=" + date +
+                ", count=" + count +
+                ", data=" + data +
                 '}';
     }
     /* public Message(String msg, Integer flag) {

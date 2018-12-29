@@ -23,7 +23,7 @@ public class MessageUtil {
     public static Message<Object> objectMessageSuccess(Object o, String str) {
         Message<Object> message = new Message();
         message.setCode(0);
-        message.setDate(o);
+        message.setData(o);
         message.setMsg(str);
         return message;
     }
@@ -31,7 +31,25 @@ public class MessageUtil {
     public static Message<Object> objectMessageFail(Object o, String str) {
         Message<Object> message = new Message();
         message.setCode(1);
-        message.setDate(o);
+        message.setData(o);
+        message.setMsg(str);
+        return message;
+    }
+
+    public static Message<Object> objectMessageCountSuccess(Object o, Integer count,String str) {
+        Message<Object> message = new Message();
+        message.setCode(0);
+        message.setData(o);
+        message.setCount(count);
+        message.setMsg(str);
+        return message;
+    }
+
+    public static Message<Object> objectMessageCountFail(Object o,Integer count, String str) {
+        Message<Object> message = new Message();
+        message.setCode(1);
+        message.setData(o);
+        message.setCount(count);
         message.setMsg(str);
         return message;
     }

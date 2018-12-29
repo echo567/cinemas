@@ -61,6 +61,6 @@ public class MoviceServiceImpl implements IMovieService {
 
     public Message getAllMoviesToJson() {
         List<Movie> movieList = movieDao.selectAllMovieByDate();
-        return MessageUtil.objectMessageFail(movieList, "成功");
+        return MessageUtil.objectMessageCountSuccess(movieList, movieList.size(), "数据查询成功");
     }
 }

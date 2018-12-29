@@ -18,8 +18,7 @@
             </h4>
             <h4 class="item-title">
 
-                <p>榜单规则：<span>将昨日国内热映的电影，按照评分从高到低排列取前5名，数据来源于“猫眼电影库”
-                [[${moviesJson}]]</span></p>
+                <p>榜单规则：<span>将昨日国内热映的电影，按照评分从高到低排列取前5名，数据来源于“猫眼电影库”</span></p>
             </h4>
             <div class="whitebox">
                 <div class="listmessagebox" th:each="movies:${list}">
@@ -51,8 +50,6 @@
 <script src="../../static/layui/layui.js"></script>
 <!--登录跳转-->
 <div th:replace="user/commons :: login_js"></div>
-<script>
-    console.log(${moviesJson});
-</script>
+
 </body>
 </html>

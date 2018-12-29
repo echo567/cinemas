@@ -32,10 +32,9 @@ public class MovieController {
     }
 
     @GetMapping("/tolist")
-    public ModelAndView toList(Model model) {
+    public ModelAndView toList() {
         List<Movie> movieList = movieService.alreadyByScore();
-        Message msg = movieService.getAllMoviesToJson();
-        model.addAttribute("moviesJson", msg);
+
         return new ModelAndView("/user/list", "list", movieList);
     }
 
