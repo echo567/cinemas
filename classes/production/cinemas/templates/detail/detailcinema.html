@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>影院在线</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../../static/css/mian.css">
+    <link rel="stylesheet" href="../../static/css/cinema.css">
+    <link rel="stylesheet" href="../../static/css/detailcinema.css">
+    <link rel="stylesheet" href="../../static/css/film.css">
+</head>
+<body class="lay-blog">
+<!--header-->
+<div th:replace="user/commons :: top(activeUrl='cinema')"></div>
+
+<!--主题部分-->
+<div class="cinamedetailheader">
+    <div class="messagebox">
+        <div class="textbox">
+            <h5>[[${cinema.name}]])</h5>
+            <span>地址：[[${cinema.address}]]</span>
+
+        </div>
+        <div class="operatebox">
+            <div>
+                <div id="score"></div>
+            </div>
+            <span><strong>8.4</strong></span>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="cinamedetailheader2">
+    <div class="layui-carousel" id="test10">
+        <div carousel-item="">
+            <div>
+                <div class="whitebox2">
+                    <div class="filmbox" th:each="movies:${movies}" key="${movie.movieId}"
+                         th:if="${moviesStat.count < 8}">
+                        <div class="filmblock">
+                            <img src="../../static/images/film.jpg" th:src="${movies.photo}" alt="">
+                            <div>
+                                <span>[[${movies.name}]]</span>
+                                <strong>[[${movies.score}]]</strong>
+                            </div>
+                        </div>
+                        <div class="buyfilm" key="${movies.movieId}">购票</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="whitebox2">
+                    <div class="filmbox">
+                        <div class="filmblock" th:each="movies:${movies}" key="${movie.movieId}"
+                             th:if="${moviesStat.count > 7} and ${moviesStat.count < 15}">
+                            <img src="../../static/images/film.jpg" th:src="${movies.photo}" alt="">
+                            <div>
+                                <span>[[${movies.name}]]</span>
+                                <strong>[[${movies.score}]]</strong>
+                            </div>
+                        </div>
+                        <div class="buyfilm" key="${movies.movieId}">购票</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container-wrap">
+    <div class="container">
+        <div class="contar-wrap">
+            <!--正在热映-->
+            <h4 class="item-title filmheader">
+                <p><i class="layui-icon layui-icon-speaker"></i><span>影院提前1分钟停止购票</span></p>
+            </h4>
+            <div class="item">
+                <div class="singlefilm">
+                    <div class="singlefilmmessage">
+                        <p>21:50</p><span>3D</span><span>11号厅</span><strong>￥45</strong>
+                    </div>
+                    <button class="layui-btn layui-btn-primary">购买</button>
+                </div>
+                <div class="singlefilm">
+                    <div class="singlefilmmessage">
+                        <p>21:50</p><span>3D</span><span>11号厅</span><strong>￥45</strong>
+                    </div>
+                    <button class="layui-btn layui-btn-primary">购买</button>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="contar-wrap2">
+            <!--当前票房-->
+            <h4 class="item-title filmheader">
+                <p><span>今日票房</span></p>
+                <a th:href="@{/user/tolist}">今日榜单<i class="layui-icon layui-icon-right"></i></a>
+            </h4>
+
+            <div class="item">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--footer-->
+<div th:replace="user/commons :: footer"></div>
+<script src="../../static/layui/layui.js"></script>
+<!--登录跳转-->
+<div th:replace="user/commons :: login_js"></div>
+<script>
+    layui.use(['carousel', 'rate', 'jquery'], function () {
+        var rate = layui.rate;
+        var carousel = layui.carousel
+            , $ = layui.jquery;
+
+        rate.render({
+            elem: '#score'
+            , length: 5
+            , value: 4.1 //初始值
+            , readonly: true
+        });
+
+
+        $(".filmbox").click(function () {
+            // body...
+            console.log(123);
+            var self = $(this);
+            $(".filmbox").removeClass("active");
+            /* self.addClass("active");*/
+            var bool = self.attr("class").indexOf("active");  //判断当前元素的class名是否包含active的class
+            if (bool != -1) {  // -1表示没有找到匹配的“active”名字的class
+                self.removeClass("active");
+            } else {
+                self.addClass("active");
+                /*console.log(self.attr("key"));*/
+                /*请求得到正在放映某一个电影的影院*/
+                $.ajax({
+                    type: "POST",
+                    url: '/user/login',
+                    data: {
+                        key: self.attr("key")
+                    },
+                    success: function (res) {
+                        console.log(res);
+                        if (res.flag == 0) {
+                            console.log("成功啦~~~棒棒哒~~")
+                        } else {
+                            layer.msg("暂无影院播放");
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            }
+        });
+
+        //图片轮播
+        carousel.render({
+            elem: '#test10'
+            , width: '100%'
+            , height: '270px'
+            , interval: 10000
+        });
+    });
+</script>
+</body>
+</html>
