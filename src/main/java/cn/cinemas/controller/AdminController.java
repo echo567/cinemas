@@ -19,4 +19,6 @@ public class AdminController {
     public ModelAndView toIndex() {
         return new ModelAndView("index");
     }
+
+
 }
