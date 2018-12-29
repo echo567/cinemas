@@ -19,7 +19,7 @@
 .filmblock {
 	position: relative;
 }
-.filmblock>img {
+.filmblock>a>img {
 	width: 100%;
 	max-height: 220px;
 }

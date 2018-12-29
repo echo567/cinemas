@@ -32,7 +32,6 @@
 </div>
 
 
-
 <div class="cinamedetailheader2">
     <div class="layui-carousel" id="test10">
         <div carousel-item="">
@@ -41,7 +40,7 @@
                     <div class="filmbox" th:each="movies:${movies}" key="${movie.movieId}"
                          th:if="${moviesStat.count < 8}">
                         <div class="filmblock">
-                            <img src="../../static/images/film.jpg" th:src="${movies.photo}" alt="">
+                            <img th:src="${movies.photo}" alt="">
                             <div>
                                 <span>[[${movies.name}]]</span>
                                 <strong>[[${movies.score}]]</strong>

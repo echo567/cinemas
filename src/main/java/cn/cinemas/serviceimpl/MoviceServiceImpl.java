@@ -53,4 +53,9 @@ public class MoviceServiceImpl implements IMovieService {
     public List<Movie> notReleased() {
         return movieDao.notReleased();
     }
+
+    @Override
+    public Movie selectMovieByMovieId(Integer movieId) {
+        return movieDao.selectMovieById(movieId);
+    }
 }

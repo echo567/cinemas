@@ -5,6 +5,7 @@ import cn.cinemas.bean.Movie;
 import cn.cinemas.dao.IMovieDao;
 import cn.cinemas.service.IMovieService;
 import cn.cinemas.util.Message;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,4 +41,13 @@ public class MovieController {
         List<Movie> movieList = movieService.listByDate();
         return new ModelAndView("/user/film", "list", movieList);
     }
+
+    @GetMapping("/detailfilm")
+    public ModelAndView detailfilm(@Param("movieId") int movieId) {
+        System.out.println("电影id" + movieId);
+        Movie movie = movieService.selectMovieByMovieId(movieId);
+        return new ModelAndView("/detail/detailfilm", "movie", movie);
+
+    }
+
 }

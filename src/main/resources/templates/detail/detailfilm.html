@@ -18,12 +18,29 @@
     <!--主题部分-->
     <div class="cinamedetailheader">
         <div class="messagebox">
-            <img src="../../static/images/film.jpg" alt="">
+            <img th:src="${movie.photo}"  alt="">
+            <div class="singlefilmbox">
+                <p>[[${movie.name}]]</p>
+                <div class="operatebox">
+                    <div><div id="score"></div></div>
+                    <span><strong>[[${movie.score}]]</strong></span>
+                </div>
+                <span>平行宇宙 蜘蛛六侠</span>
+                <span><span>导演：</span>[[${movie.director}]]
+                    <span>主演：</span>[[${movie.starring}]]</span>
+                <span>[[${movie.language}]] | [[${movie.duration}]]    [[${#dates.format(movie.date,'yyyy-MM-dd')}]] 上映</span>
+                <span><span>剧情：</span>[[${movie.introduction}]]</span>
+                <i class="layui-icon layui-icon-down" id="message"></i><br/>
+                <button class="layui-btn layui-btn-primary">想看</button>
+            </div>
+        </div>
+       <!-- <div class="messagebox">
+            <img src="../../static/images/film.jpg"  alt="">
             <div class="singlefilmbox">
                 <p>蜘蛛侠：平行宇宙</p>
                 <div class="operatebox">
                     <div><div id="score"></div></div>
-                    <span><strong id="test" key="6">8.4</strong></span>
+                    <span><strong>8.4</strong></span>
                 </div>
                 <span>平行宇宙 蜘蛛六侠</span>
                 <span><span>导演：</span>鲍勃·佩尔西凯蒂,彼得·拉姆齐,罗德尼·罗斯曼。
@@ -35,14 +52,11 @@
                 <i class="layui-icon layui-icon-down" id="message"></i><br/>
                 <button class="layui-btn layui-btn-primary">想看</button>
             </div>
-        </div>
+        </div>-->
     </div>
 
     <div id="tong" class="messagetips">
-        <span>剧情：</span>蜘蛛侠不止一个！漫威首部超英动画巨制《蜘蛛侠：平行宇宙》将经典漫画与CGI技术完美呈现，
-        讲述了普通高中生迈尔斯·莫拉斯如何师从蜘蛛侠彼得·帕克，成长为新一代超级英雄的故事。
-        影片中迈尔斯和从其它平行宇宙中穿越而来的彼得、 女蜘蛛侠格温、暗影蜘蛛侠、潘妮·帕克和蜘蛛侠集结成团，
-        六位蜘蛛侠首次同框大银幕，对抗蜘蛛侠宇宙最强反派。
+        <span>剧情：</span>[[${movie.introduction}]]
     </div>
 
 
@@ -70,12 +84,10 @@
             });
         });
 
-        var self = this;
-
         rate.render({
             elem: '#score'
-            ,length: 5
-            ,value: $('#test').attr("key")/2 //初始值
+            ,length: 10
+            ,value: 8 //初始值
             ,readonly: true
         });
 

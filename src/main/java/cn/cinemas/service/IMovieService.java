@@ -33,4 +33,9 @@ public interface IMovieService {
      */
     public List<Movie> notReleased();
 
+    /*
+    根据电影id查询电影
+     */
+    public Movie selectMovieByMovieId(Integer movieId);
+
 }
