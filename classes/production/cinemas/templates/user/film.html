@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>影院在线</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../../static/css/mian.css">
+    <link rel="stylesheet" href="../../static/css/film.css">
+</head>
+<body class="lay-blog">
+<div th:replace="user/commons :: top(activeUrl='film')"></div>
+<div class="container-wrap">
+    <div class="container">
+        <div class="whitebox">
+            <div class="filmbox" th:each="films:${list}">
+                <div class="filmblock" >
+                    <img src="../../static/images/film.jpg" th:src="${films.getPhoto()}" alt="">
+                    <div>
+                        <span>[[${films.getName()}]]</span>
+                        <strong>[[${films.getScore()}]]</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>
+            <!--<div class="filmbox">
+                <div class="filmblock">
+                    <img src="../../static/images/film.jpg" alt="">
+                    <div>
+                        <span>海王</span>
+                        <strong>9.4</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>
+            <div class="filmbox">
+                <div class="filmblock">
+                    <img src="../../static/images/film.jpg" alt="">
+                    <div>
+                        <span>海王</span>
+                        <strong>9.4</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>
+            <div class="filmbox">
+                <div class="filmblock">
+                    <img src="../../static/images/film.jpg" alt="">
+                    <div>
+                        <span>海王</span>
+                        <strong>9.4</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>
+            <div class="filmbox">
+                <div class="filmblock">
+                    <img src="../../static/images/film.jpg" alt="">
+                    <div>
+                        <span>海王</span>
+                        <strong>9.4</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>
+            <div class="filmbox">
+                <div class="filmblock">
+                    <img src="../../static/images/film.jpg" alt="">
+                    <div>
+                        <span>海王</span>
+                        <strong>9.4</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>
+            <div class="filmbox">
+                <div class="filmblock">
+                    <img src="../../static/images/film.jpg" alt="">
+                    <div>
+                        <span>海王</span>
+                        <strong>9.4</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>
+            <div class="filmbox">
+                <div class="filmblock">
+                    <img src="../../static/images/film.jpg" alt="">
+                    <div>
+                        <span>海王</span>
+                        <strong>9.4</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>
+            <div class="filmbox">
+                <div class="filmblock">
+                    <img src="../../static/images/film.jpg" alt="">
+                    <div>
+                        <span>海王</span>
+                        <strong>9.4</strong>
+                    </div>
+                </div>
+                <div class="buyfilm">购票</div>
+            </div>-->
+        </div>
+    </div>
+</div>
+<div th:replace="user/commons :: footer"></div>
+<script src="../../static/layui/layui.js"></script>
+<!--登录跳转-->
+<div th:replace="user/commons :: login_js"></div>
+</body>
+</html>

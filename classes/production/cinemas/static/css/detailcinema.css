@@ -1,0 +1,76 @@
+.cinamedetailheader {
+    background-color: #fff;
+    width: 1240px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+.cinamedetailheader2 {
+    width: 1240px;
+    padding-top: 20px;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+.layui-carousel {
+    background-color: rgba(225,225,225,0) !important;
+}
+.layui-carousel>[carousel-item]>* {
+    background-color: rgba(225,225,225,0) !important;
+}
+.layui-carousel-ind {
+    display: none;
+}
+.whitebox2 {
+    width: 1280px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.whitebox2 .filmbox {
+    margin: 7px;
+}
+.lunbobackground {
+    border: 1px solid #eee;
+    overflow: hidden;
+    background-size: cover;
+    -webkit-filter: blur(30px);
+    -moz-filter: blur(30px);
+    -o-filter: blur(30px);
+    -ms-filter: blur(30px);
+    filter: blur(30px);
+}
+.endmoyang {
+    position: relative;
+    top: -332px;
+    height: 0;
+    left: 0;
+    background: none;
+}
+.lay-blog .container-wrap {
+    padding-top: 0;
+}
+.active {
+    border: 1px solid red;
+}
+
+
+.singlefilm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.singlefilmmessage {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.singlefilmmessage>* {
+    margin-right: 100px;
+}
+.singlefilmmessage>span {
+    font-size: 14px;
+}
+.singlefilmmessage>strong {
+    color: red;
+}
