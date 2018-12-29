@@ -17,7 +17,9 @@
                 <p><i class="layui-icon layui-icon-speaker"></i>更新：<span>2018-12-19日已更新</span></p>
             </h4>
             <h4 class="item-title">
-                <p>榜单规则：<span>将昨日国内热映的电影，按照评分从高到低排列取前5名，数据来源于“猫眼电影库”</span></p>
+
+                <p>榜单规则：<span>将昨日国内热映的电影，按照评分从高到低排列取前5名，数据来源于“猫眼电影库”
+                [[${moviesJson}]]</span></p>
             </h4>
             <div class="whitebox">
                 <div class="listmessagebox" th:each="movies:${list}">
@@ -26,10 +28,14 @@
                         <span th:if="${moviesStat.count != 1}"
                               th:text="${moviesStat.count != 1} ? ${moviesStat.count} : '' "
                         ></span>
-                        <img th:src="${movies.getPhoto()}"
-                             width="160" alt="">
+                        <a th:href="@{/movie/detailfilm(movieId=${movies.movieId})}">
+                            <img th:src="${movies.getPhoto()}"
+                                 width="160" alt="">
+                        </a>
                         <div class="textbox">
-                            <h5>[[${movies.getName()}]]</h5>
+                            <a th:href="@{/movie/detailfilm(movieId=${movies.movieId})}">
+                                <h5>[[${movies.getName()}]]</h5>
+                            </a>
                             <p>主演:[[${movies.getStarring()}]]</p>
                             <strong>上映时间：[[${#dates.format(movies.getDate(),'yyyy-MM-dd')}]]</strong>
                         </div>
@@ -45,5 +51,8 @@
 <script src="../../static/layui/layui.js"></script>
 <!--登录跳转-->
 <div th:replace="user/commons :: login_js"></div>
+<script>
+    console.log(${moviesJson});
+</script>
 </body>
 </html>

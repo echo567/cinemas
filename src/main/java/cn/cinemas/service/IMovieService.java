@@ -38,4 +38,9 @@ public interface IMovieService {
      */
     public Movie selectMovieByMovieId(Integer movieId);
 
+    /*
+    以json格式返回所有movies
+     */
+    public Message getAllMoviesToJson();
+
 }

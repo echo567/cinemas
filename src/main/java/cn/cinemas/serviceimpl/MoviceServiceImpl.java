@@ -58,4 +58,9 @@ public class MoviceServiceImpl implements IMovieService {
     public Movie selectMovieByMovieId(Integer movieId) {
         return movieDao.selectMovieById(movieId);
     }
+
+    public Message getAllMoviesToJson() {
+        List<Movie> movieList = movieDao.selectAllMovieByDate();
+        return MessageUtil.objectMessageFail(movieList, "成功");
+    }
 }

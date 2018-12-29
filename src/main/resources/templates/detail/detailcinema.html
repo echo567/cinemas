@@ -40,7 +40,7 @@
                     <div class="filmbox" th:each="movies:${movies}" key="${movie.movieId}"
                          th:if="${moviesStat.count < 8}">
                         <div class="filmblock">
-                            <img th:src="${movies.photo}" alt="">
+                            <img th:src="${movies.photo}" width="160" alt="">
                             <div>
                                 <span>[[${movies.name}]]</span>
                                 <strong>[[${movies.score}]]</strong>

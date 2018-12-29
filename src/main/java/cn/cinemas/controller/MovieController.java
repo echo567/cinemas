@@ -7,6 +7,7 @@ import cn.cinemas.service.IMovieService;
 import cn.cinemas.util.Message;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,8 +32,10 @@ public class MovieController {
     }
 
     @GetMapping("/tolist")
-    public ModelAndView toList() {
+    public ModelAndView toList(Model model) {
         List<Movie> movieList = movieService.alreadyByScore();
+        Message msg = movieService.getAllMoviesToJson();
+        model.addAttribute("moviesJson", msg);
         return new ModelAndView("/user/list", "list", movieList);
     }
 
@@ -44,10 +47,14 @@ public class MovieController {
 
     @GetMapping("/detailfilm")
     public ModelAndView detailfilm(@Param("movieId") int movieId) {
-        System.out.println("电影id" + movieId);
         Movie movie = movieService.selectMovieByMovieId(movieId);
         return new ModelAndView("/detail/detailfilm", "movie", movie);
 
+    }
+
+    @GetMapping("/jsonMovies")
+    public Message jsonMovies() {
+        return movieService.getAllMoviesToJson();
     }
 
 }

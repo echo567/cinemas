@@ -55,7 +55,7 @@ public class UserServiceImpl implements IUserService {
         }
 
         if (userDao.insertUser(user) > 0) {
-            return MessageUtil.Succees("成功");
+            return MessageUtil.Succees("注册成功");
         } else {
             return MessageUtil.Fail("注册失败，原因不知");
         }
