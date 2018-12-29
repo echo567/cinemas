@@ -34,33 +34,38 @@
             <span>[[${movie.language}]] | [[${movie.duration}]]    [[${#dates.format(movie.date,'yyyy-MM-dd')}]] 上映</span>
             <span><span>剧情：</span>[[${movie.introduction}]]</span>
             <i class="layui-icon layui-icon-down" id="message"></i><br/>
-            <button class="layui-btn layui-btn-primary">想看</button>
+            <button class="layui-btn layui-btn-primary">购买</button>
         </div>
     </div>
 
 
 </div>
 
-<div>
+<div class="container-wrap empty" >
     <div class="container">
         <div class="whitebox">
-            <h5>上映影院</h5>
-            <div class="messagebox">
-                <div class="textbox">
-                    <h5>
-                        <a >cinemas.name</a>
-                    </h5>
-                    <span>cinemas.address</span>
-                </div>
-                <div class="operatebox">
-                    <span><strong>cinemas.score</strong>分</span>
-                    <button class="layui-btn layui-btn-danger layui-btn-radius">点击购买</button>
+            <div class="newwhitebox">
+                <h5>影院列表</h5>
+                <div class="messagebox" th:each="cinemas:${cinemas}">
+                    <div class="textbox">
+                        <h5>
+                            <a th:href="@{/cinema/detailcinema(cinemaId=${cinemas.cinemaId})}">[[${cinemas.name}]]</a>
+                        </h5>
+                        <span>[[${cinemas.address}]]</span>
+                    </div>
+                    <div class="operatebox">
+                        <span><strong>[[${cinemas.score}]]</strong>分</span>
+                        <button class="layui-btn layui-btn-danger layui-btn-radius">点击购买</button>
+                    </div>
                 </div>
             </div>
 
+
         </div>
     </div>
 </div>
+
+
 
 <div id="tong" class="messagetips">
     <span>剧情：</span>[[${movie.introduction}]]
@@ -96,6 +101,7 @@
             , length: 5
             , value: ($("#score").attr("key") / 2) //初始值
             , readonly: true
+            , half: true //开启半星
         });
         //consloe.log($("#score").value;
         console.log("score:" + $("#score").attr("key"));

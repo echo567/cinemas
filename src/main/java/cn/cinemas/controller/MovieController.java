@@ -1,6 +1,7 @@
 package cn.cinemas.controller;
 
 
+import cn.cinemas.bean.Cinema;
 import cn.cinemas.bean.Movie;
 import cn.cinemas.dao.IMovieDao;
 import cn.cinemas.service.IMovieService;
@@ -45,9 +46,12 @@ public class MovieController {
     }
 
     @GetMapping("/detailfilm")
-    public ModelAndView detailfilm(@Param("movieId") int movieId) {
+    public ModelAndView detailfilm(@Param("movieId") int movieId, Model model) {
         Movie movie = movieService.selectMovieByMovieId(movieId);
-        return new ModelAndView("/detail/detailfilm", "movie", movie);
+        List<Cinema> cinemaList = movieService.selectCinemasByMovieId(movieId);
+        model.addAttribute("movie", movie);
+        model.addAttribute("cinemas", cinemaList);
+        return new ModelAndView("/detail/detailfilm");
 
     }
 

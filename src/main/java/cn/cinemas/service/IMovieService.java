@@ -1,5 +1,6 @@
 package cn.cinemas.service;
 
+import cn.cinemas.bean.Cinema;
 import cn.cinemas.bean.Movie;
 import cn.cinemas.util.Message;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,11 @@ public interface IMovieService {
     根据电影id查询电影
      */
     public Movie selectMovieByMovieId(Integer movieId);
+
+    /*
+    根据电影id查看上映电影的影院
+     */
+    public List<Cinema> selectCinemasByMovieId(Integer movieId);
 
     /*
     以json格式返回所有movies

@@ -13,8 +13,8 @@ import java.util.List;
  * 军辉
  * 2018-12-20 9:06
  */
-public class CinemaDaoImpl implements ICinemaDao {
-    @Autowired
+public class CinemaDaoImpl {
+    /*@Autowired
     private ICinemaDao cinemaDao;
 
     @Autowired
@@ -54,7 +54,7 @@ public class CinemaDaoImpl implements ICinemaDao {
     public String selectNoteByCinemaId(Integer cinemaId) {
         return cinemaDao.selectNoteByCinemaId(cinemaId);
     }
-
+*/
  /*   @Override
     public List<Movie> selectMoviesByNote(Integer cinemaId) {
         String[] movieIds = cinemaDao.selectNoteByCinemaId(cinemaId).split(",");

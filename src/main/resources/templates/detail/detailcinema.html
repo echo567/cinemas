@@ -18,15 +18,15 @@
 <div class="cinamedetailheader">
     <div class="messagebox">
         <div class="textbox">
-            <h5>[[${cinema.name}]])</h5>
+            <h5>[[${cinema.name}]]</h5>
             <span>地址：[[${cinema.address}]]</span>
 
         </div>
         <div class="operatebox">
             <div>
-                <div id="score"></div>
+                <div id="score" th:key="${cinema.score}"></div>
             </div>
-            <span><strong>8.4</strong></span>
+            <span><strong>[[${cinema.score}]]</strong></span>
         </div>
     </div>
 </div>
@@ -40,7 +40,7 @@
                     <div class="filmbox" th:each="movies:${movies}" key="${movie.movieId}"
                          th:if="${moviesStat.count < 8}">
                         <div class="filmblock">
-                            <img th:src="${movies.photo}" width="160" alt="">
+                            <img th:src="${movies.photo}" width="160" max-height="222" alt="">
                             <div>
                                 <span>[[${movies.name}]]</span>
                                 <strong>[[${movies.score}]]</strong>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div th:if="${movies.size() > 7}">
                 <div class="whitebox2">
                     <div class="filmbox">
                         <div class="filmblock" th:each="movies:${movies}" key="${movie.movieId}"
@@ -124,9 +124,11 @@
         rate.render({
             elem: '#score'
             , length: 5
-            , value: 4.1 //初始值
+            , value: ($("#score").attr("key") / 2) //初始值
             , readonly: true
+            , half: true //开启半星
         });
+        //console.log($("#score").attr("key") / 2);
 
 
         $(".filmbox").click(function () {
@@ -144,7 +146,7 @@
                 /*请求得到正在放映某一个电影的影院*/
                 $.ajax({
                     type: "POST",
-                    url: '/user/login',
+                    url: '/xxxxxxxx',
                     data: {
                         key: self.attr("key")
                     },

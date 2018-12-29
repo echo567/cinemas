@@ -71,4 +71,10 @@ public class MovieTest {
 
         System.out.println(movieDao.selectAllMovieByDate());
     }
+
+    @Test
+    public void selectNoteByMovieId() {
+
+        System.out.println(movieDao.selectNoteByMovieId(1));
+    }
 }
