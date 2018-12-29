@@ -54,7 +54,6 @@
 
         //监听提交
         form.on('submit(login)', function (data) {
-            console.log("546:");
             $.ajax({
                 type: "POST",
                 url: '/user/login',
@@ -64,7 +63,7 @@
                 },
                 success: function (res) {
                     console.log(res);
-                    if (res.flag==0) {
+                    if (res.code==0) {
                         window.location.href = ("/user/toindex");
                     }else {
                         layer.msg("账号或密码错误");

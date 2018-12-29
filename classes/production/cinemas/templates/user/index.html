@@ -22,7 +22,9 @@
             <div class="item stylebox">
                 <div class="filmbox" th:each="movies:${already}">
                     <div class="filmblock">
-                        <img th:src="${movies.getPhoto()}" alt="">
+                        <a th:href="@{/movie/detailfilm(movieId=${movies.movieId})}">
+                            <img th:src="${movies.getPhoto()}" alt="">
+                        </a>
                         <div>
                             <span>[[${movies.getName()}]]</span>
                             <strong>[[${movies.getScore()}]]</strong>
@@ -41,7 +43,9 @@
             <div class="item stylebox">
                 <div class="filmbox" th:each="movies:${notReleased}">
                     <div class="filmblock">
-                        <img th:src="${movies.getPhoto()}" alt="">
+                        <a th:href="@{/movie/detailfilm(movieId=${movies.movieId})}">
+                            <img th:src="${movies.getPhoto()}" alt="">
+                        </a>
                         <div>
                             <span>[[${movies.getName()}]]</span>
                         </div>
@@ -80,7 +84,8 @@
             <div class="item">
                 <!--第一-->
                 <div class="filmlistfirstbox" th:each="list:${boxOffice}">
-                    <img src="../../static/images/haiwang.jpg" th:src="${list.getPhoto()}" width="120" alt="" th:if="${listStat.count== 1}">
+                    <img src="../../static/images/haiwang.jpg" th:src="${list.getPhoto()}" width="120" alt=""
+                         th:if="${listStat.count== 1}">
                     <div class="filmlistfirst" th:if="${listStat.count== 1}">
                         <h6>[[${list.getName()}]]</h6>
                         <span>[[${list.getBoxOffice()}]]万</span>

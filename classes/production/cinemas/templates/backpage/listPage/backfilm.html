@@ -12,61 +12,223 @@
 <table class="layui-hide" id="demo" lay-filter="test"></table>
 
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">添加</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 <div id="motaikunag" style="display: none;">
     <div class="content-in">
-        <div class="layui-form-item">
-            <label class="layui-form-label">账号</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" lay-verify="title" id="account" autocomplete="off" placeholder="请输入您的学号或公牌号" class="layui-input">
+        <div class="layui-form" lay-filter="example">
+            <div class="layui-form-item">
+                <label class="layui-form-label">名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" lay-verify="required" id="name" autocomplete="off"
+                           placeholder="请输入电影名称" class="layui-input">
+                </div>
             </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">姓名</label>
-            <div class="layui-input-block">
-                <input type="text" name="name" lay-verify="title" id="name" autocomplete="off" placeholder="请输入您的用户名" class="layui-input">
+            <div class="layui-form-item" pane="">
+                <label class="layui-form-label">电影类型</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="动作" lay-skin="primary" title="动作" checked>
+                    <input type="checkbox" name="科幻" lay-skin="primary" title="科幻">
+                    <input type="checkbox" name="爱情" lay-skin="primary" title="爱情">
+                    <input type="checkbox" name="喜剧" lay-skin="primary" title="喜剧">
+                    <input type="checkbox" name="悬疑" lay-skin="primary" title="悬疑">
+                    <input type="checkbox" name="运动" lay-skin="primary" title="运动">
+                    <input type="checkbox" name="恐怖" lay-skin="primary" title="恐怖">
+                    <input type="checkbox" name="动画" lay-skin="primary" title="动画">
+                    <input type="checkbox" name="冒险" lay-skin="primary" title="冒险">
+                    <input type="checkbox" name="家庭" lay-skin="primary" title="家庭">
+                    <input type="checkbox" name="其他" lay-skin="primary" title="其他">
+                </div>
             </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">密码</label>
-            <div class="layui-input-block">
-                <input type="password" name="password" lay-verify="title" id="pasword" autocomplete="off" placeholder="请输入您的密码" class="layui-input">
+            <div class="layui-form-item">
+                <label class="layui-form-label">价格</label>
+                <div class="layui-input-block">
+                    <input type="number" name="number" placeholder="￥" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">电影时长</label>
+                <div class="layui-input-block">
+                    <input type="number" name="time" placeholder="请输入电影时长(默认单位min)" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">评分</label>
+                <div class="layui-input-block">
+                    <input type="number" name="score" placeholder="请输入电影评分" lay-verify="required|score" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">上映时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="date" id="date" lay-verify="required" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">简介</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入电影简介" lay-verify="required" class="layui-textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit="" lay-filter="demo">添加</button>
+                </div>
             </div>
         </div>
     </div>
-    <div class="submit-botton">
-        <button class="layui-btn" id="memeber">提交</button>
+
+</div>
+
+<div id="modalupdate" style="display: none;">
+    <div class="content-in">
+        <div class="layui-form" lay-filter="updateform">
+            <div class="layui-form-item">
+                <label class="layui-form-label">名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" lay-verify="required" autocomplete="off"
+                           placeholder="请输入电影名称" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">价格</label>
+                <div class="layui-input-block">
+                    <input type="number" name="number" placeholder="￥" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">电影时长</label>
+                <div class="layui-input-block">
+                    <input type="number" name="time" placeholder="请输入电影时长(默认单位min)" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">评分</label>
+                <div class="layui-input-block">
+                    <input type="number" name="score" placeholder="请输入电影评分" lay-verify="required|score" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">简介</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入电影简介" name="detail" lay-verify="required" class="layui-textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit="" lay-filter="demoupdate">修改</button>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>
 
 <script src="../../../static/layui/layui.js"></script>
 
 <script>
-    layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider',"jquery"], function(){
+    layui.config({
+        version: '1545041465443' //为了更新 js 缓存，可忽略
+    });
+
+    layui.use(['form','laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider', "jquery"], function () {
         var laydate = layui.laydate //日期
-            ,laypage = layui.laypage //分页
-            ,layer = layui.layer //弹层
-            ,table = layui.table //表格
-            ,carousel = layui.carousel //轮播
-            ,upload = layui.upload //上传
-            ,element = layui.element //元素操作
-            ,slider = layui.slider //滑块
-            ,$ = layui.jquery
-        //向世界问个好
-        layer.msg('Hello World');
+            , laypage = layui.laypage //分页
+            , layer = layui.layer //弹层
+            , table = layui.table //表格
+            , carousel = layui.carousel //轮播
+            , upload = layui.upload //上传
+            , element = layui.element //元素操作
+            , slider = layui.slider //滑块
+            , $ = layui.jquery
+            ,form = layui.form
+            ,laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+            ,min: 0 //之前的时间不能选，只能选今天之后的时间
+        });
+
+        form.render();
+
+        //监听提交,添加电影
+        form.on('submit(demo)', function(data){
+            console.log(data);
+            /*$.ajax({
+                type: "POST",
+                url: '/xxxxxxxxxxxx',
+                data: {
+                    name: data.field.name,
+                    date: data.field.data,
+                    score: data.field.data,
+                },
+                success: function (res) {
+                    console.log(res)
+                    layer.msg(res.msg);
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            });*/
+            return false;
+        });
+
+        //监听提交
+        form.on('submit(demoupdate)', function(data){
+            console.log(data);
+
+            /*$.ajax({
+                type: "POST",
+                url: '/xxxxxx',
+                data: {
+                    name: data.field.name,
+                    date: data.field.data,
+                    score: data.field.data,
+                },
+                success: function (res) {
+                    console.log(res)
+                    layer.msg(res.msg);
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            });*/
+
+            return false;
+        });
 
         //监听Tab切换
-        element.on('tab(demo)', function(data){
-            layer.tips('切换了 '+ data.index +'：'+ this.innerHTML, this, {
+        element.on('tab(demo)', function (data) {
+            layer.tips('切换了 ' + data.index + '：' + this.innerHTML, this, {
                 tips: 1
             });
         });
 
+        //执行一个 table 实例
+        table.render({
+            elem: '#demo'
+            , height: 600
+            , url: '/movie/jsonMovies' //数据接口
+            , title: '电影表'
+            , page: false //开启分页
+            , toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
+            , totalRow: false //开启合计行
+            , cols: [
+                [ //表头
+                    {type: 'checkbox', fixed: 'left'}
+                    , {field: 'name', title: '电影名称', width: 390}
+                    , {field: 'score', title: '评分', width: 390}
+                    , {fixed: 'right', width: 165, align: 'center', toolbar: '#barDemo'}
+                ]
+            ]
+        });
 
         //监听头工具栏事件
-        /*table.on('toolbar(test)', function(obj){
+        table.on('toolbar(test)', function(obj){
             var checkStatus = table.checkStatus(obj.config.id)
                 ,data = checkStatus.data; //获取选中的数据
             switch(obj.event){
@@ -75,14 +237,13 @@
                     sject();
                     break;
                 case 'update':
-                    layer.msg('你无权修改');
-                    // if(data.length === 0){
-                    //     layer.msg('请选择一行');
-                    // } else if(data.length > 1){
-                    //     layer.msg('只能同时编辑一个');
-                    // } else {
-                    //     layer.alert('编辑 [id]：'+ checkStatus.data[0].id);
-                    // }
+                    if(data.length === 0){
+                         layer.msg('请选择一行');
+                    }else if(data.length > 1){
+                         layer.msg('只能同时编辑一个');
+                    }else {
+                        update(data);
+                    }
                     break;
                 case 'delete':
                     if(data.length === 0){
@@ -90,13 +251,14 @@
                     } else {
                         let id = "";
                         for (let i = 0 ; i < checkStatus.data.length ; i++){
-                            id=id+","+checkStatus.data[i].Id
+                            id=id+","+checkStatus.data[i].movieId;
                         }
-                        $.ajax({
+                        console.log(id);
+                        /*$.ajax({
                             type: "POST",
-                            url: '/back/achievement/deletemenager',
+                            url: '/xxxxx',
                             data: {
-                                Id: id,
+                                idlist: id,
                             },
                             success: function (res) {
                                 console.log(res)
@@ -106,79 +268,81 @@
                             error: function (data) {
                                 console.log(data)
                             }
-                        });
+                        });*/
                     }
                     break;
             };
-        });*/
+        });
 
         //监听行工具事件
-        /*table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+        table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
             var data = obj.data //获得当前行数据
                 ,layEvent = obj.event; //获得 lay-event 对应的值
             if(layEvent === 'del'){
                 layer.confirm('真的删除行么', function(index){
                     obj.del(); //删除对应行（tr）的DOM结构
                     layer.close(index);
-                    $.ajax({
+                    console.log(data.movieId);//删除行的id
+                    /*$.ajax({
                         type: "POST",
-                        url: '/back/achievement/deletemenager',
+                        url: '/xxxxxx',
                         data: {
-                            Id: data.Id,
+                            movieId: data.movieId,
                         },
                         success: function (res) {
-                            console.log(res)
-                            layer.msg(res.msg);
+                            console.log(res);
                         },
                         error: function (data) {
                             console.log(data)
                         }
-                    });
+                    });*/
                     //向服务端发送删除指令
                 });
             } else if(layEvent === 'edit'){
                 layui.use(['layer'],function () {
                     var layer = layui.layer,$=layui.$;
-                    sject();
+                    var res = [];
+                    res.push(data);
+                    update(res);
                 })
             }
-        });*/
+        });
 
-        /*$("#memeber").click(function () {
-            if(!/^[a-zA-Z0-9_-]{4,16}$/.test($("#password").val())){
-                layer.msg("密码应为字母或者数字开头，区分大小写，最短4位最长16位");
-                return ;
-            }else if ($("#account").val() == ""){
-                layer.msg("账号不能为空");
-                return ;
-            }else if ($("#name").val() == ""){
-                layer.msg("用户名不能为空");
-                return ;
-            }
-            $.ajax({
-                type: "POST",
-                url: '/back/achievement/addmenager',
-                data: {
-                    account: $("#account").val(),
-                    password: $("#password").val(),
-                    name:$("#name").val()
-                },
-                success: function (res) {
-                    console.log(res)
-                    layer.msg(res.msg);
-                },
-                error: function (data) {
-                    console.log(data)
+        //自定义验证规则
+        form.verify({
+            score: function(value){
+                if(value > 10){
+                    return '评分不能超过10分';
                 }
+            }
+        });
+
+        function update(res) {
+            layer.open({
+                type: 1,//类型
+                area: ['700px', '450px'],//定义宽和高
+                title: '编辑电影',//题目
+                shadeClose: false,//点击遮罩层关闭
+                content: $('#modalupdate')//打开的内容
             });
-        });*/
+
+            console.log(res);
+            //表单初始赋值
+            form.val('updateform', {
+                "name": res[0].name
+                ,"score": res[0].score
+                ,"number": res[0].price
+                ,"time": res[0].duration
+                ,"detail": res[0].introduction
+            })
+        }
 
         function sject() {
             layer.open({
-                type:1,//类型
-                area:['500px','350px'],//定义宽和高
-                title:'添加管理员',//题目
-                shadeClose:false,//点击遮罩层关闭
+                type: 1,//类型
+                area: ['700px', '600px'],//定义宽和高
+                title: '添加电影',//题目
+                shadeClose: false,//点击遮罩层关闭
                 content: $('#motaikunag')//打开的内容
             });
         }

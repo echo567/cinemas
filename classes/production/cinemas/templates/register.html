@@ -70,6 +70,12 @@
                 },
                 success: function (res) {
                     console.log(res);
+                    if (res.code==0) {
+                        layer.msg(res.msg);
+                        window.location.href = ("/");
+                    }else {
+                        layer.msg(res.msg);
+                    }
                     //window.location.href = "/user/login";
                 },
                 error: function (data) {
