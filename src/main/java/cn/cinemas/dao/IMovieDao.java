@@ -63,4 +63,10 @@ public interface IMovieDao {
      */
     @Select("select * from tb_movie where date < now() order by boxOffice desc")
     public List<Movie> alreadyByBoxOffice();
+
+    /*
+    查询电影上映的电影院
+     */
+    @Select("select note from tb_movie where movieId = #{movieId}")
+    public String selectNoteByMovieId(Integer movieId);
 }

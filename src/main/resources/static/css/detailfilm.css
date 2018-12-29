@@ -1,10 +1,12 @@
 .singlefilmbox {
     margin-left: 20px;
 }
-.singlefilmbox>strong {
+
+.singlefilmbox > strong {
     font-size: 20px;
 }
-.singlefilmbox>span {
+
+.singlefilmbox > span {
     display: inline-block;
     overflow: hidden;
     width: 1000px;
@@ -14,7 +16,8 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.messagebox>img {
+
+.messagebox > img {
     width: 183px;
     height: 252px;
 }
@@ -24,7 +27,29 @@
     padding: 40px;
     font-size: 16px;
 }
-.messagetips>span {
+
+.messagetips > span {
     color: #999;
     font-size: 14px;
+}
+
+.newwhitebox {
+    width: 100%;
+    font-size: 16px;
+
+}
+
+.newwhitebox > h5 {
+    font-weight: bold;
+    border-left: 5px solid #FF5722;
+    padding-left: 10px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.textbox>h5 {
+    font-size: 16px !important;
+}
+.empty{
+    margin-top: 50px !important;
 }

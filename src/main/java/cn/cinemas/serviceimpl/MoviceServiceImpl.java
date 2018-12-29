@@ -1,6 +1,8 @@
 package cn.cinemas.serviceimpl;
 
+import cn.cinemas.bean.Cinema;
 import cn.cinemas.bean.Movie;
+import cn.cinemas.dao.ICinemaDao;
 import cn.cinemas.dao.IMovieDao;
 import cn.cinemas.service.IMovieService;
 import cn.cinemas.util.Message;
@@ -9,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -19,6 +23,8 @@ import java.util.List;
 public class MoviceServiceImpl implements IMovieService {
     @Autowired
     private IMovieDao movieDao;
+    @Autowired
+    private ICinemaDao cinemaDao;
 
 
     @Override
@@ -59,6 +65,18 @@ public class MoviceServiceImpl implements IMovieService {
         return movieDao.selectMovieById(movieId);
     }
 
+    @Override
+    public List<Cinema> selectCinemasByMovieId(Integer movieId) {
+        List<Cinema> cinemaList = new ArrayList<>();
+        System.out.println("查询电影id：" + movieId);
+        String cinemaIds[] = movieDao.selectNoteByMovieId(movieId).split(",");
+        for (int i = 0; i < cinemaIds.length; i++) {
+            cinemaList.add(cinemaDao.selectCinemaByCinemaId(Integer.parseInt(cinemaIds[i])));
+        }
+        return cinemaList;
+    }
+
+    @Override
     public Message getAllMoviesToJson() {
         List<Movie> movieList = movieDao.selectAllMovieByDate();
         return MessageUtil.objectMessageCountSuccess(movieList, movieList.size(), "数据查询成功");

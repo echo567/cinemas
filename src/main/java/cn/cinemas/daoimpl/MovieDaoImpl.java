@@ -10,12 +10,12 @@ import java.util.List;
  * 军辉
  * 2018-12-18 17:27
  */
-public class MovieDaoImpl implements IMovieDao {
+public class MovieDaoImpl {
 
     @Autowired
     private IMovieDao movieDao;
 
-
+/*
     @Override
     public Integer InsertMovie(Movie movie) {
         return movieDao.InsertMovie(movie);
@@ -56,10 +56,7 @@ public class MovieDaoImpl implements IMovieDao {
         return movieDao.selectAllMovieByDate();
     }
 
-    /*@Override
-    public List<Movie> alreadyReleased() {
-        return movieDao.alreadyReleased();
-    }*/
+
 
     @Override
     public List<Movie> notReleased() {
@@ -75,4 +72,9 @@ public class MovieDaoImpl implements IMovieDao {
     public List<Movie> alreadyByBoxOffice() {
         return movieDao.alreadyByBoxOffice();
     }
+
+    @Override
+    public String selectNoteByMovieId(Integer movieId) {
+        return movieDao.selectNoteByMovieId(movieId);
+    }*/
 }

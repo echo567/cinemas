@@ -10,8 +10,8 @@ import java.util.List;
  * 军辉
  * 2018-12-15 17:05
  */
-public class UserDaoImpl implements IUserDao {
-    @Autowired
+public class UserDaoImpl {
+   /* @Autowired
     private IUserDao userDao;
 
     @Override
@@ -37,5 +37,5 @@ public class UserDaoImpl implements IUserDao {
     @Override
     public List<User> selectAllUser() {
         return userDao.selectAllUser();
-    }
+    }*/
 }
