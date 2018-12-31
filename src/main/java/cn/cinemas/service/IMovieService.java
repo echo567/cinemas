@@ -49,4 +49,14 @@ public interface IMovieService {
      */
     public Message getAllMoviesToJson();
 
+    /*
+    添加电影
+     */
+    public Message insertMovie(Movie movie);
+
+    /*
+    修改电影
+     */
+    public Message updateMovie(Movie movie);
+
 }

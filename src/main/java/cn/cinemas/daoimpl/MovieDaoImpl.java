@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class MovieDaoImpl {
 
-    @Autowired
-    private IMovieDao movieDao;
+    /*@Autowired
+    private IMovieDao movieDao;*/
 
 /*
     @Override

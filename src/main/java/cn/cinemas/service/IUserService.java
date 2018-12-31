@@ -18,5 +18,6 @@ public interface IUserService {
 
     // public void email(String email);
 
-    public boolean registerPage(String code);
+
+
 }

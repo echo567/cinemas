@@ -40,12 +40,16 @@ public class CinemaServiceImpl implements ICinemaService {
 
     @Override
     public List<Movie> getMoviesByCinemaId(Integer cinemaId) {
-        String[] movieIds = cinemaDao.selectNoteByCinemaId(cinemaId).split(",");
-        //System.out.println("影院上映电影的数量：" + movieIds.length);
         List<Movie> lists = new ArrayList<>();
-        for (int i = 0; i < movieIds.length; i++) {
-            lists.add(movieDao.selectMovieById(Integer.parseInt(movieIds[i])));
+        String str = cinemaDao.selectNoteByCinemaId(cinemaId);
+        if (str.length() != 0) {
+            String[] movieIds = str.split(",");
+            for (int i = 0; i < movieIds.length; i++) {
+                lists.add(movieDao.selectMovieById(Integer.parseInt(movieIds[i])));
+            }
         }
+        //System.out.println("影院上映电影的数量：" + movieIds.length);
+
         return lists;
     }
 }

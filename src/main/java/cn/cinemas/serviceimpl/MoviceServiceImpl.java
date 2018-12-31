@@ -69,9 +69,13 @@ public class MoviceServiceImpl implements IMovieService {
     public List<Cinema> selectCinemasByMovieId(Integer movieId) {
         List<Cinema> cinemaList = new ArrayList<>();
         System.out.println("查询电影id：" + movieId);
-        String cinemaIds[] = movieDao.selectNoteByMovieId(movieId).split(",");
-        for (int i = 0; i < cinemaIds.length; i++) {
-            cinemaList.add(cinemaDao.selectCinemaByCinemaId(Integer.parseInt(cinemaIds[i])));
+        String str = movieDao.selectNoteByMovieId(movieId);
+        if (str == null || str.length() == 0) {
+        } else {
+            String cinemaIds[] = movieDao.selectNoteByMovieId(movieId).split(",");
+            for (int i = 0; i < cinemaIds.length; i++) {
+                cinemaList.add(cinemaDao.selectCinemaByCinemaId(Integer.parseInt(cinemaIds[i])));
+            }
         }
         return cinemaList;
     }
@@ -80,5 +84,26 @@ public class MoviceServiceImpl implements IMovieService {
     public Message getAllMoviesToJson() {
         List<Movie> movieList = movieDao.selectAllMovieByDate();
         return MessageUtil.objectMessageCountSuccess(movieList, movieList.size(), "数据查询成功");
+    }
+
+    @Override
+    public Message insertMovie(Movie movie) {
+        System.out.println("添加的电影的信息：" + movie);
+        if (movieDao.InsertMovie(movie) > 0) {
+            return MessageUtil.Succees("添加成功");
+        } else {
+            return MessageUtil.Fail("添加失败");
+        }
+
+    }
+
+    @Override
+    public Message updateMovie(Movie movie) {
+        System.out.println("修改电影的信息：" + movie);
+        if (movieDao.UpdateMovie(movie) > 0) {
+            return MessageUtil.Succees("添加成功");
+        } else {
+            return MessageUtil.Fail("添加失败");
+        }
     }
 }

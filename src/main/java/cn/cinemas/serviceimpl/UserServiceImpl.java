@@ -86,15 +86,5 @@ public class UserServiceImpl implements IUserService {
         mailSender.send(message);
     }
 
-    @Override
-    public boolean registerPage(String code) {
-       /* if (code.equals(request.getSession().getAttribute("code"))) {
-            String email = request.getSession().getAttribute("email").toString();
-            System.out.println(email);
-            return true;
-        } else {
-            return false;
-        }*/
-        return false;
-    }
+
 }
