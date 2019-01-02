@@ -76,6 +76,11 @@ public class UserController {
         return new ModelAndView("/detail/detailcinema");
     }
 
+    @GetMapping("/order")
+    public ModelAndView order() {
+        return new ModelAndView("/core/order");
+    }
+
     /*转移到 CinemaController下面了
     @GetMapping("/detailfilm")
     public ModelAndView detailfilm() {

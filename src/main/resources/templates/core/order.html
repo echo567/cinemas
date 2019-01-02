@@ -6,11 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../static/layui/css/layui.css">
     <link rel="stylesheet" href="../../static/css/mian.css">
+    <link rel="stylesheet" href="../../static/css/order.css">
 </head>
-<body>
+<body class="lay-blog">
     <!--header-->
     <div th:replace="user/commons :: top(activeUrl='index')"></div>
-    我的订单~~~~，还没写，军辉是个大笨蛋~~~~
+    <!--订单列表-->
+    <div class="layui-form formboxorder">
+        <table class="layui-table">
+            <colgroup>
+                <col width="150">
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>电影</th>
+                <th>影院</th>
+                <th>价钱</th>
+                <th>上映时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>贤心</td>
+                <td>汉族</td>
+                <td>1989-10-14</td>
+                <td>人生似修行</td>
+            </tr>
+            <tr>
+                <td>张爱玲</td>
+                <td>汉族</td>
+                <td>1920-09-30</td>
+                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
 
 
     <!--footer-->
