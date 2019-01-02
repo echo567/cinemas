@@ -23,6 +23,8 @@ public class MovieHallServiceImpl implements IMovieHallService {
     @Override
     public Message getMovieHallByMovieId(Integer cinemaId, Integer movieId) {
         List<MovieHall> movieHallList = movieHallDao.getMovieHallByMovieId(cinemaId, movieId);
+        //System.out.println("影院id：" + cinemaId + " 电影id：" + movieId);
+        //System.out.println("查询到的放映厅：" + movieHallList);
         if (movieHallList == null) {
             return MessageUtil.objectMessageFail(movieHallList, "暂时没有放映厅播放此电影");
         } else {

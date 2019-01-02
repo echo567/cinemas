@@ -34,7 +34,9 @@
             <span>[[${movie.language}]] | [[${movie.duration}]]    [[${#dates.format(movie.date,'yyyy-MM-dd')}]] 上映</span>
             <span><span>剧情：</span>[[${movie.introduction}]]</span>
             <i class="layui-icon layui-icon-down" id="message"></i><br/>
-            <a href="#cinameid"><button class="layui-btn layui-btn-primary">购买</button></a>
+            <a href="#cinameid">
+                <button class="layui-btn layui-btn-primary">购买</button>
+            </a>
         </div>
     </div>
 </div>
@@ -63,7 +65,9 @@
                     </div>
                     <div class="operatebox">
                         <span><strong>[[${cinemas.score}]]</strong>分</span>
-                        <button class="layui-btn layui-btn-danger layui-btn-radius" th:onclick="jumpcinema([[${cinemas.cinemaId}]])">点击购买</button>
+                        <button class="layui-btn layui-btn-danger layui-btn-radius"
+                                th:onclick="jumpcinema([[${movie.movieId}]],[[${cinemas.cinemaId}]])">点击购买
+                        </button>
                     </div>
                 </div>
             </div>
@@ -86,9 +90,10 @@
 <div th:replace="user/commons :: login_js"></div>
 </body>
 <script>
-    function jumpcinema(id) {
-        window.location.href = "/cinema/detailcinema?cinemaId="+id;
+    function jumpcinema(movieId, cinemaid) {
+        window.location.href = "/cinema/detailcinema?cinemaId=" + cinemaid;
     }
+
     layui.use(['carousel', 'rate', 'layer', 'jquery'], function () {
         var rate = layui.rate;
         var carousel = layui.carousel

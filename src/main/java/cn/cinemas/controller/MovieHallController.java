@@ -19,7 +19,7 @@ public class MovieHallController {
     @Autowired
     private IMovieHallService movieHallService;
 
-    @GetMapping("/getmovieHall")
+    @GetMapping("/getmoviehall")
     public Message selectMovieHall(@Param("movieId") Integer movieId, @Param("cinemaId") Integer cinemaId) {
         return movieHallService.getMovieHallByMovieId(cinemaId, movieId);
     }

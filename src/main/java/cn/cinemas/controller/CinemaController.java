@@ -41,8 +41,9 @@ public class CinemaController {
     跳转到影院详情页面
      */
     @GetMapping("/detailcinema")
-    public ModelAndView detailcinema(@RequestParam("cinemaId") Integer cinemaId, Model model) {
+    public ModelAndView detailcinema(@RequestParam("cinemaId") Integer cinemaId,  Model model) {
         System.out.println("影院id" + cinemaId);
+        //System.out.println("电影id" + movieId);
         Cinema cinema = cinemaService.selectCinemaByCinemaId(cinemaId);
         List<Movie> moviesList = cinemaService.getMoviesByCinemaId(cinemaId);
         model.addAttribute("cinema", cinema);
