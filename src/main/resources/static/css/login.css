@@ -12,7 +12,7 @@ input:-webkit-autofill {
 }
 /*按钮移上去颜色*/
 .layui-btn-primary:hover {
-  border-color: #1E9FFF;
+  border-color: red;
   color: #333;
 }
 /*页面背景色*/
