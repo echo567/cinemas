@@ -1,0 +1,9 @@
+.formboxorder {
+    width: 1280px;
+    margin: 50px auto;
+    min-height: 66vh;
+    text-align: center;
+}
+.formboxorder th {
+    text-align: center;
+}
