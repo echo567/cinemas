@@ -1,6 +1,6 @@
 package cn.cinemas;
 
-import cn.cinemas.bean.Tickte;
+import cn.cinemas.bean.Ticket;
 import cn.cinemas.bean.User;
 import cn.cinemas.dao.IUserDao;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class UserTest {
 
     @Test
     public void insertUserTest() {
-        List<Tickte> list = new ArrayList<>();
+        List<Ticket> list = new ArrayList<>();
         User user = new User("123@qq.com", "军辉", "123", "132", "123", "123", "123");
         System.out.println(userDao.insertUser(user));
     }
