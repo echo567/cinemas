@@ -70,4 +70,9 @@ public class MovieController {
     public Message updateMovie(Movie movie) {
         return movieService.updateMovie(movie);
     }
+
+    @GetMapping("/deletemovie")
+    public Message deleteMovie(Integer movieId) {
+        return movieService.deleteMovie(movieId);
+    }
 }
