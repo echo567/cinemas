@@ -59,4 +59,9 @@ public interface IMovieService {
      */
     public Message updateMovie(Movie movie);
 
+    /*
+    删除电影
+     */
+    public Message deleteMovie(Integer movieId);
+
 }

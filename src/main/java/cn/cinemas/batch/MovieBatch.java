@@ -111,6 +111,7 @@ public class MovieBatch {
             if (movie.getUpdateTime() != null) {
                 SET("updateTime=#{updateTime}");
             }
+            WHERE("movieId=#{movieId}");
 
 
         }}.toString();

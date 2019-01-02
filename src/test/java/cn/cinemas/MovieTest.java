@@ -77,4 +77,12 @@ public class MovieTest {
 
         System.out.println(movieDao.selectNoteByMovieId(1));
     }
+
+    @Test
+    public void update() {
+        Movie movie = movieDao.selectMovieById(10);
+        System.out.println(movie);
+        movie.setPrice(40.5);
+        System.out.println(movieDao.UpdateMovie(movie));
+    }
 }

@@ -92,6 +92,7 @@
 <div id="modalupdate" style="display: none;">
     <div class="content-in">
         <div class="layui-form" lay-filter="updateform">
+            <input type="hidden" name="movieId" value="">
             <div class="layui-form-item">
                 <label class="layui-form-label">名称</label>
                 <div class="layui-input-block">
@@ -184,6 +185,7 @@
                 success: function (res) {
                     console.log(res)
                     layer.msg(res.msg);
+                    window.location.href="";
                 },
                 error: function (data) {
                     console.log(data)
@@ -195,11 +197,12 @@
         //修改 监听提交
         form.on('submit(demoupdate)', function (data) {
             console.log(data);
-
+            console.log(data.field.movieId);
             $.ajax({
                 type: "POST",
                 url: '/movie/updatemovie',
                 data: {
+                    movieId: data.field.movieId,
                     name: data.field.name,
                     movieType: data.field.movieType,
                     price: data.field.price,
@@ -211,6 +214,7 @@
                 success: function (res) {
                     console.log(res)
                     layer.msg(res.msg);
+                    window.location.href="";
                 }
                 ,
                 error: function (data) {
@@ -310,9 +314,9 @@
                     obj.del(); //删除对应行（tr）的DOM结构
                     layer.close(index);
                     console.log(data.movieId);//删除行的id
-                    /*$.ajax({
-                        type: "POST",
-                        url: '/xxxxxx',
+                    $.ajax({
+                        type: "get",
+                        url: '/movie/deletemovie',
                         data: {
                             movieId: data.movieId,
                         },
@@ -322,7 +326,7 @@
                         error: function (data) {
                             console.log(data)
                         }
-                    });*/
+                    });
                     //向服务端发送删除指令
                 });
             } else if (layEvent === 'edit') {
@@ -356,11 +360,12 @@
             console.log(res);
             //表单初始赋值
             form.val('updateform', {
-                "name": res[0].name
+                "movieId": res[0].movieId
+                , "name": res[0].name
                 , "score": res[0].score
-                , "number": res[0].price
-                , "time": res[0].duration
-                , "detail": res[0].introduction
+                , "price": res[0].price
+                , "duration": res[0].duration
+                , "introduction": res[0].introduction
             })
         }
 

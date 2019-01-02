@@ -99,11 +99,20 @@ public class MoviceServiceImpl implements IMovieService {
 
     @Override
     public Message updateMovie(Movie movie) {
-        System.out.println("修改电影的信息：" + movie);
+        //System.out.println("修改电影的信息：" + movie);
         if (movieDao.UpdateMovie(movie) > 0) {
-            return MessageUtil.Succees("添加成功");
+            return MessageUtil.Succees("修改成功");
         } else {
-            return MessageUtil.Fail("添加失败");
+            return MessageUtil.Fail("修改失败");
+        }
+    }
+
+    @Override
+    public Message deleteMovie(Integer movieId) {
+        if (movieDao.DeleteMovieBymovieId(movieId) > 0) {
+            return MessageUtil.Succees("删除成功");
+        } else {
+            return MessageUtil.Fail("删除失败");
         }
     }
 }
