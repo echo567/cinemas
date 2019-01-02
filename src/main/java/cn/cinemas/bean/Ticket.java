@@ -6,8 +6,9 @@ import java.util.Date;
  * 军辉
  * 2018-12-15 16:42
  */
-public class Tickte {
+public class Ticket {
     private Integer ticketId;
+    private Integer userId;
     private String cinemaName;
     private String movieHall;
     private String language;
@@ -19,12 +20,29 @@ public class Tickte {
     private Date createTime;
     private Date updateTime;
 
-    public Tickte() {
+    public Ticket() {
 
+    }
+
+    public Ticket(Integer userId, String cinemaName, String movieHall, String language, String session, double price) {
+        this.userId = userId;
+        this.cinemaName = cinemaName;
+        this.movieHall = movieHall;
+        this.language = language;
+        this.session = session;
+        this.price = price;
     }
 
     public Integer getTicketId() {
         return ticketId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public void setTicketId(Integer ticketId) {
@@ -115,6 +133,7 @@ public class Tickte {
     public String toString() {
         return "Tickte{" +
                 "ticketId=" + ticketId +
+                ", userId=" + userId +
                 ", cinemaName='" + cinemaName + '\'' +
                 ", movieHall='" + movieHall + '\'' +
                 ", language='" + language + '\'' +

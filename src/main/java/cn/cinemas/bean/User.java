@@ -15,7 +15,7 @@ public class User {
     private String phone;
     private String sex;
     private String photo;
-    private List<Tickte> tickte;
+    private List<Ticket> tickte;
     private String note;
     private Date createTime;
     private Date updateTime;
@@ -96,11 +96,11 @@ public class User {
         this.photo = photo;
     }
 
-    public List<Tickte> getTickte() {
+    public List<Ticket> getTickte() {
         return tickte;
     }
 
-    public void setTickte(List<Tickte> tickte) {
+    public void setTickte(List<Ticket> tickte) {
         this.tickte = tickte;
     }
 
