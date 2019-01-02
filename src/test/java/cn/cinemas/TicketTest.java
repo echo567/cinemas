@@ -1,9 +1,12 @@
 package cn.cinemas;
 
+import cn.cinemas.bean.MovieHall;
 import cn.cinemas.bean.Ticket;
 import cn.cinemas.bean.User;
+import cn.cinemas.dao.IMovieHallDao;
 import cn.cinemas.dao.ITicketDao;
 import cn.cinemas.dao.IUserDao;
+import cn.cinemas.service.IMovieHallService;
 import cn.cinemas.service.ITicketService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +28,9 @@ public class TicketTest {
     @Autowired
     private ITicketDao ticketDao;
 
+    @Autowired
+    private IMovieHallDao movieHallDao;
+
     @Test
     public void InsertTicket() {
         Ticket ticket = new Ticket(1, "sad", "sad", "sad", "sad", 12.3);
@@ -37,5 +43,12 @@ public class TicketTest {
         System.out.println(ticketDao.deleteTicketByTicketId(1));
     }
 
+    @Test
+    public void selectMovieHall() {
+        List<MovieHall> movieHallList = movieHallDao.getMovieHallByMovieId(1, 1);
+        for (int i = 0; i < movieHallList.size(); i++) {
+            System.out.println(movieHallList.get(i));
+        }
+    }
 
 }
