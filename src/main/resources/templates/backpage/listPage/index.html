@@ -30,11 +30,11 @@
             <a href="javascript:;">Admin</a>
             <dl class="layui-nav-child">
                 <!-- 二级菜单 -->
+                <!--<dd>-->
+                    <!--<a onclick="WeAdminShow('个人信息','http://www.baidu.com')">个人信息</a>-->
+                <!--</dd>-->
                 <dd>
-                    <a onclick="WeAdminShow('个人信息','http://www.baidu.com')">个人信息</a>
-                </dd>
-                <dd>
-                    <a class="loginout" href="#">退出</a>
+                    <a class="loginout" th:href="@{/admin/login}">退出</a>
                 </dd>
             </dl>
         </li>
@@ -62,27 +62,6 @@
                     <cite>电影管理</cite>
                 </a>
             </li>
-
-            <!--<li>
-                <a _href="#">
-                    <i class="iconfont">&#xe6b8;</i>
-                    <cite>用户管理</cite>
-                </a>
-            </li>
-            <li>
-                <a _href="#">
-                    <i class="iconfont">&#xe6b8;</i>
-                    <cite>影院管理</cite>
-                </a>
-            </li>
-
-            <li>
-                <a _href="#">
-                    <i class="iconfont">&#xe6b8;</i>
-                    <cite>影厅管理</cite>
-                </a>
-            </li>-->
-
         </ul>
     </div>
 </div>
