@@ -23,7 +23,7 @@
                         <strong>[[${movies.score}]]</strong>
                     </div>
                 </div>
-                <div class="buyfilm">购票</div>
+                <div class="buyfilm" th:onclick="jumpfilm([[${movies.movieId}]])">购票</div>
             </div>
 
         </div>
@@ -34,4 +34,9 @@
 <!--登录跳转-->
 <div th:replace="user/commons :: login_js"></div>
 </body>
+<script>
+    function jumpfilm(id) {
+        window.location.href = "/movie/detailfilm?movieId=" + id;
+    }
+</script>
 </html>

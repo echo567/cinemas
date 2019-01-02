@@ -32,7 +32,7 @@
 </div>
 
 
-<div class="cinamedetailheader2">
+<div class="cinamedetailheader">
     <div class="layui-carousel" id="test10">
         <div carousel-item="">
             <div>
@@ -46,11 +46,10 @@
                                 <strong>[[${movies.score}]]</strong>
                             </div>
                         </div>
-                        <div class="buyfilm" key="${movies.movieId}">购票</div>
                     </div>
                 </div>
             </div>
-            <div th:if="${movies.size() > 7}">
+            <div th:if="${movies.size() > 7}" id="filmdetailid">
                 <div class="whitebox2">
                     <div class="filmbox">
                         <div class="filmblock" th:each="movies:${movies}" key="${movie.movieId}"
@@ -61,7 +60,6 @@
                                 <strong>[[${movies.score}]]</strong>
                             </div>
                         </div>
-                        <div class="buyfilm" key="${movies.movieId}">购票</div>
                     </div>
                 </div>
             </div>

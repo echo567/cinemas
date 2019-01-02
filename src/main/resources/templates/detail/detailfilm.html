@@ -63,7 +63,7 @@
                     </div>
                     <div class="operatebox">
                         <span><strong>[[${cinemas.score}]]</strong>分</span>
-                        <button class="layui-btn layui-btn-danger layui-btn-radius">点击购买</button>
+                        <button class="layui-btn layui-btn-danger layui-btn-radius" th:onclick="jumpcinema([[${cinemas.cinemaId}]])">点击购买</button>
                     </div>
                 </div>
             </div>
@@ -86,6 +86,9 @@
 <div th:replace="user/commons :: login_js"></div>
 </body>
 <script>
+    function jumpcinema(id) {
+        window.location.href = "/cinema/detailcinema?cinemaId="+id;
+    }
     layui.use(['carousel', 'rate', 'layer', 'jquery'], function () {
         var rate = layui.rate;
         var carousel = layui.carousel
