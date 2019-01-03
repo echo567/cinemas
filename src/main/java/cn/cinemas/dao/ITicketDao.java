@@ -5,6 +5,9 @@ import cn.cinemas.bean.Ticket;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * 军辉
@@ -17,4 +20,7 @@ public interface ITicketDao {
 
     @Delete("delete from tb_ticket where ticketId = #{ticketId}")
     public Integer deleteTicketByTicketId(Integer ticketId);
+
+    @Select("select * from tb_ticket")
+    public List<Ticket> getAllTicket();
 }

@@ -47,9 +47,9 @@ public interface IMovieDao {
     public List<Movie> selectAllMovieByDate();
 
     /*
-    已上映的电影(评分从高到低)
+    已上映的电影(评分从高到低 前五)
      */
-    @Select("select * from tb_movie where date < now() order by score desc")
+    @Select("select * from tb_movie where date < now() order by score desc limit 5")
     public List<Movie> alreadyByScore();
 
     /*
@@ -61,7 +61,7 @@ public interface IMovieDao {
     /*
     已上映的电影(评分从高到低)
      */
-    @Select("select * from tb_movie where date < now() order by boxOffice desc")
+    @Select("select * from tb_movie where date < now() order by boxOffice desc limit 5")
     public List<Movie> alreadyByBoxOffice();
 
     /*

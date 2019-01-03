@@ -32,7 +32,7 @@
         <tr th:each="ticket:${tickets}">
             <td th:text="${ticket.getmovieName()}">[[${ticket.movieName}]]</td>
             <td>[[${ticket.cinemaName}]]</td>
-            <td>[[${ticket.note}]]</td>
+            <td>￥ [[${ticket.note}]]</td>
             <td>[[${ticket.session}]]</td>
         </tr>
         <!--<tr>

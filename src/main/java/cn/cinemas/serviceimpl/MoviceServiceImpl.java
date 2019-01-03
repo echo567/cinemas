@@ -88,7 +88,7 @@ public class MoviceServiceImpl implements IMovieService {
 
     @Override
     public Message insertMovie(Movie movie) {
-        System.out.println("添加的电影的信息：" + movie);
+       // System.out.println("添加的电影的信息：" + movie);
         if (movieDao.InsertMovie(movie) > 0) {
             return MessageUtil.Succees("添加成功");
         } else {

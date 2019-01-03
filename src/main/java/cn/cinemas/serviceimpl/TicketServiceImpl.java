@@ -3,13 +3,17 @@ package cn.cinemas.serviceimpl;
 import cn.cinemas.bean.Ticket;
 import cn.cinemas.bean.User;
 import cn.cinemas.dao.ITicketDao;
+import cn.cinemas.dao.IUserDao;
 import cn.cinemas.service.ITicketService;
+import cn.cinemas.service.IUserService;
 import cn.cinemas.util.Message;
 import cn.cinemas.util.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.Null;
+import java.util.List;
 
 
 /**
@@ -22,11 +26,14 @@ public class TicketServiceImpl implements ITicketService {
     private ITicketDao ticketDao;
 
     @Autowired
+    private IUserDao userDao;
+
+    @Autowired
     private HttpSession session;
 
     @Override
     public Message InsertTicket(Ticket ticket) {
-        System.out.println("新增的票：" + ticket);
+        // System.out.println("新增的票：" + ticket);
         User user = (User) session.getAttribute("user");
         if (user != null) {
             ticket.setUserId(user.getUserId());
@@ -48,5 +55,15 @@ public class TicketServiceImpl implements ITicketService {
         } else {
             return MessageUtil.Fail("删除失败");
         }
+    }
+
+    @Override
+    public Message selectAllTicket() {
+        List<Ticket> ticketList = ticketDao.getAllTicket();
+
+        for (int i = 0; i < ticketList.size(); i++) {
+            ticketList.get(i).setLanguage(userDao.selectUserByUserId(ticketList.get(i).getUserId()).getUserName());
+        }
+        return MessageUtil.objectMessageSuccess(ticketList, "查询成功");
     }
 }
