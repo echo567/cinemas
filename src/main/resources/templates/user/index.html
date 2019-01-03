@@ -69,7 +69,7 @@
 
             <div class="item">
                 <div class="filmcinema" th:each="hot:${hotCinemas}">
-                    <h6 th:text="${hot.getName()}"></h6>
+                    <a th:href="@{/cinema/detailcinema(cinemaId=${hot.cinemaId})}"><h6 th:text="${hot.getName()}"></h6></a>
                     <span th:text="${hot.getAddress()}"></span>
                     <span><strong>[[${hot.getScore()}]]</strong>分</span>
                 </div>
@@ -83,7 +83,7 @@
 
             <div class="item">
                 <!--第一-->
-                <div class="filmlistfirstbox" th:each="list:${boxOffice}">
+                <div class="filmlistfirstbox" th:each="list:${boxOffice}" th:onclick="jumpdetail([[${list.movieId}]])">
                     <img src="../../static/images/haiwang.jpg" th:src="${list.getPhoto()}" width="120" alt=""
                          th:if="${listStat.count== 1}">
                     <div class="filmlistfirst" th:if="${listStat.count== 1}">
@@ -93,7 +93,7 @@
                 </div>
                 <!--第二三-->
                 <div class="filmlistlistbox beforethree" th:each="list:${boxOffice}"
-                     th:if="${listStat.count == 2} or  ${listStat.count == 3}">
+                     th:if="${listStat.count == 2} or  ${listStat.count == 3}" th:onclick="jumpdetail([[${list.movieId}]])">
                     <div>
                         <span>[[${listStat.count}]]</span>
                         <span>[[${list.getName()}]]</span>
@@ -101,7 +101,8 @@
                     <span>[[${list.getBoxOffice()}]]万</span>
                 </div>
                 <!--第三开外的-->
-                <div class="filmlistlistbox " th:each="list:${boxOffice}" th:if="${listStat.count > 3}">
+                <div class="filmlistlistbox " th:each="list:${boxOffice}" th:if="${listStat.count > 3}"
+                     th:onclick="jumpdetail([[${list.movieId}]])">
                     <div>
                         <span>[[${listStat.count}]]</span>
                         <span>[[${list.getName()}]]</span>

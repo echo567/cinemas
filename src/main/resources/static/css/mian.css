@@ -109,7 +109,7 @@
 .filmcinema {
 	width: 100%;
 }
-.filmcinema>h6 {
+.filmcinema h6 {
 	font-size: 16px;
 }
 .filmcinema>span {

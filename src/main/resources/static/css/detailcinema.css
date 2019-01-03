@@ -78,3 +78,10 @@
 .singlefilmmessage>strong {
     color: red;
 }
+#addfilm {
+    text-align: center;
+}
+#addfilm img {
+    width: 210px;
+    margin: 50px auto;
+}

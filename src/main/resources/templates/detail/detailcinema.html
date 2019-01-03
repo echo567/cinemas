@@ -89,7 +89,7 @@
                 <!--</div>-->
                 <!--<button class="layui-btn layui-btn-primary">购买</button>-->
                 <!--</div>-->
-
+                <img src="../../static/images/empty.png">
             </div>
 
         </div>
@@ -97,10 +97,38 @@
             <!--当前票房-->
             <h4 class="item-title filmheader">
                 <p><span>今日票房</span></p>
-                <a th:href="@{/user/tolist}">今日榜单<i class="layui-icon layui-icon-right"></i></a>
+                <a th:href="@{/movie/tolist}">今日榜单<i class="layui-icon layui-icon-right"></i></a>
             </h4>
 
             <div class="item">
+                <!--第一-->
+                <div class="filmlistfirstbox" th:each="list:${boxOffice}" th:onclick="jumpdetail([[${list.movieId}]])">
+                    <img src="../../static/images/haiwang.jpg" th:src="${list.getPhoto()}" width="120" alt=""
+                         th:if="${listStat.count== 1}">
+                    <div class="filmlistfirst" th:if="${listStat.count== 1}">
+                        <h6>[[${list.getName()}]]</h6>
+                        <span>[[${list.getBoxOffice()}]]万</span>
+                    </div>
+                </div>
+                <!--第二三-->
+                <div class="filmlistlistbox beforethree" th:each="list:${boxOffice}"
+                     th:if="${listStat.count == 2} or  ${listStat.count == 3}" th:onclick="jumpdetail([[${list.movieId}]])">
+                    <div>
+                        <span>[[${listStat.count}]]</span>
+                        <span>[[${list.getName()}]]</span>
+                    </div>
+                    <span>[[${list.getBoxOffice()}]]万</span>
+                </div>
+                <!--第三开外的-->
+                <div class="filmlistlistbox " th:each="list:${boxOffice}" th:if="${listStat.count > 3}"
+                     th:onclick="jumpdetail([[${list.movieId}]])">
+                    <div>
+                        <span>[[${listStat.count}]]</span>
+                        <span>[[${list.getName()}]]</span>
+                    </div>
+                    <span>[[${list.getBoxOffice()}]]万</span>
+                </div>
+                <hr>
 
             </div>
         </div>
@@ -239,6 +267,9 @@
                                     "</p>" + "<span>" + ls.movieName + "</span><strong> ￥" + ls.note + "</strong></div>" +
                                     "<button class='layui-btn layui-btn-primary' onclick=addlist('"+ls.cinemaName+"','"
                                     +ls.movieName+"','"+ls.session.split(" ")+"',"+ls.cinemaId+","+ls.movieId+")>购买</button></div>";
+                            }
+                            if (html == "") {
+                                html = "<img src='../../static/images/empty.png'>";
                             }
                             $("#addfilm").html(html); //在html页面id=ulul的标签里显示html内容
                         } else {

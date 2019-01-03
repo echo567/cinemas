@@ -71,7 +71,7 @@
                 success: function (res) {
                     console.log(res);
                     if (res.code==0) {
-                        layer.msg(res.msg);
+                        layer.msg("注册成功");
                         window.location.href = ("/");
                     }else {
                         layer.msg(res.msg);
