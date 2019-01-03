@@ -126,15 +126,13 @@
                 "movieName":movieName,
                 "session": session,
                 "cinemaId":cinemaId,
-                "movieId":movieId,
+                "movieId":movieId
             },
             success: function (res) {
-
                 alert(res.msg);
-                //console.log(msg)
             },
             error: function (res) {
-                alert(res.msg);
+                alert(res);
                 //console.log("error")
             }
         })

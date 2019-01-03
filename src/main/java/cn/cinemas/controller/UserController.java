@@ -111,6 +111,11 @@ public class UserController {
         return new ModelAndView("/backpage/listPage/backfilm");
     }
 
+    @GetMapping("/call")
+    public ModelAndView call() {
+        return new ModelAndView("/backpage/listPage/call");
+    }
+
 
     @PostMapping("/register")
     public Message register(User user) {

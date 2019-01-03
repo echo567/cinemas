@@ -1,0 +1,34 @@
+.informationbox {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+.information {
+    width: 900px;
+    display: flex;
+    flex-flow: column;
+}
+.information {
+    font-size: 14px;
+}
+.information>h6 {
+    font-size: 30px !important;
+    margin: 100px 0 20px;
+    font-weight: bold;
+}
+.information>span {
+    margin-top: 20px;
+}
+
+.forterm {
+    margin-top: 40px;
+    border-bottom: 1px solid #eee;
+}
+.fortermbox {
+    margin: 20px;
+}
+.termformlist {
+    margin-top: 20px;
+    display: inline-block;
+}
