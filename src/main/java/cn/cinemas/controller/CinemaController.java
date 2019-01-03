@@ -4,6 +4,7 @@ import cn.cinemas.bean.Cinema;
 import cn.cinemas.bean.Movie;
 import cn.cinemas.dao.ICinemaDao;
 import cn.cinemas.service.ICinemaService;
+import cn.cinemas.service.IMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,8 @@ public class CinemaController {
     @Autowired
     private ICinemaService cinemaService;
 
+    @Autowired
+    private IMovieService movieService;
 
     /*
     跳转到影院界面
@@ -47,9 +50,13 @@ public class CinemaController {
         Cinema cinema = cinemaService.selectCinemaByCinemaId(cinemaId);
         //System.out.println("影院:" + cinema);
         List<Movie> moviesList = cinemaService.getMoviesByCinemaId(cinemaId);
-       // System.out.println("电影列表" + moviesList);
+        // System.out.println("电影列表" + moviesList);
+
+        List<Movie> movieList = movieService.alreadyByBoxOffice();
+
         model.addAttribute("cinema", cinema);
         model.addAttribute("movies", moviesList);
+        model.addAttribute("lists",movieList);
         return new ModelAndView("/detail/detailcinema");
     }
 

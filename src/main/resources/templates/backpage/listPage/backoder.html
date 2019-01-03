@@ -155,67 +155,68 @@
         table.render({
             elem: '#demo'
             , height: 600
-            , url: '/movie/jsonMovies' //数据接口
-            , title: '电影表'
+            , url: '/ticket/getall' //数据接口
+            , title: '订单表'
             , page: false //开启分页
             , toolbar: 'none' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
             , totalRow: false //开启合计行
             , cols: [
                 [ //表头
                     {type: 'checkbox', fixed: 'left'}
-                    , {field: 'name', title: '名称', width: 200}
-                    , {field: 'score', title: '评分', width: 100}
-                    , {field: 'duration', title: '时长', width: 100}
-                    , {field: 'date', title: '上映日期', width: 200}
-                    , {field: 'director', title: '导演', width: 150}
-                    , {field: 'starring', title: '主演', width: 207}
-                    , {field: 'language', title: '语言', width: 100}
+                    , {field: 'ticketId', title: '订单id', width: 100}
+                    , {field: 'language', title: '用户名', width: 150}
+                    , {field: 'movieName', title: '电影名称', width: 200}
+                    , {field: 'cinemaName', title: '电影院', width: 200}
+                    , {field: 'session', title: '上映日期', width: 200}
+                    , {field: 'note', title: '价格', width: 150}
+
+
                     , {fixed: 'right', width: 165, align: 'center', toolbar: '#barDemo'}
                 ]
             ]
         });
 
         //监听头工具栏事件
-        table.on('toolbar(test)', function (obj) {
-            var checkStatus = table.checkStatus(obj.config.id)
-                , data = checkStatus.data; //获取选中的数据
-            switch (obj.event) {
-                case 'add':
-                    layer.msg('添加');
-                    sject();
-                    break;
-                case 'update':
-                    layer.msg('不能修改订单');
-                    break;
-                case 'delete':
-                    if (data.length === 0) {
-                        layer.msg('请选择一行');
-                    } else {
-                        let id = "";
-                        for (let i = 0; i < checkStatus.data.length; i++) {
-                            id = id + "," + checkStatus.data[i].movieId;
-                        }
-                        console.log(id);
-                        /*$.ajax({
-                            type: "POST",
-                            url: '/xxxxx',
-                            data: {
-                                idlist: id,
-                            },
-                            success: function (res) {
-                                console.log(res)
-                                layer.msg(res.msg);
-                                window.location.href=""
-                            },
-                            error: function (data) {
-                                console.log(data)
-                            }
-                        });*/
-                    }
-                    break;
-            }
-            ;
-        });
+        /*   table.on('toolbar(test)', function (obj) {
+               var checkStatus = table.checkStatus(obj.config.id)
+                   , data = checkStatus.data; //获取选中的数据
+               switch (obj.event) {
+                   case 'add':
+                       layer.msg('添加');
+                       sject();
+                       break;
+                   case 'update':
+                       layer.msg('不能修改订单');
+                       break;
+                   case 'delete':
+                       if (data.length === 0) {
+                           layer.msg('请选择一行');
+                       } else {
+                           let id = "";
+                           for (let i = 0; i < checkStatus.data.length; i++) {
+                               id = id + "," + checkStatus.data[i].movieId;
+                           }
+                           console.log(id);
+                           /!*$.ajax({
+                               type: "POST",
+                               url: '/xxxxx',
+                               data: {
+                                   idlist: id,
+                               },
+                               success: function (res) {
+                                   console.log(res)
+                                   layer.msg(res.msg);
+                                   window.location.href=""
+                               },
+                               error: function (data) {
+                                   console.log(data)
+                               }
+                           });*!/
+                       }
+                       break;
+               }
+               ;
+           });*/
 
         //监听行工具事件
         table.on('tool(test)', function (obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
@@ -228,9 +229,9 @@
                     console.log(data.movieId);//删除行的id
                     $.ajax({
                         type: "get",
-                        url: '/movie/deletemovie',
+                        url: '/ticket/deleteticket',
                         data: {
-                            movieId: data.movieId,
+                            ticketId: data.ticketId,
                         },
                         success: function (res) {
                             console.log(res);
@@ -245,14 +246,14 @@
         });
 
         //自定义验证规则
-        form.verify({
+  /*      form.verify({
             score: function (value) {
                 if (value > 10) {
                     return '评分不能超过10分';
                 }
             }
         });
-
+*/
         function sject() {
             layer.open({
                 type: 1,//类型

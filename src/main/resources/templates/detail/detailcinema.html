@@ -97,10 +97,29 @@
             <!--当前票房-->
             <h4 class="item-title filmheader">
                 <p><span>今日票房</span></p>
-                <a th:href="@{/user/tolist}">今日榜单<i class="layui-icon layui-icon-right"></i></a>
+                <a th:href="@{/movie/tolist}">今日榜单<i class="layui-icon layui-icon-right"></i></a>
             </h4>
 
             <div class="item">
+
+                <!--第二三-->
+                <div class="filmlistlistbox beforethree" th:each="list:${lists}"
+                     th:if="${listStat.count <= 3}">
+                    <div>
+                        <span>[[${listStat.count}]]</span>
+                        <span>[[${list.getName()}]]</span>
+                    </div>
+                    <span>[[${list.getBoxOffice()}]]万</span>
+                </div>
+                <!--第三开外的-->
+                <div class="filmlistlistbox " th:each="list:${lists}" th:if="${listStat.count > 3}">
+                    <div>
+                        <span>[[${listStat.count}]]</span>
+                        <span>[[${list.getName()}]]</span>
+                    </div>
+                    <span>[[${list.getBoxOffice()}]]万</span>
+                </div>
+                <hr>
 
             </div>
         </div>
@@ -127,7 +146,7 @@
                 "session": session,
                 "cinemaId": cinemaId,
                 "movieId": movieId,
-                "mote": price
+                "note": price
             },
             success: function (res) {
                 alert(res.msg);

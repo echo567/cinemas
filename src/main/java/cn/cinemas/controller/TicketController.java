@@ -24,7 +24,6 @@ public class TicketController {
     private ITicketService ticketService;
 
 
-
     @PostMapping("/buyticket")
     public Message buyTicket(Ticket ticket) {
 
@@ -34,5 +33,10 @@ public class TicketController {
     @GetMapping("/deleteticket")
     public Message deleteTicket(Integer ticketId) {
         return ticketService.deleteTicket(ticketId);
+    }
+
+    @GetMapping("/getall")
+    public Message getAllTicket() {
+        return ticketService.selectAllTicket();
     }
 }

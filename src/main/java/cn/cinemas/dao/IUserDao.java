@@ -33,4 +33,7 @@ public interface IUserDao {
 
     @Select("select * from tb_ticket where userId = #{userId}")
     public List<Ticket> selectTicketsByUserId(Integer userId);
+
+    @Select("select * from tb_user where userId = #{userId}")
+    public User selectUserByUserId(Integer userId);
 }

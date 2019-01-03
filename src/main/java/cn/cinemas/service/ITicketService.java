@@ -11,4 +11,6 @@ public interface ITicketService {
     public Message InsertTicket(Ticket ticket);
 
     public Message deleteTicket(Integer ticketId);
+
+    public Message selectAllTicket();
 }
