@@ -78,16 +78,16 @@
             </h4>
             <div class="item" id="addfilm">
                 <!--<div class="singlefilm" >-->
-                    <!--<div class="singlefilmmessage">-->
-                        <!--<p>21:50</p><span>海王</span><span>长垣奥斯卡大视界国际影城</span><strong>￥45</strong>-->
-                    <!--</div>-->
-                    <!--<button class="layui-btn layui-btn-primary" onclick="addlist()">购买</button>-->
+                <!--<div class="singlefilmmessage">-->
+                <!--<p>21:50</p><span>海王</span><span>长垣奥斯卡大视界国际影城</span><strong>￥45</strong>-->
+                <!--</div>-->
+                <!--<button class="layui-btn layui-btn-primary" onclick="addlist()">购买</button>-->
                 <!--</div>-->
                 <!--<div class="singlefilm">-->
-                    <!--<div class="singlefilmmessage">-->
-                        <!--<p>21:50</p><span>海王</span><span>长垣奥斯卡大视界国际影城</span><strong>￥45</strong>-->
-                    <!--</div>-->
-                    <!--<button class="layui-btn layui-btn-primary">购买</button>-->
+                <!--<div class="singlefilmmessage">-->
+                <!--<p>21:50</p><span>海王</span><span>长垣奥斯卡大视界国际影城</span><strong>￥45</strong>-->
+                <!--</div>-->
+                <!--<button class="layui-btn layui-btn-primary">购买</button>-->
                 <!--</div>-->
 
             </div>
@@ -114,50 +114,59 @@
 <!--登录跳转-->
 <div th:replace="user/commons :: login_js"></div>
 <script>
-    function addlist(cinemaId,hallId,seatId) {
-        console.log(cinemaId, hallId, seatId);
+    function addlist(cinemaName, movieName, session,cinemaId,movieId) {
+        console.log("影院名称：" + cinemaName + "电影名称" + movieName + "场次" + session+" "+cinemaId+" "+movieId);
+
         ajax({
-            type:"POST",
-            url:"/xxxxxxx",
-            dataType:"json",
-            data:{
+            type: "POST",
+            url: "/ticket/buyticket",
+            dataType: "json",
+            data: {
+                "cinemaName": cinemaName,
+                "movieName":movieName,
+                "session": session,
                 "cinemaId":cinemaId,
-                "hallId":hallId,
-                "seatId":seatId
+                "movieId":movieId,
             },
-            success:function(msg){
-                console.log(msg)
+            success: function (res) {
+
+                alert(res.msg);
+                //console.log(msg)
             },
-            error:function(){
-                console.log("error")
+            error: function (res) {
+                alert(res.msg);
+                //console.log("error")
             }
         })
 
     }
 
-    function ajax(){
+    function ajax() {
         var ajaxData = {
-            type:arguments[0].type || "GET",
-            url:arguments[0].url || "",
-            async:arguments[0].async || "true",
-            data:arguments[0].data || null,
-            dataType:arguments[0].dataType || "text",
-            contentType:arguments[0].contentType || "application/x-www-form-urlencoded",
-            beforeSend:arguments[0].beforeSend || function(){},
-            success:arguments[0].success || function(){},
-            error:arguments[0].error || function(){}
+            type: arguments[0].type || "GET",
+            url: arguments[0].url || "",
+            async: arguments[0].async || "true",
+            data: arguments[0].data || null,
+            dataType: arguments[0].dataType || "text",
+            contentType: arguments[0].contentType || "application/x-www-form-urlencoded",
+            beforeSend: arguments[0].beforeSend || function () {
+            },
+            success: arguments[0].success || function () {
+            },
+            error: arguments[0].error || function () {
+            }
         }
         ajaxData.beforeSend()
         var xhr = createxmlHttpRequest();
-        xhr.responseType=ajaxData.dataType;
-        xhr.open(ajaxData.type,ajaxData.url,ajaxData.async);
-        xhr.setRequestHeader("Content-Type",ajaxData.contentType);
+        xhr.responseType = ajaxData.dataType;
+        xhr.open(ajaxData.type, ajaxData.url, ajaxData.async);
+        xhr.setRequestHeader("Content-Type", ajaxData.contentType);
         xhr.send(convertData(ajaxData.data));
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
-                if(xhr.status == 200){
+                if (xhr.status == 200) {
                     ajaxData.success(xhr.response)
-                }else{
+                } else {
                     ajaxData.error()
                 }
             }
@@ -172,15 +181,15 @@
         }
     }
 
-    function convertData(data){
-        if( typeof data === 'object' ){
-            var convertResult = "" ;
-            for(var c in data){
-                convertResult+= c + "=" + data[c] + "&";
+    function convertData(data) {
+        if (typeof data === 'object') {
+            var convertResult = "";
+            for (var c in data) {
+                convertResult += c + "=" + data[c] + "&";
             }
-            convertResult=convertResult.substring(0,convertResult.length-1)
+            convertResult = convertResult.substring(0, convertResult.length - 1)
             return convertResult;
-        }else{
+        } else {
             return data;
         }
     }
@@ -198,7 +207,6 @@
             , half: true //开启半星
         });
         //console.log($("#score").attr("key") / 2);
-
 
 
         $(".filmbox").click(function () {
@@ -227,12 +235,12 @@
                             console.log("成功啦~~~棒棒哒~~");
                             var html = "";
                             var list = res.data;
-                            for(var i=0;i<list.length;i++){    //遍历data数组
+                            for (var i = 0; i < list.length; i++) {    //遍历data数组
                                 var ls = list[i];
-                                html +="<div class='singlefilm'><div class='singlefilmmessage'><p>"+ls.session+
-                                "</p><span>"+ls.cinemaId+"</span><span>"+ls.status+"</span><strong>"+ls.note+"</strong></div>"+
-                                "<button class='layui-btn layui-btn-primary' onclick=addlist("+
-                                ls.cinemaId+","+ls.hallId+","+ls.seatId+")>购买</button></div>";
+                                html += "<div class='singlefilm'><div class='singlefilmmessage'><p>" + ls.session +
+                                    "</p>" + "<span>" + ls.movieName + "</span><strong> ￥" + ls.note + "</strong></div>" +
+                                    "<button class='layui-btn layui-btn-primary' onclick=addlist('"+ls.cinemaName+"','"
+                                    +ls.movieName+"','"+ls.session.split(" ")+"',"+ls.cinemaId+","+ls.movieId+")>购买</button></div>";
                             }
                             $("#addfilm").html(html); //在html页面id=ulul的标签里显示html内容
                         } else {
@@ -245,7 +253,6 @@
                 });
             }
         });
-
 
 
         //图片轮播

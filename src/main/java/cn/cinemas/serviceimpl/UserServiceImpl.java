@@ -1,5 +1,6 @@
 package cn.cinemas.serviceimpl;
 
+import cn.cinemas.bean.Ticket;
 import cn.cinemas.service.IUserService;
 import cn.cinemas.bean.User;
 import cn.cinemas.dao.IUserDao;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -86,5 +88,8 @@ public class UserServiceImpl implements IUserService {
         mailSender.send(message);
     }
 
-
+    @Override
+    public List<Ticket> getTicketList(Integer userId) {
+        return userDao.selectTicketsByUserId(userId);
+    }
 }

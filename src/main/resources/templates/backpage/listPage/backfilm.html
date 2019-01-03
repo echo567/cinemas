@@ -29,13 +29,13 @@
             </div>
             <div class="layui-form-item" pane="">
                 <label class="layui-form-label">电影类型</label>
-                <div class="layui-input-block" name="movieType">
-                    <input type="checkbox" name="动作" lay-skin="primary" title="动作" checked>
-                    <input type="checkbox" name="科幻" lay-skin="primary" title="科幻">
-                    <input type="checkbox" name="爱情" lay-skin="primary" title="爱情">
-                    <input type="checkbox" name="喜剧" lay-skin="primary" title="喜剧">
-                    <input type="checkbox" name="悬疑" lay-skin="primary" title="悬疑">
-                    <input type="checkbox" name="运动" lay-skin="primary" title="运动">
+                <div class="layui-input-block">
+                    <input type="checkbox" value="动作" name="movieType" lay-skin="primary" title="动作" checked>
+                    <input type="checkbox" value="科幻" name="movieType" lay-skin="primary" title="科幻">
+                    <input type="checkbox" value="爱情" name="movieType" lay-skin="primary" title="爱情">
+                    <input type="checkbox" value="喜剧" name="movieType" lay-skin="primary" title="喜剧">
+                    <input type="checkbox" value="悬疑" name="movieType" lay-skin="primary" title="悬疑">
+                    <input type="checkbox" value="运动" name="movieType" lay-skin="primary" title="运动">
                     <input type="checkbox" name="恐怖" lay-skin="primary" title="恐怖">
                     <input type="checkbox" name="动画" lay-skin="primary" title="动画">
                     <input type="checkbox" name="冒险" lay-skin="primary" title="冒险">
@@ -186,7 +186,7 @@
                 success: function (res) {
                     console.log(res)
                     layer.msg(res.msg);
-                    window.location.href="";
+                    window.location.href = "";
                 },
                 error: function (data) {
                     console.log(data)
@@ -215,7 +215,7 @@
                 success: function (res) {
                     console.log(res)
                     layer.msg(res.msg);
-                    window.location.href="";
+                    window.location.href = "";
                 }
                 ,
                 error: function (data) {

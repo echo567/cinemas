@@ -9,7 +9,10 @@ import java.util.Date;
 public class Ticket {
     private Integer ticketId;
     private Integer userId;
+    private Integer cinemaId;
+    private Integer movieId;
     private String cinemaName;
+    private String movieName;
     private String movieHall;
     private String language;
     private String session;
@@ -31,6 +34,30 @@ public class Ticket {
         this.language = language;
         this.session = session;
         this.price = price;
+    }
+
+    public Integer getCinemaId() {
+        return cinemaId;
+    }
+
+    public void setCinemaId(Integer cinemaId) {
+        this.cinemaId = cinemaId;
+    }
+
+    public Integer getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(Integer movieId) {
+        this.movieId = movieId;
+    }
+
+    public String getmovieName() {
+        return movieName;
+    }
+
+    public void setmovieName(String movieName) {
+        this.movieName = movieName;
     }
 
     public Integer getTicketId() {
@@ -131,10 +158,13 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Tickte{" +
+        return "Ticket{" +
                 "ticketId=" + ticketId +
                 ", userId=" + userId +
+                ", cinemaId=" + cinemaId +
+                ", movieId=" + movieId +
                 ", cinemaName='" + cinemaName + '\'' +
+                ", movieName='" + movieName + '\'' +
                 ", movieHall='" + movieHall + '\'' +
                 ", language='" + language + '\'' +
                 ", session='" + session + '\'' +

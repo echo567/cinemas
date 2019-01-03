@@ -17,6 +17,16 @@ public class TicketBatch {
             if (tickte.getCinemaName() != null) {
                 VALUES("cinemaName", "#{cinemaName}");
             }
+            if (tickte.getmovieName() != null) {
+                VALUES("movieName", "#{movieName}");
+            }
+            if (tickte.getCinemaId() != null) {
+                VALUES("cinemaId", "#{cinemaId}");
+            }
+            if (tickte.getMovieId() != null) {
+                VALUES("movieId", "#{movieId}");
+            }
+
             if (tickte.getMovieHall() != null) {
                 VALUES("movieHall", "#{movieHall}");
             }
@@ -26,6 +36,7 @@ public class TicketBatch {
             if (tickte.getSession() != null) {
                 VALUES("session", "#{session}");
             }
+
 
         }}.toString();
     }

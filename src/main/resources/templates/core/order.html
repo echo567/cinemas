@@ -9,48 +9,48 @@
     <link rel="stylesheet" href="../../static/css/order.css">
 </head>
 <body class="lay-blog">
-    <!--header-->
-    <div th:replace="user/commons :: top(activeUrl='index')"></div>
-    <!--订单列表-->
-    <div class="layui-form formboxorder">
-        <table class="layui-table">
-            <colgroup>
-                <col width="150">
-                <col width="150">
-                <col width="200">
-                <col>
-            </colgroup>
-            <thead>
-            <tr>
-                <th>电影</th>
-                <th>影院</th>
-                <th>价钱</th>
-                <th>上映时间</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>贤心</td>
-                <td>汉族</td>
-                <td>1989-10-14</td>
-                <td>人生似修行</td>
-            </tr>
-            <tr>
-                <td>张爱玲</td>
-                <td>汉族</td>
-                <td>1920-09-30</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
+<!--header-->
+<div th:replace="user/commons :: top(activeUrl='index')"></div>
+<!--订单列表-->
+<div class="layui-form formboxorder">
+    <table class="layui-table">
+        <colgroup>
+            <col width="150">
+            <col width="450">
+            <col width="200">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>电影</th>
+            <th>影院</th>
+            <th>价钱</th>
+            <th>上映时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ticket:${tickets}">
+            <td th:text="${ticket.getmovieName()}">[[${ticket.movieName}]]</td>
+            <td>[[${ticket.cinemaName}]]</td>
+            <td>[[${ticket.note}]]</td>
+            <td>[[${ticket.session}]]</td>
+        </tr>
+        <!--<tr>
+            <td>张爱玲</td>
+            <td>汉族</td>
+            <td>1920-09-30</td>
+            <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+        </tr>-->
 
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
+</div>
 
 
-    <!--footer-->
-    <div th:replace="user/commons :: footer"></div>
-    <script src="../../static/layui/layui.js"></script>
-    <!--登录跳转-->
-    <div th:replace="user/commons :: login_js"></div>
+<!--footer-->
+<div th:replace="user/commons :: footer"></div>
+<script src="../../static/layui/layui.js"></script>
+<!--登录跳转-->
+<div th:replace="user/commons :: login_js"></div>
 </body>
 </html>
