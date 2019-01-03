@@ -1,3 +1,6 @@
+.singlefilmmessage p {
+    padding: 0 !important;
+}
 .cinamedetailheader {
     background-color: #fff;
     width: 1240px;
@@ -49,7 +52,9 @@
     padding-top: 0;
 }
 .active {
-    border: 1px solid red;
+    position: relative;
+    top: -20px;
+    left: 0;
 }
 
 
