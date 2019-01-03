@@ -114,8 +114,8 @@
 <!--登录跳转-->
 <div th:replace="user/commons :: login_js"></div>
 <script>
-    function addlist(cinemaName, movieName, session,cinemaId,movieId) {
-        console.log("影院名称：" + cinemaName + "电影名称" + movieName + "场次" + session+" "+cinemaId+" "+movieId);
+    function addlist(cinemaName, movieName, session, cinemaId, movieId, price) {
+        console.log("影院名称：" + cinemaName + "电影名称" + movieName + "场次" + session + "影院id" + cinemaId + "电影id " + movieId + "价格：" + price);
 
         ajax({
             type: "POST",
@@ -123,10 +123,11 @@
             dataType: "json",
             data: {
                 "cinemaName": cinemaName,
-                "movieName":movieName,
+                "movieName": movieName,
                 "session": session,
-                "cinemaId":cinemaId,
-                "movieId":movieId,
+                "cinemaId": cinemaId,
+                "movieId": movieId,
+                "note": price,
             },
             success: function (res) {
 
@@ -239,8 +240,8 @@
                                 var ls = list[i];
                                 html += "<div class='singlefilm'><div class='singlefilmmessage'><p>" + ls.session +
                                     "</p>" + "<span>" + ls.movieName + "</span><strong> ￥" + ls.note + "</strong></div>" +
-                                    "<button class='layui-btn layui-btn-primary' onclick=addlist('"+ls.cinemaName+"','"
-                                    +ls.movieName+"','"+ls.session.split(" ")+"',"+ls.cinemaId+","+ls.movieId+")>购买</button></div>";
+                                    "<button class='layui-btn layui-btn-primary' onclick=addlist('" + ls.cinemaName + "','"
+                                    + ls.movieName + "','" + ls.session.split(" ") + "'," + ls.cinemaId + "," + ls.movieId + "," + ls.note + ")>购买</button></div>";
                             }
                             $("#addfilm").html(html); //在html页面id=ulul的标签里显示html内容
                         } else {

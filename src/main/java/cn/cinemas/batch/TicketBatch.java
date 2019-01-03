@@ -35,6 +35,8 @@ public class TicketBatch {
             }
             if (tickte.getSession() != null) {
                 VALUES("session", "#{session}");
+            }if (tickte.getNote() != null) {
+                VALUES("note", "#{note}");
             }
 
 
