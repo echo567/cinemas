@@ -6,12 +6,14 @@ import cn.cinemas.service.ITicketService;
 import cn.cinemas.util.Message;
 import cn.cinemas.util.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 /**
  * 军辉
  * 2019-01-02 17:21
  */
+@Service
 public class TicketServiceImpl implements ITicketService {
     @Autowired
     private ITicketDao ticketDao;
@@ -27,7 +29,7 @@ public class TicketServiceImpl implements ITicketService {
     }
 
     @Override
-    public Message delectTicket(Integer ticketId) {
+    public Message deleteTicket(Integer ticketId) {
         if (ticketDao.deleteTicketByTicketId(ticketId) > 0) {
             return MessageUtil.Succees("删除成功");
         } else {

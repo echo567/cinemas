@@ -40,7 +40,7 @@
                     <div class="filmbox" th:each="movies:${movies}" th:key="${movies.movieId}"
                          th:if="${moviesStat.count < 8}">
                         <div class="filmblock">
-                            <img th:src="${movies.getPhoto()}" width="160" max-height="222" alt="">
+                            <img th:src="${movies.photo}" width="160" height="222">
                             <div>
                                 <span>[[${movies.name}]]</span>
                                 <strong>[[${movies.score}]]</strong>
@@ -49,15 +49,21 @@
                     </div>
                 </div>
             </div>
-            <div th:if="${movies.size() > 7}" id="filmdetailid">
-                <div class="whitebox2">
-                    <div class="filmbox">
-                        <div class="filmblock" th:each="movies:${movies}" key="${movie.movieId}"
-                             th:if="${moviesStat.count > 7} and ${moviesStat.count < 15}">
-                            <img src="../../static/images/film.jpg" th:src="${movies.photo}" alt="" width="160">
-                            <div>
-                                <span>[[${movies.name}]]</span>
-                                <strong>[[${movies.score}]]</strong>
+
+
+            <div>
+                <div th:if="${movies.size() > 7}" id="filmdetailid">
+                    <div class="whitebox2">
+                        <div class="filmbox">
+                            <div class="filmblock" th:each="movies:${movies}" th:key="${movies.movieId}"
+                                 th:if="${moviesStat.count > 7} and ${moviesStat.count < 15}">
+                                <div class="filmblock">
+                                    <img th:src="${movies.photo}" width="160" height="222">
+                                    <div>
+                                        <span>[[${movies.name}]]</span>
+                                        <strong>[[${movies.score}]]</strong>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,7 +83,7 @@
                 <p><i class="layui-icon layui-icon-speaker"></i><span>影院提前5分钟停止购票</span></p>
             </h4>
             <div class="item">
-                <div class="singlefilm" >
+                <div class="singlefilm">
                     <div class="singlefilmmessage">
                         <p>21:50</p><span>3D</span><span>11号厅</span><strong>￥45</strong>
                     </div>
