@@ -127,15 +127,13 @@
                 "session": session,
                 "cinemaId": cinemaId,
                 "movieId": movieId,
-                "note": price,
+                "mote": price
             },
             success: function (res) {
-
                 alert(res.msg);
-                //console.log(msg)
             },
             error: function (res) {
-                alert(res.msg);
+                alert(res);
                 //console.log("error")
             }
         })

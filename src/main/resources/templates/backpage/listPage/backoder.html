@@ -1,11 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>订单</title>
-</head>
-<body>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../../static/layui/css/layui.css">
 
-订单管理~~~~123456
+</head>
+<body style="width: 1280px;margin: 20px auto;">
+<table class="layui-hide" id="demo" lay-filter="test"></table>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<!--增加电影-->
+<div id="motaikuang" style="display: none;">
+    <div class="content-in">
+        <div class="layui-form" lay-filter="example">
+            <div class="layui-form-item">
+                <label class="layui-form-label">名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" lay-verify="required" id="name" autocomplete="off"
+                           placeholder="请输入电影名称" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item" pane="">
+                <label class="layui-form-label">电影类型</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" value="动作" name="movieType" lay-skin="primary" title="动作" checked>
+                    <input type="checkbox" value="科幻" name="movieType" lay-skin="primary" title="科幻">
+                    <input type="checkbox" value="爱情" name="movieType" lay-skin="primary" title="爱情">
+                    <input type="checkbox" value="喜剧" name="movieType" lay-skin="primary" title="喜剧">
+                    <input type="checkbox" value="悬疑" name="movieType" lay-skin="primary" title="悬疑">
+                    <input type="checkbox" value="运动" name="movieType" lay-skin="primary" title="运动">
+                    <input type="checkbox" name="恐怖" lay-skin="primary" title="恐怖">
+                    <input type="checkbox" name="动画" lay-skin="primary" title="动画">
+                    <input type="checkbox" name="冒险" lay-skin="primary" title="冒险">
+                    <input type="checkbox" name="家庭" lay-skin="primary" title="家庭">
+                    <input type="checkbox" name="其他" lay-skin="primary" title="其他">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">价格</label>
+                <div class="layui-input-block">
+                    <input type="number" name="price" placeholder="￥" lay-verify="required" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">电影时长</label>
+                <div class="layui-input-block">
+                    <input type="text" name="duration" placeholder="请输入电影时长(默认单位min)" lay-verify="required"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">评分</label>
+                <div class="layui-input-block">
+                    <input type="number" name="score" placeholder="请输入电影评分" lay-verify="required|score"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">上映时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="date" id="date" lay-verify="required" placeholder="yyyy-MM-dd"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">简介</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入电影简介" name="introduction" lay-verify="required"
+                              class="layui-textarea"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit="" lay-filter="demo">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="../../../static/layui/layui.js"></script>
+
+<script>
+    layui.config({
+        version: '1545041465443' //为了更新 js 缓存，可忽略
+    });
+
+    layui.use(['form', 'laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider', "jquery"], function () {
+        var laydate = layui.laydate //日期
+            , laypage = layui.laypage //分页
+            , layer = layui.layer //弹层
+            , table = layui.table //表格
+            , carousel = layui.carousel //轮播
+            , upload = layui.upload //上传
+            , element = layui.element //元素操作
+            , slider = layui.slider //滑块
+            , $ = layui.jquery
+            , form = layui.form
+            , laydate = layui.laydate;
+
+        //日期
+        laydate.render({
+            elem: '#date'
+            , min: 0 //之前的时间不能选，只能选今天之后的时间
+        });
+
+        form.render();
+
+        //监听提交,添加电影
+        form.on('submit(demo)', function (data) {
+            console.log(data);
+            $.ajax({
+                type: "POST",
+                url: '/movie/insertmovie',
+                data: {
+                    name: data.field.name,
+                    movieType: data.field.movieType,
+                    price: data.field.price,
+                    duration: data.field.duration,
+                    score: data.field.score,
+                    data: data.field.data,
+                    introduction: data.field.introduction,
+                },
+                success: function (res) {
+                    console.log(res)
+                    layer.msg(res.msg);
+                    window.location.href = "";
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            });
+            return false;
+        });
+
+        //监听Tab切换
+        element.on('tab(demo)', function (data) {
+            layer.tips('切换了 ' + data.index + '：' + this.innerHTML, this, {
+                tips: 1
+            });
+        });
+
+        //执行一个 table 实例
+        table.render({
+            elem: '#demo'
+            , height: 600
+            , url: '/movie/jsonMovies' //数据接口
+            , title: '电影表'
+            , page: false //开启分页
+            , toolbar: 'none' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
+            , totalRow: false //开启合计行
+            , cols: [
+                [ //表头
+                    {type: 'checkbox', fixed: 'left'}
+                    , {field: 'name', title: '名称', width: 200}
+                    , {field: 'score', title: '评分', width: 100}
+                    , {field: 'duration', title: '时长', width: 100}
+                    , {field: 'date', title: '上映日期', width: 200}
+                    , {field: 'director', title: '导演', width: 150}
+                    , {field: 'starring', title: '主演', width: 207}
+                    , {field: 'language', title: '语言', width: 100}
+                    , {fixed: 'right', width: 165, align: 'center', toolbar: '#barDemo'}
+                ]
+            ]
+        });
+
+        //监听头工具栏事件
+        table.on('toolbar(test)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id)
+                , data = checkStatus.data; //获取选中的数据
+            switch (obj.event) {
+                case 'add':
+                    layer.msg('添加');
+                    sject();
+                    break;
+                case 'update':
+                    layer.msg('不能修改订单');
+                    break;
+                case 'delete':
+                    if (data.length === 0) {
+                        layer.msg('请选择一行');
+                    } else {
+                        let id = "";
+                        for (let i = 0; i < checkStatus.data.length; i++) {
+                            id = id + "," + checkStatus.data[i].movieId;
+                        }
+                        console.log(id);
+                        /*$.ajax({
+                            type: "POST",
+                            url: '/xxxxx',
+                            data: {
+                                idlist: id,
+                            },
+                            success: function (res) {
+                                console.log(res)
+                                layer.msg(res.msg);
+                                window.location.href=""
+                            },
+                            error: function (data) {
+                                console.log(data)
+                            }
+                        });*/
+                    }
+                    break;
+            }
+            ;
+        });
+
+        //监听行工具事件
+        table.on('tool(test)', function (obj) { //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+            var data = obj.data //获得当前行数据
+                , layEvent = obj.event; //获得 lay-event 对应的值
+            if (layEvent === 'del') {
+                layer.confirm('真的删除行么', function (index) {
+                    obj.del(); //删除对应行（tr）的DOM结构
+                    layer.close(index);
+                    console.log(data.movieId);//删除行的id
+                    $.ajax({
+                        type: "get",
+                        url: '/movie/deletemovie',
+                        data: {
+                            movieId: data.movieId,
+                        },
+                        success: function (res) {
+                            console.log(res);
+                        },
+                        error: function (data) {
+                            console.log(data)
+                        }
+                    });
+                    //向服务端发送删除指令
+                });
+            }
+        });
+
+        //自定义验证规则
+        form.verify({
+            score: function (value) {
+                if (value > 10) {
+                    return '评分不能超过10分';
+                }
+            }
+        });
+
+        function sject() {
+            layer.open({
+                type: 1,//类型
+                area: ['700px', '600px'],//定义宽和高
+                title: '添加电影',//题目
+                shadeClose: false,//点击遮罩层关闭
+                content: $('#motaikuang')//打开的内容
+            });
+        }
+    });
+</script>
+
 </body>
 </html>
