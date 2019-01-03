@@ -2,6 +2,7 @@ package cn.cinemas.controller;
 
 import cn.cinemas.bean.Cinema;
 import cn.cinemas.bean.Movie;
+import cn.cinemas.bean.Ticket;
 import cn.cinemas.bean.User;
 import cn.cinemas.dao.ICinemaDao;
 import cn.cinemas.dao.IMovieDao;
@@ -77,8 +78,11 @@ public class UserController {
     }
 
     @GetMapping("/order")
-    public ModelAndView order() {
-        return new ModelAndView("/core/order");
+    public ModelAndView order(Integer userId) {
+        List<Ticket> ticketList = userService.getTicketList(userId);
+        System.out.println(ticketList);
+
+        return new ModelAndView("/core/order", "tickets", ticketList);
     }
 
     /*转移到 CinemaController下面了
@@ -88,16 +92,24 @@ public class UserController {
     }*/
 
     @GetMapping("/index")
-    public ModelAndView index() { return new ModelAndView("/backpage/listPage/index"); }
+    public ModelAndView index() {
+        return new ModelAndView("/backpage/listPage/index");
+    }
 
     @GetMapping("/backindex")
-    public ModelAndView backindex() { return new ModelAndView("/backpage/listPage/index"); }
+    public ModelAndView backindex() {
+        return new ModelAndView("/backpage/listPage/index");
+    }
 
     @GetMapping("/backoder")
-    public ModelAndView backoder() { return new ModelAndView("/backpage/listPage/backoder"); }
+    public ModelAndView backoder() {
+        return new ModelAndView("/backpage/listPage/backoder");
+    }
 
     @GetMapping("/backfilm")
-    public ModelAndView backfilm() { return new ModelAndView("/backpage/listPage/backfilm"); }
+    public ModelAndView backfilm() {
+        return new ModelAndView("/backpage/listPage/backfilm");
+    }
 
 
     @PostMapping("/register")

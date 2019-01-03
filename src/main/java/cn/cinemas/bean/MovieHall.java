@@ -9,6 +9,9 @@ import java.util.Date;
 public class MovieHall {
     private Integer hallId;
     private Integer cinemaId;//外键
+    private Integer movieId;
+    private String cinemaName;
+    private String movieName;
     private String status;
     private Integer seatId;
     private String session;
@@ -30,6 +33,30 @@ public class MovieHall {
         this.column = column;
         this.row = row;
         this.note = note;
+    }
+
+    public Integer getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(Integer movieId) {
+        this.movieId = movieId;
+    }
+
+    public String getCinemaName() {
+        return cinemaName;
+    }
+
+    public void setCinemaName(String cinemaName) {
+        this.cinemaName = cinemaName;
+    }
+
+    public String getMovieName() {
+        return movieName;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
     }
 
     public Integer getHallId() {
@@ -120,11 +147,15 @@ public class MovieHall {
         this.createTime = createTime;
     }
 
+
     @Override
     public String toString() {
         return "MovieHall{" +
                 "hallId=" + hallId +
                 ", cinemaId=" + cinemaId +
+                ", movieId=" + movieId +
+                ", cinemaName='" + cinemaName + '\'' +
+                ", movieName='" + movieName + '\'' +
                 ", status='" + status + '\'' +
                 ", seatId=" + seatId +
                 ", session='" + session + '\'' +

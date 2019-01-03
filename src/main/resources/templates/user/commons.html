@@ -45,7 +45,7 @@
                       th:text="${#strings.substring(session.user.userName,0,1)}"></span>
                 <i th:if="${session.user == null}" class="layui-icon layui-icon-username" onclick="jumplogin()"></i>
                 <div class="ulmenubox" th:if="${session.user != null}">
-                    <p><a th:href="@{/user/order}">我的订单</a></p>
+                    <p><a th:href="@{/user/order(userId=${session.user.userId})}">我的订单</a></p>
                     <p><a th:href="@{/}">退出</a></p>
                 </div>
             </div>

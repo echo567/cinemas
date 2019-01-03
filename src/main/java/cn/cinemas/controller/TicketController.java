@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * 军辉
  * 2019-01-03 8:41
@@ -21,8 +23,11 @@ public class TicketController {
     @Autowired
     private ITicketService ticketService;
 
+
+
     @PostMapping("/buyticket")
     public Message buyTicket(Ticket ticket) {
+
         return ticketService.InsertTicket(ticket);
     }
 

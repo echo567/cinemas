@@ -1,8 +1,10 @@
 package cn.cinemas.dao;
 
 import cn.cinemas.batch.UserBatch;
+import cn.cinemas.bean.Ticket;
 import cn.cinemas.bean.User;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -28,4 +30,7 @@ public interface IUserDao {
 
     @Select("select * from tb_user")
     public List<User> selectAllUser();
+
+    @Select("select * from tb_ticket where userId = #{userId}")
+    public List<Ticket> selectTicketsByUserId(Integer userId);
 }

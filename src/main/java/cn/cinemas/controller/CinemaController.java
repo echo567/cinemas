@@ -47,7 +47,7 @@ public class CinemaController {
         Cinema cinema = cinemaService.selectCinemaByCinemaId(cinemaId);
         //System.out.println("影院:" + cinema);
         List<Movie> moviesList = cinemaService.getMoviesByCinemaId(cinemaId);
-        System.out.println("电影列表" + moviesList);
+       // System.out.println("电影列表" + moviesList);
         model.addAttribute("cinema", cinema);
         model.addAttribute("movies", moviesList);
         return new ModelAndView("/detail/detailcinema");
